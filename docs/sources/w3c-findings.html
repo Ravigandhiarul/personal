@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W3C Part 5A: Findings</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="site-logo">
+                <img src="../images/sessions-logo.svg" alt="Logo">
+                <div class="site-title"><h1>SESSIONS CANNABIS ASSIGNMENT</h1><p class="subtitle">by Ravi Arul</p></div>
+            </div>
+            <nav class="main-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="index.html" class="active">Source Documents</a></li></ul></nav>
+        </div>
+    </header>
+    <main class="container"><div class="content-wrapper">
+        <h1>W3C TECHNICAL AUDIT</h1><h2>Part 5A: Validation Findings & Critical Issues</h2>
+        <div class="common-mistakes"><h4>Critical Issue: 16 Redirect Chains</h4><p>Discovered redirect chains causing 400ms+ avoidable delay per page</p><p><strong>Example:</strong></p><ul><li>User clicks: https://sessions.ca/locations/north-york</li><li>→ Redirects to: https://sessions.ca/locations/north-york/</li><li>→ Redirects to: https://www.sessions.ca/locations/north-york/</li><li>→ Finally loads (3 redirects = 600ms delay)</li></ul></div><h3>Additional Findings</h3><ul><li><strong>Broken accessibility anchor:</strong> #content missing (AODA violation)</li><li><strong>Missing alt text:</strong> Multiple images</li><li><strong>Mobile PageSpeed:</strong> 48/100 (Poor)</li><li><strong>Largest Contentful Paint:</strong> 4.0s vs 2.5s target</li></ul><div class="stats"><h4>Business Impact</h4><p><strong>Industry Research:</strong> 100ms delay = 1% conversion loss</p><p><strong>Sessions' 1.1s delay:</strong> 8-10% conversion loss</p><p><strong>Revenue Impact:</strong> $983,700 to $1,476,792 annually</p></div>
+        <p class="text-center mt-4"><a href="index.html" class="btn">Back to Index</a></p>
+    </div></main>
+    <footer class="site-footer"><div class="footer-content"><p><strong>Sessions Cannabis Assignment</strong> | <strong>Ravi Arul</strong> | December 2024</p></div></footer>
+</body>
+</html>

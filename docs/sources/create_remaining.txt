@@ -1,0 +1,7 @@
+Remaining files to create:
+NAP: nap-platforms.html, nap-financial.html
+GBP: gbp-profile.html, gbp-photos.html, gbp-reviews.html, gbp-action.html
+Technical: technical-schema.html, technical-content.html, technical-action.html
+Competitive: competitive-tokyosmoke.html, competitive-scorecard.html, competitive-gaps.html
+W3C: w3c-findings.html, w3c-implementation.html
+Total: 14 files remaining

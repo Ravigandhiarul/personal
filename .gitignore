@@ -1,0 +1,17 @@
+# Ignore markdown source files (only HTML in docs/ will be deployed)
+Final/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
