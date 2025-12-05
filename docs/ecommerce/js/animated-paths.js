@@ -28,45 +28,88 @@ class AnimatedPaths {
     }
 
     /**
-     * Generate flowing curved path following 6-step flow pattern
-     * Steps: 1) Spreaded start → 2) Bottom curve → 3) Smooth turn →
-     *        4) First bend → 5) Second bend → 6) Rejoin at center
+     * Generate HEART-SHAPED path that flows AROUND the cards (not through them)
+     * Cards are centered in the layout, paths form heart shape around them
+     * Left side flows up, right side flows down, meeting at bottom center
      */
     generateMathematicalPath(index, position, width, height) {
-        // No offsets - use natural viewBox coordinates
         const scaleX = width / 1500;
         const scaleY = height / 1200;
 
-        // Spread factor for parallel lines
-        const spread = 50;
-        const yOffset = index * spread;
+        const totalPaths = this.pathCount;
+        const halfPaths = totalPaths / 2;
 
-        // Step 1: Start spreaded (bottom-left)
-        const x1 = 50 + index * 10;
-        const y1 = 950 + yOffset;
+        // Determine if this path is on LEFT or RIGHT side of heart
+        const isLeftSide = index < halfPaths;
+        const sideIndex = isLeftSide ? index : index - halfPaths;
 
-        // Step 2: Curve near bottom
-        const cp1x = 200 + index * 15;
-        const cp1y = 880 + yOffset;
+        // Progress along the side (0 to 1)
+        const progress = sideIndex / (halfPaths - 1);
 
-        // Step 3: Smooth turn (center-left)
-        const cp2x = 450 + index * 20;
-        const cp2y = 750 + yOffset;
+        // Card area to avoid (center of viewBox)
+        const cardCenterX = 750; // Center X
+        const cardCenterY = 600; // Center Y
+        const cardAreaWidth = 600; // Width to stay away from
+        const cardAreaHeight = 400; // Height to stay away from
 
-        // Step 4: First bend (rising to top-right)
-        const cp3x = 750 + index * 10;
-        const cp3y = 400 - yOffset; // Converging
+        if (isLeftSide) {
+            // LEFT SIDE OF HEART - flows from bottom-left, curves UP and around
 
-        // Step 5: Second bend (top-left area)
-        const cp4x = 950 + index * 5;
-        const cp4y = 250 - yOffset; // Tightening
+            // Start: Bottom center-left
+            const x1 = 100 + sideIndex * 15;
+            const y1 = 1000 - sideIndex * 20; // Stagger upward
 
-        // Step 6: Rejoin endpoint (converging to center)
-        const x2 = 1250;
-        const y2 = 600 - (index * 20); // Converging to center
+            // Control point 1: Curve outward to the left
+            const cp1x = 50 + sideIndex * 10;
+            const cp1y = 850 - sideIndex * 40;
 
-        // Apply scaling
-        return `M ${x1 * scaleX} ${y1 * scaleY} C ${cp1x * scaleX} ${cp1y * scaleY}, ${cp2x * scaleX} ${cp2y * scaleY}, ${cp3x * scaleX} ${cp3y * scaleY} S ${cp4x * scaleX} ${cp4y * scaleY}, ${x2 * scaleX} ${y2 * scaleY}`;
+            // Control point 2: Arc up the left side
+            const cp2x = 150 + sideIndex * 20;
+            const cp2y = 500 - sideIndex * 30;
+
+            // Control point 3: Top of left curve (heart top-left bump)
+            const cp3x = 300 + sideIndex * 30;
+            const cp3y = 200 - sideIndex * 10;
+
+            // Control point 4: Start curving inward toward center top
+            const cp4x = 550 + sideIndex * 15;
+            const cp4y = 150 - sideIndex * 5;
+
+            // End: Top center (meeting point)
+            const x2 = cardCenterX - 50;
+            const y2 = 100 + sideIndex * 10;
+
+            return `M ${x1 * scaleX} ${y1 * scaleY} C ${cp1x * scaleX} ${cp1y * scaleY}, ${cp2x * scaleX} ${cp2y * scaleY}, ${cp3x * scaleX} ${cp3y * scaleY} S ${cp4x * scaleX} ${cp4y * scaleY}, ${x2 * scaleX} ${y2 * scaleY}`;
+
+        } else {
+            // RIGHT SIDE OF HEART - flows from bottom-right, curves UP and around
+
+            // Start: Bottom center-right
+            const x1 = 1400 - sideIndex * 15;
+            const y1 = 1000 - sideIndex * 20; // Stagger upward
+
+            // Control point 1: Curve outward to the right
+            const cp1x = 1450 - sideIndex * 10;
+            const cp1y = 850 - sideIndex * 40;
+
+            // Control point 2: Arc up the right side
+            const cp2x = 1350 - sideIndex * 20;
+            const cp2y = 500 - sideIndex * 30;
+
+            // Control point 3: Top of right curve (heart top-right bump)
+            const cp3x = 1200 - sideIndex * 30;
+            const cp3y = 200 - sideIndex * 10;
+
+            // Control point 4: Start curving inward toward center top
+            const cp4x = 950 - sideIndex * 15;
+            const cp4y = 150 - sideIndex * 5;
+
+            // End: Top center (meeting point)
+            const x2 = cardCenterX + 50;
+            const y2 = 100 + sideIndex * 10;
+
+            return `M ${x1 * scaleX} ${y1 * scaleY} C ${cp1x * scaleX} ${cp1y * scaleY}, ${cp2x * scaleX} ${cp2y * scaleY}, ${cp3x * scaleX} ${cp3y * scaleY} S ${cp4x * scaleX} ${cp4y * scaleY}, ${x2 * scaleX} ${y2 * scaleY}`;
+        }
     }
 
     /**
