@@ -1,5 +1,5 @@
 // Sparkles Effect for Explore Selection Section
-// Uses tsParticles for animated sparkle particles
+// Uses tsParticles with emitters for point-source particle generation
 
 function initSparkles() {
     // Check if tsParticles is loaded
@@ -8,7 +8,9 @@ function initSparkles() {
         return;
     }
 
-    // Initialize sparkles particles
+    console.log('Initializing sparkles with emitters...');
+
+    // Initialize sparkles particles with emitter
     tsParticles.load("sparkles-explore", {
         background: {
             color: {
@@ -20,28 +22,54 @@ function initSparkles() {
             zIndex: 0,
         },
         fpsLimit: 120,
+
+        // EMITTERS: Spawn particles from center of gradient line
+        emitters: {
+            position: {
+                x: 50,      // 50% from left (horizontally centered)
+                y: 4.5      // Approximately 55px from top (adjust if needed)
+            },
+            rate: {
+                delay: 0.05,    // Spawn every 0.05 seconds
+                quantity: 3     // 3 particles per spawn
+            },
+            size: {
+                width: 10,      // Small emission area width
+                height: 5       // Small emission area height (point source)
+            },
+            particles: {
+                // Particle-specific config for emitted particles
+                move: {
+                    direction: "bottom",    // Move downward
+                    enable: true,
+                    outModes: {
+                        default: "destroy",  // Remove when out of bounds
+                    },
+                    speed: {
+                        min: 1,
+                        max: 3,
+                    },
+                    straight: false,
+                    angle: {
+                        offset: 0,
+                        value: 90,           // 90 degrees = downward
+                    },
+                },
+            }
+        },
+
         interactivity: {
             events: {
                 onClick: {
-                    enable: true,
-                    mode: "push",
+                    enable: false,
                 },
                 onHover: {
                     enable: false,
-                    mode: "repulse",
                 },
                 resize: true,
             },
-            modes: {
-                push: {
-                    quantity: 4,
-                },
-                repulse: {
-                    distance: 200,
-                    duration: 0.4,
-                },
-            },
         },
+
         particles: {
             color: {
                 value: "#F18A00", // Sessions orange
@@ -50,7 +78,7 @@ function initSparkles() {
                 direction: "bottom",
                 enable: true,
                 outModes: {
-                    default: "out",
+                    default: "destroy",
                 },
                 random: true,
                 speed: {
@@ -62,17 +90,12 @@ function initSparkles() {
                     offset: 0,
                     value: 90,
                 },
-                spread: 60,
             },
             number: {
                 density: {
                     enable: false,
                 },
-                value: 150,
-            },
-            position: {
-                x: 50,
-                y: 8,
+                value: 0,  // Start with 0 particles, emitter will create them
             },
             opacity: {
                 value: {
@@ -96,11 +119,23 @@ function initSparkles() {
                     max: 1.5,
                 },
             },
+            life: {
+                duration: {
+                    sync: false,
+                    value: 4,  // Particles live for 4 seconds before fading
+                },
+                count: 1,
+            },
         },
         detectRetina: true,
+    }).then((container) => {
+        console.log('Sparkles initialized successfully');
+        console.log('Container:', container);
+        console.log('Emitter position: x=50%, y=4.5%');
+        console.log('Gradient line at: top=55px, left=50%');
+    }).catch((error) => {
+        console.error('Failed to initialize sparkles:', error);
     });
-
-    console.log('Sparkles initialized for Explore Selection section');
 }
 
 // Initialize sparkles when DOM is ready
