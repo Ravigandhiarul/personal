@@ -90,7 +90,7 @@ a:hover {
 }
 
 .u-header__navbar-brand img {
-    filter: brightness(0) invert(1) !important;
+    /* Logo displays in Sessions orange - no filter needed */
 }
 
 .u-header__navbar-brand-text {
