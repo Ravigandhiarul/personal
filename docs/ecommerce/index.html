@@ -57,16 +57,16 @@
             color: #f18a00;
         }
 
-        /* Utility Bar */
+        /* Utility Bar - Dark Mode */
         .utility-bar {
-            background: var(--bg-light);
-            border-bottom: 1px solid var(--border-light);
+            background: #1a1a1a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.8125rem;
             padding: 0.5rem 0;
         }
 
         .utility-bar a {
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             margin: 0 0.75rem;
             transition: color 0.3s ease;
@@ -76,13 +76,18 @@
             color: var(--sessions-orange);
         }
 
-        /* Header */
+        .utility-bar strong {
+            color: #ffffff;
+        }
+
+        /* Header - Dark Mode */
         .u-header {
-            background-color: var(--bg-white);
-            box-shadow: var(--shadow-sm);
+            background-color: #000000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(241, 138, 0, 0.2);
         }
 
         .u-header__navbar {
@@ -97,25 +102,26 @@
 
         .u-header__navbar-brand img {
             height: 46px;
+            filter: brightness(1.2);
         }
 
         .u-header__navbar-brand-text {
             font-size: 1.25rem;
             font-weight: 600;
-            color: var(--text-dark);
+            color: #ffffff;
             margin-left: 0.75rem;
         }
 
         .u-header__navbar-subtitle {
             font-size: 0.75rem;
             font-weight: 400;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.6);
             display: block;
             margin-top: -0.25rem;
         }
 
         .u-header__nav-link {
-            color: var(--text-dark);
+            color: rgba(255, 255, 255, 0.8);
             font-weight: 400;
             font-size: 0.9375rem;
             padding: 0.5rem 1rem;
@@ -131,9 +137,120 @@
             color: var(--sessions-orange);
         }
 
+        /* Navbar toggler for dark mode */
+        .navbar-toggler {
+            color: rgba(255, 255, 255, 0.8);
+            border: none;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        /* Search bar dark mode */
+        .u-header .form-control {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        .u-header .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .u-header .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--sessions-orange);
+            color: #ffffff;
+            box-shadow: 0 0 0 0.2rem rgba(241, 138, 0, 0.25);
+        }
+
+        .u-header .btn-outline-primary {
+            border-color: var(--sessions-orange);
+            color: var(--sessions-orange);
+        }
+
+        .u-header .btn-outline-primary:hover {
+            background-color: var(--sessions-orange);
+            border-color: var(--sessions-orange);
+            color: #ffffff;
+        }
+
+        /* Expandable Search */
+        #searchContainer {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .search-expandable {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .search-expandable.active {
+            width: 280px;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .search-expandable input {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            border-radius: 2rem;
+            flex: 1;
+            padding: 0.5rem 1rem;
+        }
+
+        .search-expandable input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .search-expandable input:focus {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--sessions-orange);
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(241, 138, 0, 0.25);
+        }
+
+        .search-expandable button {
+            background: transparent;
+            border: none;
+            color: var(--sessions-orange);
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .search-expandable button:hover {
+            color: var(--sessions-orange-hover);
+            transform: translateX(3px);
+        }
+
+        #searchToggle {
+            transition: all 0.3s ease;
+        }
+
+        #searchToggle.active {
+            color: var(--sessions-orange);
+        }
+
         .badge {
             font-size: 0.625rem;
             padding: 0.25rem 0.5rem;
+        }
+
+        .bg-primary {
+            background-color: var(--sessions-orange) !important;
         }
 
         /* Hero */
@@ -830,6 +947,7 @@
         .glitch-text {
             position: relative;
             display: inline-block;
+            color: #ffffff;
         }
 
         .glitch-text::before,
@@ -840,17 +958,17 @@
             left: 0;
             width: 100%;
             height: 100%;
+            z-index: -1;
         }
 
         .glitch-text::before {
             animation: glitch-anim-1 0.15s infinite;
             color: #ff0033;
-            z-index: -1;
         }
 
         .glitch-text::after {
             animation: glitch-anim-2 0.13s infinite;
-            color: #F18A00;
+            color: #00ff9d;
             z-index: -2;
         }
 
@@ -894,19 +1012,19 @@
         @keyframes glitch-icon-shake {
             0%, 100% {
                 transform: translate(0) rotate(0deg);
-                filter: drop-shadow(0 0 0 #ff0033) drop-shadow(0 0 0 #F18A00);
+                filter: drop-shadow(0 0 0 #ff0033) drop-shadow(0 0 0 #00ff9d);
             }
             25% {
                 transform: translate(-1px, 1px) rotate(-2deg);
-                filter: drop-shadow(2px 0 0 #ff0033) drop-shadow(-2px 0 0 #F18A00);
+                filter: drop-shadow(2px 0 0 #ff0033) drop-shadow(-2px 0 0 #00ff9d);
             }
             50% {
                 transform: translate(1px, -1px) rotate(2deg);
-                filter: drop-shadow(-2px 0 0 #ff0033) drop-shadow(2px 0 0 #F18A00);
+                filter: drop-shadow(-2px 0 0 #ff0033) drop-shadow(2px 0 0 #00ff9d);
             }
             75% {
                 transform: translate(-1px, -1px) rotate(1deg);
-                filter: drop-shadow(1px 1px 0 #ff0033) drop-shadow(-1px -1px 0 #F18A00);
+                filter: drop-shadow(1px 1px 0 #ff0033) drop-shadow(-1px -1px 0 #00ff9d);
             }
         }
     </style>
@@ -975,6 +1093,17 @@
                         </li>
                         <li class="nav-item">
                             <a class="u-header__nav-link" href="about.html">Rewards</a>
+                        </li>
+                        <li class="nav-item" id="searchContainer">
+                            <a class="u-header__nav-link" href="#" id="searchToggle">
+                                <i class="bi bi-search"></i>
+                            </a>
+                            <form class="search-expandable" id="searchForm" onsubmit="handleSearch(event)">
+                                <input class="form-control form-control-sm" type="search" placeholder="Search products..." id="searchInput">
+                                <button class="btn btn-sm" type="submit">
+                                    <i class="bi bi-arrow-right"></i>
+                                </button>
+                            </form>
                         </li>
                         <li class="nav-item">
                             <a class="u-header__nav-link" href="wishlist.html">
@@ -1198,35 +1327,161 @@
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="content-section">
+    <!-- Benefits Section -->
+    <section class="content-section" style="background-color: #1a1a1a; padding: 5rem 0;">
         <div class="container">
-            <h2 class="section-title text-center">How It Works</h2>
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <i class="bi bi-mortarboard-fill" style="font-size: 48px; color: var(--sessions-orange);"></i>
+                    <h6 class="mt-3 fw-semibold" style="color: #ffffff;">Expert Guidance</h6>
+                    <p class="text-muted small mb-0" style="color: rgba(255, 255, 255, 0.6);">Knowledgeable budtenders trained to help you find the right products</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="bi bi-arrow-counterclockwise" style="font-size: 48px; color: var(--sessions-orange);"></i>
+                    <h6 class="mt-3 fw-semibold" style="color: #ffffff;">30 Days Return</h6>
+                    <p class="text-muted small mb-0" style="color: rgba(255, 255, 255, 0.6);">We offer you a full refund within 30 days of purchase</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="bi bi-truck" style="font-size: 48px; color: var(--sessions-orange);"></i>
+                    <h6 class="mt-3 fw-semibold" style="color: #ffffff;">Free Shipping</h6>
+                    <p class="text-muted small mb-0" style="color: rgba(255, 255, 255, 0.6);">Automatically receive free delivery on orders over $50</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="progress-steps mt-4">
-                <div class="progress-step">
-                    <div class="progress-step-number">1</div>
-                    <h5 class="progress-step-title">Browse & Select</h5>
-                    <p class="progress-step-description">Explore our curated collection of premium cannabis products</p>
+    <!-- Sessions Rewards -->
+    <section class="content-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding: 5rem 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-gem display-4 me-3" style="color: var(--sessions-orange);"></i>
+                        <div>
+                            <h2 class="fw-bold mb-1" style="color: #ffffff;">Sessions Rewards</h2>
+                            <p class="mb-0" style="color: rgba(255, 255, 255, 0.8);">A More Rewarding Way to Shop Cannabis</p>
+                        </div>
+                    </div>
+
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2" style="color: rgba(255, 255, 255, 0.9);"><i class="bi bi-check-circle-fill me-2" style="color: var(--sessions-orange);"></i> Earn 1 point for every $1 spent</li>
+                        <li class="mb-2" style="color: rgba(255, 255, 255, 0.9);"><i class="bi bi-check-circle-fill me-2" style="color: var(--sessions-orange);"></i> Exclusive member deals and early access</li>
+                        <li class="mb-2" style="color: rgba(255, 255, 255, 0.9);"><i class="bi bi-check-circle-fill me-2" style="color: var(--sessions-orange);"></i> Birthday month bonus (10% off)</li>
+                        <li class="mb-2" style="color: rgba(255, 255, 255, 0.9);"><i class="bi bi-check-circle-fill me-2" style="color: var(--sessions-orange);"></i> Free to join, instant benefits</li>
+                    </ul>
+
+                    <button class="btn btn-lg px-4 me-3" style="background-color: var(--sessions-orange); color: #ffffff; border: none;"><i class="bi bi-star-fill me-2"></i> JOIN NOW - FREE</button>
+                    <button class="btn btn-outline-light btn-lg px-4">Learn More</button>
                 </div>
 
-                <div class="progress-step">
-                    <div class="progress-step-number">2</div>
-                    <h5 class="progress-step-title">Add to Cart</h5>
-                    <p class="progress-step-description">Review your selections and adjust quantities</p>
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-4">
+                            <div class="card-premium text-center" style="background: #6B7280; color: #ffffff; padding: 1.5rem;">
+                                <i class="bi bi-circle display-6"></i>
+                                <h6 class="mt-2 mb-1">SILVER</h6>
+                                <small>0-499 pts</small>
+                                <hr style="border-color: rgba(255,255,255,0.2);">
+                                <small>5% Birthday Bonus</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card-premium text-center" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #000000; padding: 1.5rem;">
+                                <i class="bi bi-circle-fill display-6"></i>
+                                <h6 class="mt-2 mb-1">GOLD</h6>
+                                <small>500-999 pts</small>
+                                <hr style="border-color: rgba(0,0,0,0.2);">
+                                <small>10% Birthday<br>+ Free Delivery</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card-premium text-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #ffffff; padding: 1.5rem;">
+                                <i class="bi bi-gem display-6"></i>
+                                <h6 class="mt-2 mb-1">PLATINUM</h6>
+                                <small>1000+ pts</small>
+                                <hr style="border-color: rgba(255,255,255,0.2);">
+                                <small>15% Birthday<br>+ VIP Events</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Locator -->
+    <section class="content-section" style="background-color: #000000; padding: 5rem 0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 style="color: #ffffff;"><i class="bi bi-geo-alt-fill me-2" style="color: var(--sessions-orange);"></i> Visit Us in Your Community</h2>
+                <p class="text-muted" style="color: rgba(255, 255, 255, 0.6);">40+ Locations Across Ontario</p>
+            </div>
+
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="card-premium" style="background: #1a1a1a; color: #ffffff; padding: 2rem;">
+                        <h5 class="fw-bold mb-3">
+                            <i class="bi bi-geo-alt-fill me-2" style="color: var(--sessions-orange);"></i>
+                            Sessions Stratford
+                        </h5>
+                        <p class="small mb-3" style="color: rgba(255, 255, 255, 0.6);">123 Front St E, Unit 4, Stratford, ON N7G 1Y5</p>
+
+                        <div class="d-flex gap-3 mb-3 small flex-wrap">
+                            <span style="color: rgba(255, 255, 255, 0.8);"><i class="bi bi-clock-fill me-1" style="color: var(--sessions-orange);"></i> <strong>TODAY:</strong> 9:00 AM - 10:00 PM</span>
+                            <span style="color: rgba(255, 255, 255, 0.8);"><i class="bi bi-telephone-fill me-1" style="color: var(--sessions-orange);"></i> (226) 728-6188</span>
+                        </div>
+
+                        <div class="mb-3">
+                            <p class="small fw-semibold mb-2">Services Available:</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge" style="background-color: rgba(255, 255, 255, 0.1); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2);"><i class="bi bi-check-circle-fill me-1" style="color: var(--sessions-orange);"></i> Same-Day Delivery</span>
+                                <span class="badge" style="background-color: rgba(255, 255, 255, 0.1); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2);"><i class="bi bi-check-circle-fill me-1" style="color: var(--sessions-orange);"></i> Express Pickup</span>
+                                <span class="badge" style="background-color: rgba(255, 255, 255, 0.1); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2);"><i class="bi bi-check-circle-fill me-1" style="color: var(--sessions-orange);"></i> In-Store Shopping</span>
+                                <span class="badge" style="background-color: rgba(255, 255, 255, 0.1); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2);"><i class="bi bi-check-circle-fill me-1" style="color: var(--sessions-orange);"></i> Wheelchair Accessible</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <a href="contact.html" class="btn btn-outline-secondary btn-sm flex-fill" style="border-color: rgba(255, 255, 255, 0.3); color: rgba(255, 255, 255, 0.8);"><i class="bi bi-map me-1"></i> Get Directions</a>
+                            <a href="shop.html" class="btn btn-sm flex-fill" style="background-color: var(--sessions-orange); color: #ffffff; border: none;"><i class="bi bi-shop me-1"></i> Shop This Location</a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="progress-step">
-                    <div class="progress-step-number">3</div>
-                    <h5 class="progress-step-title">Secure Checkout</h5>
-                    <p class="progress-step-description">Safe payment processing with SSL encryption</p>
-                </div>
+                <div class="col-md-6">
+                    <div class="card-premium" style="background: #1a1a1a; color: #ffffff; padding: 2rem;">
+                        <h5 class="fw-bold mb-3">
+                            <i class="bi bi-geo-alt-fill me-2" style="color: var(--sessions-orange);"></i>
+                            Sessions Toronto
+                        </h5>
+                        <p class="small mb-3" style="color: rgba(255, 255, 255, 0.6);">456 Queen St W, Toronto, ON M5V 2A8</p>
 
-                <div class="progress-step">
-                    <div class="progress-step-number">4</div>
-                    <h5 class="progress-step-title">Fast Delivery</h5>
-                    <p class="progress-step-description">Discreet packaging with tracked shipping</p>
+                        <div class="d-flex gap-3 mb-3 small flex-wrap">
+                            <span style="color: rgba(255, 255, 255, 0.8);"><i class="bi bi-clock-fill me-1" style="color: var(--sessions-orange);"></i> <strong>TODAY:</strong> 10:00 AM - 11:00 PM</span>
+                            <span style="color: rgba(255, 255, 255, 0.8);"><i class="bi bi-telephone-fill me-1" style="color: var(--sessions-orange);"></i> (416) 555-0123</span>
+                        </div>
+
+                        <div class="mb-3">
+                            <p class="small fw-semibold mb-2">Services Available:</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge" style="background-color: rgba(255, 255, 255, 0.1); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2);"><i class="bi bi-check-circle-fill me-1" style="color: var(--sessions-orange);"></i> Same-Day Delivery</span>
+                                <span class="badge" style="background-color: rgba(255, 255, 255, 0.1); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2);"><i class="bi bi-check-circle-fill me-1" style="color: var(--sessions-orange);"></i> Express Pickup</span>
+                                <span class="badge" style="background-color: rgba(255, 255, 255, 0.1); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2);"><i class="bi bi-check-circle-fill me-1" style="color: var(--sessions-orange);"></i> In-Store Shopping</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <a href="contact.html" class="btn btn-outline-secondary btn-sm flex-fill" style="border-color: rgba(255, 255, 255, 0.3); color: rgba(255, 255, 255, 0.8);"><i class="bi bi-map me-1"></i> Get Directions</a>
+                            <a href="shop.html" class="btn btn-sm flex-fill" style="background-color: var(--sessions-orange); color: #ffffff; border: none;"><i class="bi bi-shop me-1"></i> Shop This Location</a>
+                        </div>
+                    </div>
                 </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="contact.html" class="btn btn-outline-primary btn-lg" style="border-color: var(--sessions-orange); color: var(--sessions-orange);">
+                    View All Locations <i class="bi bi-arrow-right ms-2"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -1322,5 +1577,39 @@
     <script src="js/search.js"></script>
     <script src="js/particles-config.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- Expandable Search JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchToggle = document.getElementById('searchToggle');
+            const searchForm = document.getElementById('searchForm');
+            const searchInput = document.getElementById('searchInput');
+
+            searchToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                searchForm.classList.toggle('active');
+                searchToggle.classList.toggle('active');
+
+                if (searchForm.classList.contains('active')) {
+                    setTimeout(() => {
+                        searchInput.focus();
+                    }, 400);
+                }
+            });
+
+            // Close search when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!document.getElementById('searchContainer').contains(e.target)) {
+                    searchForm.classList.remove('active');
+                    searchToggle.classList.remove('active');
+                }
+            });
+
+            // Prevent closing when clicking inside search
+            searchForm.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
 </body>
 </html>
