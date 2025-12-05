@@ -54,20 +54,25 @@ function initSparkles() {
                 },
                 random: true,
                 speed: {
-                    min: 0.5,
-                    max: 2,
+                    min: 1,
+                    max: 3,
                 },
                 straight: false,
+                angle: {
+                    offset: 0,
+                    value: 90,
+                },
+                spread: 60,
             },
             number: {
                 density: {
                     enable: false,
                 },
-                value: 400,
+                value: 150,
             },
             position: {
                 x: 50,
-                y: 6,
+                y: 4.5,
             },
             opacity: {
                 value: {
