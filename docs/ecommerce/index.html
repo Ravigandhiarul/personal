@@ -775,6 +775,11 @@
 
         #explore-selection .container {
             position: relative;
+            z-index: 2;
+        }
+
+        #explore-selection .sparkles-container {
+            position: relative;
             z-index: 1;
         }
 
@@ -1211,6 +1216,22 @@
     <section class="content-section" id="explore-selection">
         <div class="container">
             <h2 class="section-title text-center">Explore Our Selection</h2>
+
+            <!-- Sparkles Effect -->
+            <div class="sparkles-container" style="width: 100%; max-width: 40rem; height: 10rem; margin: 0 auto; position: relative;">
+                <!-- Gradient Lines -->
+                <div style="position: absolute; left: 20%; top: 0; width: 60%; height: 2px; background: linear-gradient(to right, transparent, #F18A00, transparent); filter: blur(2px);"></div>
+                <div style="position: absolute; left: 20%; top: 0; width: 60%; height: 1px; background: linear-gradient(to right, transparent, #F18A00, transparent);"></div>
+                <div style="position: absolute; left: 40%; top: 0; width: 20%; height: 5px; background: linear-gradient(to right, transparent, #d67800, transparent); filter: blur(2px);"></div>
+                <div style="position: absolute; left: 40%; top: 0; width: 20%; height: 1px; background: linear-gradient(to right, transparent, #d67800, transparent);"></div>
+
+                <!-- Sparkles Particles Container -->
+                <div id="sparkles-explore" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 0;"></div>
+
+                <!-- Radial Gradient Mask -->
+                <div style="position: absolute; inset: 0; width: 100%; height: 100%; background: radial-gradient(350px 200px at top, transparent 20%, #000000); pointer-events: none;"></div>
+            </div>
+
             <p class="text-center text-muted mb-5">Find what you're looking for</p>
 
             <div class="row g-4">
@@ -1572,6 +1593,7 @@
     <script src="js/cart.js"></script>
     <script src="js/search.js"></script>
     <script src="js/particles-config.js"></script>
+    <script src="js/sparkles.js"></script>
     <script src="js/main.js"></script>
 
     <!-- Expandable Search JS -->

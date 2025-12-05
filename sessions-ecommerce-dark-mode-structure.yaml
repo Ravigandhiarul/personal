@@ -1,0 +1,359 @@
+# Sessions Cannabis Ecommerce - Dark Mode Design System
+# Reference: docs/ecommerce/index.html
+# This document defines the complete dark mode structure and styling standards
+
+design_system:
+  brand_colors:
+    primary_orange: "#F18A00"
+    primary_orange_hover: "#d67800"
+    primary_orange_soft: "rgba(241, 138, 0, 0.1)"
+
+  dark_mode_palette:
+    pure_black: "#000000"
+    dark_gray: "#1a1a1a"
+    card_background: "#2a2a2a"
+
+  text_colors:
+    primary_white: "#ffffff"
+    light_gray_high: "rgba(255, 255, 255, 0.9)"
+    light_gray_medium: "rgba(255, 255, 255, 0.8)"
+    light_gray_low: "rgba(255, 255, 255, 0.6)"
+
+  accent_colors:
+    badge_new: "#00c9a7"
+    badge_sale: "#ed4c78"
+
+  tier_colors:
+    silver_background: "#6B7280"
+    silver_inner: "#ffffff"
+    gold_gradient_start: "#FFD700"
+    gold_gradient_end: "#FFA500"
+    gold_outline: "#B8860B"
+    gold_inner: "#FFA500"
+
+# ============================================
+# COMPONENT STRUCTURE & STYLING
+# ============================================
+
+components:
+
+  # TOP UTILITY BAR
+  utility_bar:
+    selector: ".u-header__top"
+    background: "#1a1a1a"
+    border_bottom: "1px solid rgba(241, 138, 0, 0.2)"
+    text_color: "rgba(255, 255, 255, 0.7)"
+    link_color: "rgba(255, 255, 255, 0.8)"
+    link_hover: "var(--sessions-orange)"
+    font_size: "0.875rem"
+    transition: "color 0.3s ease"
+
+  # MAIN HEADER
+  header:
+    selector: ".u-header"
+    background: "#000000"
+    box_shadow: "0 2px 8px rgba(0, 0, 0, 0.3)"
+    border_bottom: "1px solid rgba(241, 138, 0, 0.2)"
+    position: "sticky"
+    top: "0"
+    z_index: "1000"
+
+  # LOGO
+  logo:
+    selector: ".u-header__logo-link img"
+    filter: "brightness(0) invert(1)"
+    transition: "all 0.3s ease"
+    hover_opacity: "0.8"
+
+  # NAVIGATION LINKS
+  nav_links:
+    selector: ".u-header__nav-link"
+    color: "rgba(255, 255, 255, 0.8)"
+    font_weight: "400"
+    font_size: "0.9375rem"
+    padding: "0.5rem 1rem"
+    transition: "color 0.3s ease"
+    hover_color: "var(--sessions-orange)"
+    active_color: "var(--sessions-orange)"
+    display: "flex"
+    align_items: "center"
+    gap: "0.5rem"
+
+  # SEARCH EXPANDABLE
+  search_expandable:
+    container_selector: "#searchContainer"
+    toggle_selector: "#searchToggle"
+    form_selector: "#searchForm"
+    initial_width: "0"
+    initial_opacity: "0"
+    active_width: "280px"
+    active_opacity: "1"
+    transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
+    input_background: "rgba(255, 255, 255, 0.1)"
+    input_color: "#ffffff"
+    input_border: "1px solid rgba(255, 255, 255, 0.2)"
+
+  # NOTIFICATION BADGES
+  notification_badges:
+    selector: ".badge.bg-primary"
+    background: "var(--sessions-orange)"
+    color: "#ffffff"
+    border_radius: "50%"
+
+  # GLITCH EFFECT
+  glitch_effect:
+    selector: ".glitch-text"
+    base_color: "#ffffff"
+    before_color: "#ff0033"
+    after_color: "#00ff9d"
+    before_animation: "glitch-anim-1 0.15s infinite"
+    after_animation: "glitch-anim-2 0.13s infinite"
+    z_index_before: "-1"
+    z_index_after: "-2"
+
+  # PRODUCT CARDS
+  product_cards:
+    card_selector: ".product-card"
+    background: "#2a2a2a"
+    border: "1px solid rgba(255, 255, 255, 0.1)"
+    border_radius: "0.75rem"
+    cursor: "pointer"
+    transition: "all 0.3s ease"
+    hover_transform: "translateY(-5px)"
+    hover_box_shadow: "0 8px 20px rgba(241, 138, 0, 0.3)"
+
+  product_image_container:
+    selector: ".product-image"
+    aspect_ratio: "1 / 1"
+    background: "rgba(26, 26, 26, 0.3)"
+    padding: "1.5rem"
+    overflow: "hidden"
+    border_radius: "0.75rem 0.75rem 0 0"
+
+  product_image:
+    selector: ".product-image img"
+    width: "100%"
+    height: "100%"
+    object_fit: "cover"
+    object_position: "center"
+    transition: "transform 0.3s ease"
+    hover_transform: "scale(1.05)"
+
+  # FAVORITE BUTTON (HEART)
+  favorite_button:
+    selector: ".favorite-btn"
+    background: "transparent"
+    border: "none"
+    box_shadow: "none"
+    border_radius: "50%"
+    width: "36px"
+    height: "36px"
+    color: "rgba(255, 255, 255, 0.8)"
+    transition: "color 0.3s ease"
+    hover_color: "var(--sessions-orange)"
+    active_color: "var(--sessions-orange)"
+
+  # BADGES
+  badge_new:
+    selector: ".badge-new"
+    background: "#00c9a7 !important"
+    color: "white !important"
+
+  badge_sale:
+    selector: ".badge-sale"
+    background: "#ed4c78"
+    color: "white"
+
+  period_badge:
+    selector: ".period-badge"
+    display: "inline-block"
+    background: "rgba(241, 138, 0, 0.1)"
+    font_size: "0.6875rem"
+    padding: "0.4375rem 0.9375rem"
+    border_radius: "6.1875rem"
+    color: "#F18A00"
+
+  # BUTTONS
+  primary_button:
+    background: "var(--sessions-orange)"
+    color: "#ffffff"
+    border: "none"
+    padding: "0.75rem 2rem"
+    border_radius: "0.5rem"
+    transition: "all 0.3s ease"
+    hover_background: "var(--sessions-orange-hover)"
+    hover_transform: "translateY(-2px)"
+
+  secondary_button:
+    background: "transparent"
+    color: "var(--sessions-orange)"
+    border: "none"
+    transition: "0.3s"
+    hover_background: "var(--sessions-orange)"
+    hover_color: "#ffffff"
+
+  outline_button:
+    background: "transparent"
+    color: "var(--sessions-orange)"
+    border: "1px solid var(--sessions-orange)"
+    transition: "all 0.3s ease"
+    hover_background: "var(--sessions-orange)"
+    hover_color: "#ffffff"
+
+  # SESSIONS REWARDS
+  rewards_section:
+    background: "#000000"
+    padding: "5rem 0"
+
+  rewards_tier_cards:
+    silver:
+      background: "#6B7280"
+      color: "#ffffff"
+      padding: "1.5rem"
+      outer_circle_color: "inherit"
+      inner_circle_color: "#ffffff"
+      inner_circle_size: "1.5rem"
+
+    gold:
+      background: "linear-gradient(135deg, #FFD700 0%, #FFA500 100%)"
+      color: "#000000"
+      padding: "1.5rem"
+      outer_circle_color: "#B8860B"
+      inner_circle_color: "#FFA500"
+      inner_circle_size: "1.5rem"
+
+    platinum:
+      background: "linear-gradient(135deg, #E5E7EB 0%, #9CA3AF 100%)"
+      color: "#000000"
+      padding: "1.5rem"
+
+  # STORE LOCATOR
+  store_locator_section:
+    background: "#000000"
+    padding: "5rem 0"
+
+  location_cards:
+    background: "#2a2a2a"
+    border: "1px solid rgba(255, 255, 255, 0.1)"
+    border_radius: "0.75rem"
+    padding: "2rem"
+
+  store_hours_text:
+    color: "rgba(255, 255, 255, 0.7)"
+
+  get_directions_button:
+    background: "transparent"
+    color: "var(--sessions-orange)"
+    border: "none"
+    transition: "0.3s"
+    hover_background: "var(--sessions-orange)"
+    hover_color: "#ffffff"
+
+  shop_location_button:
+    background: "var(--sessions-orange)"
+    color: "#ffffff"
+    border: "none"
+    display: "flex"
+    align_items: "center"
+    justify_content: "center"
+    hover_background: "var(--sessions-orange-hover)"
+
+  # FOOTER
+  footer:
+    background: "#000000"
+    border_top: "1px solid rgba(241, 138, 0, 0.2)"
+    padding: "3rem 0 1.5rem"
+
+  footer_text:
+    color: "rgba(255, 255, 255, 0.6)"
+
+  footer_links:
+    color: "rgba(255, 255, 255, 0.8)"
+    transition: "color 0.3s ease"
+    hover_color: "var(--sessions-orange)"
+
+  footer_social_icons:
+    color: "rgba(255, 255, 255, 0.8)"
+    transition: "color 0.3s ease"
+    hover_color: "var(--sessions-orange)"
+
+# ============================================
+# INTERACTION PATTERNS
+# ============================================
+
+interactions:
+  hover_effects:
+    - element: ".u-header__nav-link"
+      property: "color"
+      value: "var(--sessions-orange)"
+
+    - element: ".favorite-btn"
+      property: "color"
+      value: "var(--sessions-orange)"
+
+    - element: ".product-card"
+      properties:
+        transform: "translateY(-5px)"
+        box_shadow: "0 8px 20px rgba(241, 138, 0, 0.3)"
+
+    - element: ".product-image img"
+      property: "transform"
+      value: "scale(1.05)"
+
+    - element: "footer links"
+      property: "color"
+      value: "var(--sessions-orange)"
+
+  click_actions:
+    - element: "#searchToggle"
+      action: "toggle .search-expandable.active class"
+
+    - element: ".favorite-btn"
+      action: "toggle .active class, update wishlist"
+
+    - element: ".product-card"
+      action: "navigate to product detail page"
+
+  transitions:
+    default: "all 0.3s ease"
+    color_change: "color 0.3s ease"
+    search_expand: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
+
+# ============================================
+# RESPONSIVE BEHAVIOR
+# ============================================
+
+responsive:
+  mobile:
+    navbar_toggle: "hamburger menu with dark mode icon"
+    search_width: "220px when expanded"
+
+# ============================================
+# CSS VARIABLES TO USE
+# ============================================
+
+css_variables:
+  --sessions-orange: "#F18A00"
+  --sessions-orange-hover: "#d67800"
+  --sessions-orange-soft: "rgba(241, 138, 0, 0.1)"
+  --text-dark: "#1a1a1a"
+  --text-muted: "rgba(255, 255, 255, 0.6)"
+
+# ============================================
+# JAVASCRIPT BEHAVIORS
+# ============================================
+
+javascript_behaviors:
+  search_toggle:
+    function: "toggleSearch()"
+    adds_class: "active"
+    to_element: "#searchForm"
+
+  favorite_toggle:
+    function: "handleFavoriteClick(event, productId)"
+    toggles_class: "active"
+    updates: "wishlist count badge"
+
+  hover_inline_styles:
+    pattern: "onmouseover/onmouseout for button color changes"
+    example: "onmouseover=\"this.style.backgroundColor='var(--sessions-orange)'\""

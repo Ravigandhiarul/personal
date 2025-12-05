@@ -1,0 +1,306 @@
+# Sessions Cannabis - Pages Dark Mode Update Mapping
+# This file maps all pages that need dark mode updates and what components each page contains
+
+reference_file: "docs/ecommerce/index.html (COMPLETE - Dark Mode Applied)"
+
+pages_to_update:
+
+  # ============================================
+  # ECOMMERCE PAGES
+  # ============================================
+
+  - file: "docs/ecommerce/shop.html"
+    priority: "HIGH"
+    description: "Main shop page with product grid"
+    components_to_update:
+      - utility_bar
+      - header
+      - logo
+      - navigation_links
+      - search_expandable
+      - notification_badges
+      - product_cards
+      - product_image_containers
+      - favorite_buttons
+      - badges
+      - pagination
+      - footer
+    specific_elements:
+      - product_grid: "Apply dark background and card styling"
+      - filter_sidebar: "Dark background with light text"
+      - category_filters: "Orange active state"
+      - price_range: "Light text colors"
+      - sort_dropdown: "Dark mode styling"
+
+  - file: "docs/ecommerce/product.html"
+    priority: "HIGH"
+    description: "Individual product detail page"
+    components_to_update:
+      - utility_bar
+      - header
+      - logo
+      - navigation_links
+      - search_expandable
+      - notification_badges
+      - product_image_gallery
+      - favorite_button
+      - badges
+      - add_to_cart_button
+      - product_info_section
+      - related_products
+      - footer
+    specific_elements:
+      - product_image_gallery: "Dark background with 0.3 opacity"
+      - thumbnail_images: "Dark borders"
+      - product_title: "White color"
+      - product_description: "Light gray rgba(255,255,255,0.8)"
+      - price: "Orange color"
+      - quantity_selector: "Dark background"
+      - strain_type_badge: "Follow badge styling"
+      - thc_cbd_info: "Light text"
+      - effects_tags: "Orange outline or background"
+      - reviews_section: "Dark cards"
+
+  - file: "docs/ecommerce/cart.html"
+    priority: "HIGH"
+    description: "Shopping cart page"
+    components_to_update:
+      - utility_bar
+      - header
+      - logo
+      - navigation_links
+      - search_expandable
+      - notification_badges
+      - cart_items_table
+      - quantity_controls
+      - remove_button
+      - checkout_button
+      - footer
+    specific_elements:
+      - cart_table: "Dark background, light text, orange borders"
+      - cart_item_rows: "Dark background #2a2a2a"
+      - product_thumbnail: "Dark image container"
+      - quantity_input: "Dark background, light text"
+      - price_text: "Orange color"
+      - subtotal_section: "Dark background"
+      - checkout_button: "Orange primary button"
+      - continue_shopping: "Secondary button style"
+
+  - file: "docs/ecommerce/wishlist.html"
+    priority: "MEDIUM"
+    description: "Wishlist/favorites page"
+    components_to_update:
+      - utility_bar
+      - header
+      - logo
+      - navigation_links
+      - search_expandable
+      - notification_badges
+      - product_cards
+      - favorite_buttons
+      - remove_from_wishlist_button
+      - footer
+    specific_elements:
+      - wishlist_grid: "Product cards with dark mode"
+      - empty_wishlist_message: "Light text"
+      - move_to_cart_button: "Orange primary button"
+
+  - file: "docs/ecommerce/search.html"
+    priority: "MEDIUM"
+    description: "Search results page"
+    components_to_update:
+      - utility_bar
+      - header
+      - logo
+      - navigation_links
+      - search_expandable
+      - notification_badges
+      - search_bar
+      - product_cards
+      - filter_sidebar
+      - footer
+    specific_elements:
+      - search_input: "Dark background, light text"
+      - results_count: "Light text"
+      - no_results_message: "Light text"
+      - suggested_products: "Dark product cards"
+
+  - file: "docs/ecommerce/contact.html"
+    priority: "MEDIUM"
+    description: "Contact page with store locator"
+    components_to_update:
+      - utility_bar
+      - header
+      - logo
+      - navigation_links
+      - search_expandable
+      - notification_badges
+      - contact_form
+      - store_locator_cards
+      - get_directions_button
+      - footer
+    specific_elements:
+      - contact_form: "Dark background, light inputs"
+      - form_inputs: "Dark background rgba(255,255,255,0.1), light text"
+      - submit_button: "Orange primary button"
+      - store_cards: "Match index.html store locator"
+      - map_container: "Dark mode if applicable"
+
+  - file: "docs/ecommerce/about.html"
+    priority: "LOW"
+    description: "About us page"
+    components_to_update:
+      - utility_bar
+      - header
+      - logo
+      - navigation_links
+      - search_expandable
+      - notification_badges
+      - hero_section
+      - content_sections
+      - team_cards
+      - footer
+    specific_elements:
+      - hero_banner: "Dark background with orange accents"
+      - about_text: "Light text rgba(255,255,255,0.8)"
+      - team_member_cards: "Dark background #2a2a2a"
+      - mission_vision: "Dark sections"
+
+  - file: "docs/ecommerce/order-completed.html"
+    priority: "LOW"
+    description: "Order confirmation page"
+    components_to_update:
+      - utility_bar
+      - header
+      - logo
+      - navigation_links
+      - notification_badges
+      - order_summary
+      - order_details
+      - footer
+    specific_elements:
+      - success_message: "Orange color or icon"
+      - order_number: "Orange highlight"
+      - order_items_table: "Dark background"
+      - delivery_info: "Light text"
+      - continue_shopping_button: "Orange button"
+
+# ============================================
+# COMMON UPDATES FOR ALL PAGES
+# ============================================
+
+global_updates:
+  html_body:
+    background: "#000000"
+    color: "#ffffff"
+
+  utility_bar:
+    background: "#1a1a1a"
+    border_bottom: "1px solid rgba(241, 138, 0, 0.2)"
+    text: "rgba(255, 255, 255, 0.7)"
+    link_hover: "var(--sessions-orange)"
+
+  header:
+    background: "#000000"
+    border_bottom: "1px solid rgba(241, 138, 0, 0.2)"
+    box_shadow: "0 2px 8px rgba(0, 0, 0, 0.3)"
+
+  logo:
+    filter: "brightness(0) invert(1)"
+
+  nav_links:
+    color: "rgba(255, 255, 255, 0.8)"
+    hover: "var(--sessions-orange)"
+
+  badges:
+    cart_wishlist: "var(--sessions-orange)"
+
+  footer:
+    background: "#000000"
+    border_top: "1px solid rgba(241, 138, 0, 0.2)"
+    text: "rgba(255, 255, 255, 0.6)"
+    links: "rgba(255, 255, 255, 0.8)"
+    links_hover: "var(--sessions-orange)"
+
+  forms:
+    input_background: "rgba(255, 255, 255, 0.1)"
+    input_color: "#ffffff"
+    input_border: "1px solid rgba(255, 255, 255, 0.2)"
+    input_focus_border: "1px solid var(--sessions-orange)"
+    placeholder_color: "rgba(255, 255, 255, 0.5)"
+
+  tables:
+    background: "#2a2a2a"
+    border: "1px solid rgba(255, 255, 255, 0.1)"
+    header_background: "#1a1a1a"
+    row_hover: "rgba(241, 138, 0, 0.1)"
+
+  cards:
+    background: "#2a2a2a"
+    border: "1px solid rgba(255, 255, 255, 0.1)"
+    hover_shadow: "0 8px 20px rgba(241, 138, 0, 0.3)"
+
+# ============================================
+# UPDATE PRIORITY SYSTEM
+# ============================================
+
+update_priority:
+  HIGH:
+    - shop.html
+    - product.html
+    - cart.html
+
+  MEDIUM:
+    - wishlist.html
+    - search.html
+    - contact.html
+
+  LOW:
+    - about.html
+    - order-completed.html
+
+# ============================================
+# IMPLEMENTATION CHECKLIST PER PAGE
+# ============================================
+
+implementation_steps:
+  step_1: "Read the existing HTML file"
+  step_2: "Update CSS variables and global styles"
+  step_3: "Update utility bar styling"
+  step_4: "Update header and navigation"
+  step_5: "Update logo filter"
+  step_6: "Update search expandable if present"
+  step_7: "Update notification badges"
+  step_8: "Update page-specific components"
+  step_9: "Update all buttons (primary, secondary, outline)"
+  step_10: "Update forms and inputs"
+  step_11: "Update product cards if present"
+  step_12: "Update footer"
+  step_13: "Test all hover states"
+  step_14: "Test all interactive elements"
+  step_15: "Verify color consistency"
+
+# ============================================
+# TESTING CHECKLIST
+# ============================================
+
+testing_requirements:
+  visual:
+    - All text readable (proper contrast)
+    - Orange accents visible and consistent
+    - No white/light backgrounds showing
+    - Images properly displayed against dark backgrounds
+    - Badges visible and styled correctly
+
+  interactive:
+    - All hover effects working (orange color)
+    - Buttons change color on hover
+    - Links change to orange on hover
+    - Search expand/collapse working
+    - Product cards elevate on hover
+    - Favorite buttons toggle orange
+
+  responsive:
+    - Mobile menu styled for dark mode
+    - All breakpoints maintain dark theme
+    - Text remains readable at all sizes
