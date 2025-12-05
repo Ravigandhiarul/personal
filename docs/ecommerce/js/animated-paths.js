@@ -53,72 +53,62 @@ class AnimatedPaths {
         const cardAreaHeight = 400; // Height to stay away from
 
         if (isLeftSide) {
-            // LEFT SIDE OF HEART - flows from bottom-left, curves UP and OUT, then INWARD to heart dip
+            // LEFT SIDE OF HEART - flows from bottom center, curves LEFT and UP, then back to top center
 
-            // Start: Bottom center-left
-            const x1 = 100 + sideIndex * 15;
-            const y1 = 1000 - sideIndex * 20;
+            // Start: Bottom center point
+            const x1 = cardCenterX - 50;
+            const y1 = 1100 - sideIndex * 15;
 
-            // Control point 1: Curve outward to the left
-            const cp1x = 50 + sideIndex * 10;
-            const cp1y = 850 - sideIndex * 40;
+            // Control point 1: Curve down and outward to the left (heart bottom point)
+            const cp1x = 300 - sideIndex * 15;
+            const cp1y = 1050 - sideIndex * 20;
 
             // Control point 2: Arc up the left side
-            const cp2x = 150 + sideIndex * 20;
-            const cp2y = 500 - sideIndex * 30;
+            const cp2x = 100 - sideIndex * 10;
+            const cp2y = 700 - sideIndex * 25;
 
-            // Control point 3: Peak of left lobe (heart's left bump - rounded top)
-            const cp3x = 300 + sideIndex * 25;
-            const cp3y = 180 - sideIndex * 8;
+            // Control point 3: Peak of left lobe (heart's left bump)
+            const cp3x = 200 + sideIndex * 10;
+            const cp3y = 350 - sideIndex * 15;
 
-            // Control point 4: Curve INWARD toward center (creating the dip)
-            const cp4x = 500 + sideIndex * 20;
-            const cp4y = 100 - sideIndex * 3;
+            // Control point 4: Round the top of left lobe
+            const cp4x = 400 + sideIndex * 15;
+            const cp4y = 150 - sideIndex * 10;
 
-            // Control point 5: Sharp inward curve to create heart cleft
-            const cp5x = 650 + sideIndex * 10;
-            const cp5y = 80 - sideIndex * 2;
+            // End: Top center (meeting point, slight offset for heart dip)
+            const x2 = cardCenterX - 100 - sideIndex * 5;
+            const y2 = 200 + sideIndex * 5;
 
-            // End: Center dip point (where heart curves inward at top)
-            const x2 = cardCenterX - (20 + sideIndex * 3);
-            const y2 = 120 + sideIndex * 8;
-
-            // Use full Bezier curve with explicit control points for smooth heart shape
-            return `M ${x1 * scaleX} ${y1 * scaleY} C ${cp1x * scaleX} ${cp1y * scaleY}, ${cp2x * scaleX} ${cp2y * scaleY}, ${cp3x * scaleX} ${cp3y * scaleY} C ${cp4x * scaleX} ${cp4y * scaleY}, ${cp5x * scaleX} ${cp5y * scaleY}, ${x2 * scaleX} ${y2 * scaleY}`;
+            return `M ${x1 * scaleX} ${y1 * scaleY} C ${cp1x * scaleX} ${cp1y * scaleY}, ${cp2x * scaleX} ${cp2y * scaleY}, ${cp3x * scaleX} ${cp3y * scaleY} S ${cp4x * scaleX} ${cp4y * scaleY}, ${x2 * scaleX} ${y2 * scaleY}`;
 
         } else {
-            // RIGHT SIDE OF HEART - flows from bottom-right, curves UP and OUT, then INWARD to heart dip
+            // RIGHT SIDE OF HEART - flows from bottom center, curves RIGHT and UP, then back to top center
 
-            // Start: Bottom center-right
-            const x1 = 1400 - sideIndex * 15;
-            const y1 = 1000 - sideIndex * 20;
+            // Start: Bottom center point
+            const x1 = cardCenterX + 50;
+            const y1 = 1100 - sideIndex * 15;
 
-            // Control point 1: Curve outward to the right
-            const cp1x = 1450 - sideIndex * 10;
-            const cp1y = 850 - sideIndex * 40;
+            // Control point 1: Curve down and outward to the right (heart bottom point)
+            const cp1x = 1200 + sideIndex * 15;
+            const cp1y = 1050 - sideIndex * 20;
 
             // Control point 2: Arc up the right side
-            const cp2x = 1350 - sideIndex * 20;
-            const cp2y = 500 - sideIndex * 30;
+            const cp2x = 1400 + sideIndex * 10;
+            const cp2y = 700 - sideIndex * 25;
 
-            // Control point 3: Peak of right lobe (heart's right bump - rounded top)
-            const cp3x = 1200 - sideIndex * 25;
-            const cp3y = 180 - sideIndex * 8;
+            // Control point 3: Peak of right lobe (heart's right bump)
+            const cp3x = 1300 - sideIndex * 10;
+            const cp3y = 350 - sideIndex * 15;
 
-            // Control point 4: Curve INWARD toward center (creating the dip)
-            const cp4x = 1000 - sideIndex * 20;
-            const cp4y = 100 - sideIndex * 3;
+            // Control point 4: Round the top of right lobe
+            const cp4x = 1100 - sideIndex * 15;
+            const cp4y = 150 - sideIndex * 10;
 
-            // Control point 5: Sharp inward curve to create heart cleft
-            const cp5x = 850 - sideIndex * 10;
-            const cp5y = 80 - sideIndex * 2;
+            // End: Top center (meeting point, slight offset for heart dip)
+            const x2 = cardCenterX + 100 + sideIndex * 5;
+            const y2 = 200 + sideIndex * 5;
 
-            // End: Center dip point (where heart curves inward at top)
-            const x2 = cardCenterX + (20 + sideIndex * 3);
-            const y2 = 120 + sideIndex * 8;
-
-            // Use full Bezier curve with explicit control points for smooth heart shape
-            return `M ${x1 * scaleX} ${y1 * scaleY} C ${cp1x * scaleX} ${cp1y * scaleY}, ${cp2x * scaleX} ${cp2y * scaleY}, ${cp3x * scaleX} ${cp3y * scaleY} C ${cp4x * scaleX} ${cp4y * scaleY}, ${cp5x * scaleX} ${cp5y * scaleY}, ${x2 * scaleX} ${y2 * scaleY}`;
+            return `M ${x1 * scaleX} ${y1 * scaleY} C ${cp1x * scaleX} ${cp1y * scaleY}, ${cp2x * scaleX} ${cp2y * scaleY}, ${cp3x * scaleX} ${cp3y * scaleY} S ${cp4x * scaleX} ${cp4y * scaleY}, ${x2 * scaleX} ${y2 * scaleY}`;
         }
     }
 
