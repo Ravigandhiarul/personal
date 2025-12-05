@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessions Cannabis - Premium Cannabis for Your Community</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --primary-orange: #FF8C42;
+            --primary-dark: #E67429;
+            --text-dark: #1A1A1A;
+            --text-muted: #6C757D;
+            --border-color: #E5E7EB;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+        }
+        
+        /* Utility Top Bar */
+        .utility-bar {
+            background: #F9FAFB;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 13px;
+            padding: 8px 0;
+        }
+        
+        .utility-bar a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 12px;
+        }
+        
+        .utility-bar a:hover {
+            color: var(--primary-orange);
+        }
+        
+        /* Main Header */
+        .main-header {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+        
+        .main-nav {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .main-nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        .main-nav a:hover {
+            color: var(--primary-orange);
+        }
+        
+        .btn-primary-orange {
+            background: var(--primary-orange);
+            border: none;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #FFF8F3 0%, #F0FFFE 100%);
+            padding: 80px 0;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        
+        /* Sections */
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        /* Category Cards */
+        .category-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s;
+            height: 100%;
+        }
+        
+        .category-card:hover {
+            border-color: var(--primary-orange);
+            box-shadow: 0 8px 16px rgba(255, 140, 66, 0.1);
+            transform: translateY(-4px);
+        }
+        
+        .category-icon {
+            font-size: 56px;
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+        }
+        
+        /* Product Cards */
+        .product-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover {
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: #F3F4F6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            background: var(--primary-orange);
+            color: white;
+        }
+        
+        /* Store Card */
+        .store-card {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            background: white;
+        }
+        
+        /* Rewards Section */
+        .rewards-section {
+            background: #1F2937;
+            color: white;
+        }
+        
+        .tier-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+        
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #9CA3AF;
+            padding: 60px 0 30px;
+        }
+        
+        footer h6 {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        
+        footer a {
+            color: #9CA3AF;
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 2;
+        }
+        
+        footer a:hover {
+            color: var(--primary-orange);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Utility Top Bar -->
+    <div class="utility-bar">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <a href="#" class="d-flex align-items-center">
+                        <i class="bi bi-geo-alt-fill me-1"></i>
+                        <strong>Stratford, ON</strong> • Open until 10PM
+                        <i class="bi bi-chevron-down ms-2" style="font-size: 11px;"></i>
+                    </a>
+                </div>
+                
+                <div class="d-flex align-items-center">
+                    <a href="#">Help</a>
+                    <a href="#">Contact</a>
+                    <span class="ms-3">
+                        <a href="#" class="me-2"><i class="bi bi-search fs-6"></i></a>
+                        <a href="#" class="me-2"><i class="bi bi-person fs-6"></i></a>
+                        <a href="#" class="me-2"><i class="bi bi-heart fs-6"></i></a>
+                        <a href="#" class="position-relative">
+                            <i class="bi bi-cart3 fs-6"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 9px;">2</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header sticky-top">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#" class="navbar-brand">
+                    <i class="bi bi-circle-fill" style="color: #FF8C42; font-size: 16px;"></i>
+                    <span class="ms-2">Sessions</span>
+                </a>
+                
+                <nav>
+                    <ul class="main-nav">
+                        <li><a href="#">Shop <i class="bi bi-chevron-down" style="font-size: 11px;"></i></a></li>
+                        <li><a href="#">Deals</a></li>
+                        <li><a href="#">Learn</a></li>
+                        <li><a href="#">Locations</a></li>
+                        <li><a href="#">Rewards</a></li>
+                    </ul>
+                </nav>
+                
+                <button class="btn btn-primary-orange">Order Now</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>Premium Cannabis<br>for Your Community</h1>
+                    <p class="lead text-muted mb-4">Delivery & Pickup • Expert Guidance • Trusted Quality</p>
+                    <div class="d-flex gap-3 mb-4">
+                        <button class="btn btn-primary-orange btn-lg">
+                            <i class="bi bi-truck me-2"></i>
+                            Order for Delivery
+                        </button>
+                        <button class="btn btn-outline-dark btn-lg">
+                            <i class="bi bi-bag-check me-2"></i>
+                            Schedule Pickup
+                        </button>
+                    </div>
+                    <div class="d-flex align-items-center gap-3" style="font-size: 14px;">
+                        <div>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <span class="ms-1 text-muted">Rated 4.9/5 from 2,347 customers</span>
+                        </div>
+                    </div>
+                    <div class="mt-3" style="font-size: 14px; color: var(--text-muted);">
+                        <i class="bi bi-truck me-1"></i>
+                        Same-day delivery on orders before 3 PM
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="p-5" style="background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.06);">
+                        <i class="bi bi-flower1" style="font-size: 200px; color: #E5E7EB;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Props -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <i class="bi bi-mortarboard-fill" style="font-size: 48px; color: var(--primary-orange);"></i>
+                    <h6 class="mt-3 fw-semibold">Expert Guidance</h6>
+                    <p class="text-muted small mb-0">Knowledgeable budtenders trained to help you find the right products</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="bi bi-arrow-counterclockwise" style="font-size: 48px; color: var(--primary-orange);"></i>
+                    <h6 class="mt-3 fw-semibold">30 Days Return</h6>
+                    <p class="text-muted small mb-0">We offer you a full refund within 30 days of purchase</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="bi bi-truck" style="font-size: 48px; color: var(--primary-orange);"></i>
+                    <h6 class="mt-3 fw-semibold">Free Shipping</h6>
+                    <p class="text-muted small mb-0">Automatically receive free delivery on orders over $50</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop By Category -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Explore Our Selection</h2>
+                <p class="text-muted">Find what you're looking for</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="bi bi-flower1"></i></div>
+                        <h5 class="fw-semibold">Flower</h5>
+                        <p class="text-muted mb-1">300+ strains</p>
+                        <p class="small text-muted">Sativa, Indica, Hybrid</p>
+                        <a href="#" class="btn btn-sm btn-outline-dark rounded-pill mt-2">Shop Flower</a>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="bi bi-droplet-fill"></i></div>
+                        <h5 class="fw-semibold">Concentrates</h5>
+                        <p class="text-muted mb-1">150+ options</p>
+                        <p class="small text-muted">Vapes, oils, dabs</p>
+                        <a href="#" class="btn btn-sm btn-outline-dark rounded-pill mt-2">Shop Concentrates</a>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="bi bi-cake2-fill"></i></div>
+                        <h5 class="fw-semibold">Edibles</h5>
+                        <p class="text-muted mb-1">200+ products</p>
+                        <p class="small text-muted">Gummies, chocolates</p>
+                        <a href="#" class="btn btn-sm btn-outline-dark rounded-pill mt-2">Shop Edibles</a>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="bi bi-capsule-pill"></i></div>
+                        <h5 class="fw-semibold">Wellness</h5>
+                        <p class="text-muted mb-1">75+ products</p>
+                        <p class="small text-muted">CBD oils, capsules</p>
+                        <a href="#" class="btn btn-sm btn-outline-dark rounded-pill mt-2">Shop Wellness</a>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="bi bi-pencil-fill"></i></div>
+                        <h5 class="fw-semibold">Pre-Rolls</h5>
+                        <p class="text-muted mb-1">125+ varieties</p>
+                        <p class="small text-muted">Singles, packs, infused</p>
+                        <a href="#" class="btn btn-sm btn-outline-dark rounded-pill mt-2">Shop Pre-Rolls</a>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="bi bi-tools"></i></div>
+                        <h5 class="fw-semibold">Accessories</h5>
+                        <p class="text-muted mb-1">Everything you need</p>
+                        <p class="small text-muted">Grinders, papers, storage</p>
+                        <a href="#" class="btn btn-sm btn-outline-dark rounded-pill mt-2">Shop Accessories</a>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="bi bi-gift-fill"></i></div>
+                        <h5 class="fw-semibold">Gift Sets</h5>
+                        <p class="text-muted mb-1">Ready to give</p>
+                        <p class="small text-muted">Curated bundles</p>
+                        <a href="#" class="btn btn-sm btn-outline-dark rounded-pill mt-2">Shop Gifts</a>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                        <h5 class="fw-semibold">Deals Zone</h5>
+                        <p class="text-muted mb-1">Save big today</p>
+                        <p class="small text-muted">Limited time offers</p>
+                        <a href="#" class="btn btn-sm btn-outline-dark rounded-pill mt-2">View All Deals</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="section-title text-start mb-0">
+                    <h2><i class="bi bi-fire text-danger me-2"></i>Trending Now</h2>
+                </div>
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-outline-secondary active">Trending</button>
+                    <button class="btn btn-outline-secondary">New Arrivals</button>
+                    <button class="btn btn-outline-secondary">Staff Picks</button>
+                    <button class="btn btn-outline-secondary">On Sale</button>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Product 1 -->
+                <div class="col-6 col-md-3">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge"><i class="bi bi-fire"></i> POPULAR</span>
+                            <i class="bi bi-flower1" style="font-size: 80px; color: #E5E7EB;"></i>
+                        </div>
+                        <div class="p-3">
+                            <div class="mb-2">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <span class="small text-muted ms-1">4.8 (234)</span>
+                            </div>
+                            <p class="small text-muted mb-1">Sticky Greens</p>
+                            <h6 class="fw-semibold mb-2">Jet Greens Gelato</h6>
+                            <div class="d-flex gap-2 mb-2 small text-muted">
+                                <span><i class="bi bi-flower1"></i> Indica</span>
+                                <span><i class="bi bi-lightning-fill"></i> THC 23%</span>
+                            </div>
+                            <div class="mb-3">
+                                <span class="h5 fw-bold" style="color: var(--primary-orange);">$33.47</span>
+                                <span class="small text-decoration-line-through text-muted ms-2">$44.62</span>
+                            </div>
+                            <button class="btn btn-outline-dark btn-sm w-100">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="col-6 col-md-3">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge bg-success"><i class="bi bi-stars"></i> NEW</span>
+                            <i class="bi bi-flower1" style="font-size: 80px; color: #E5E7EB;"></i>
+                        </div>
+                        <div class="p-3">
+                            <div class="mb-2">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <span class="small text-muted ms-1">4.9 (189)</span>
+                            </div>
+                            <p class="small text-muted mb-1">Pure Sunfarms</p>
+                            <h6 class="fw-semibold mb-2">Pink Kush</h6>
+                            <div class="d-flex gap-2 mb-2 small text-muted">
+                                <span><i class="bi bi-flower1"></i> Indica</span>
+                                <span><i class="bi bi-lightning-fill"></i> THC 20%</span>
+                            </div>
+                            <div class="mb-3">
+                                <span class="h5 fw-bold" style="color: var(--primary-orange);">$41.37</span>
+                            </div>
+                            <button class="btn btn-outline-dark btn-sm w-100">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="col-6 col-md-3">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge bg-info"><i class="bi bi-hand-thumbs-up-fill"></i> STAFF PICK</span>
+                            <i class="bi bi-flower1" style="font-size: 80px; color: #E5E7EB;"></i>
+                        </div>
+                        <div class="p-3">
+                            <div class="mb-2">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star"></i>
+                                <span class="small text-muted ms-1">4.6 (567)</span>
+                            </div>
+                            <p class="small text-muted mb-1">KOHO</p>
+                            <h6 class="fw-semibold mb-2">Highlighters</h6>
+                            <div class="d-flex gap-2 mb-2 small text-muted">
+                                <span><i class="bi bi-arrow-left-right"></i> Hybrid</span>
+                                <span><i class="bi bi-lightning-fill"></i> THC 30%</span>
+                            </div>
+                            <div class="mb-3">
+                                <span class="h5 fw-bold" style="color: var(--primary-orange);">$33.47</span>
+                            </div>
+                            <button class="btn btn-outline-dark btn-sm w-100">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="col-6 col-md-3">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="bi bi-flower1" style="font-size: 80px; color: #E5E7EB;"></i>
+                        </div>
+                        <div class="p-3">
+                            <div class="mb-2">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <span class="small text-muted ms-1">4.7 (423)</span>
+                            </div>
+                            <p class="small text-muted mb-1">Edison</p>
+                            <h6 class="fw-semibold mb-2">Ice Cream Cake</h6>
+                            <div class="d-flex gap-2 mb-2 small text-muted">
+                                <span><i class="bi bi-flower1"></i> Indica</span>
+                                <span><i class="bi bi-lightning-fill"></i> THC 25%</span>
+                            </div>
+                            <div class="mb-3">
+                                <span class="h5 fw-bold" style="color: var(--primary-orange);">$38.99</span>
+                            </div>
+                            <button class="btn btn-outline-dark btn-sm w-100">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <button class="btn btn-outline-dark btn-lg px-5">View All Products <i class="bi bi-arrow-right ms-2"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rewards Program -->
+    <section class="rewards-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-gem display-4 text-warning me-3"></i>
+                        <div>
+                            <h2 class="fw-bold mb-1">Sessions Rewards</h2>
+                            <p class="mb-0">A More Rewarding Way to Shop Cannabis</p>
+                        </div>
+                    </div>
+                    
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Earn 1 point for every $1 spent</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Exclusive member deals and early access</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Birthday month bonus (10% off)</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Free to join, instant benefits</li>
+                    </ul>
+                    
+                    <button class="btn btn-warning btn-lg px-4 me-3"><i class="bi bi-star-fill me-2"></i> JOIN NOW - FREE</button>
+                    <button class="btn btn-outline-light btn-lg px-4">Learn More</button>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-4">
+                            <div class="tier-card" style="background: #6B7280;">
+                                <i class="bi bi-circle display-6"></i>
+                                <h6 class="mt-2 mb-1">SILVER</h6>
+                                <small>0-499 pts</small>
+                                <hr style="border-color: rgba(255,255,255,0.2);">
+                                <small>5% Birthday Bonus</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="tier-card" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #000;">
+                                <i class="bi bi-circle-fill display-6"></i>
+                                <h6 class="mt-2 mb-1">GOLD</h6>
+                                <small>500-999 pts</small>
+                                <hr style="border-color: rgba(0,0,0,0.2);">
+                                <small>10% Birthday<br>+ Free Delivery</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="tier-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                <i class="bi bi-gem display-6"></i>
+                                <h6 class="mt-2 mb-1">PLATINUM</h6>
+                                <small>1000+ pts</small>
+                                <hr style="border-color: rgba(255,255,255,0.2);">
+                                <small>15% Birthday<br>+ VIP Events</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Locator -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="bi bi-geo-alt-fill" style="color: var(--primary-orange);"></i> Visit Us in Your Community</h2>
+                <p class="text-muted">40+ Locations Across Ontario</p>
+            </div>
+            
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="store-card">
+                        <h5 class="fw-bold mb-3">
+                            <i class="bi bi-geo-alt-fill me-2" style="color: var(--primary-orange);"></i>
+                            Sessions Stratford
+                        </h5>
+                        <p class="text-muted small mb-3">123 Front St E, Unit 4, Stratford, ON N7G 1Y5</p>
+                        
+                        <div class="d-flex gap-3 mb-3 small">
+                            <span><i class="bi bi-clock-fill me-1" style="color: var(--primary-orange);"></i> <strong>TODAY:</strong> 9:00 AM - 10:00 PM</span>
+                            <span><i class="bi bi-telephone-fill me-1" style="color: var(--primary-orange);"></i> (226) 728-6188</span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <p class="small fw-semibold mb-2">Services Available:</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge bg-light text-dark border"><i class="bi bi-check-circle-fill text-success me-1"></i> Same-Day Delivery</span>
+                                <span class="badge bg-light text-dark border"><i class="bi bi-check-circle-fill text-success me-1"></i> Express Pickup</span>
+                                <span class="badge bg-light text-dark border"><i class="bi bi-check-circle-fill text-success me-1"></i> In-Store Shopping</span>
+                                <span class="badge bg-light text-dark border"><i class="bi bi-check-circle-fill text-success me-1"></i> Wheelchair Accessible</span>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-secondary btn-sm flex-fill"><i class="bi bi-map me-1"></i> Get Directions</button>
+                            <button class="btn btn-primary-orange btn-sm flex-fill"><i class="bi bi-shop me-1"></i> Shop This Location</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="store-card">
+                        <h5 class="fw-bold mb-3">
+                            <i class="bi bi-geo-alt-fill me-2" style="color: var(--primary-orange);"></i>
+                            Sessions London
+                        </h5>
+                        <p class="text-muted small mb-3">456 Wellington Rd, London, ON N6C 4R5</p>
+                        
+                        <div class="d-flex gap-3 mb-3 small">
+                            <span><i class="bi bi-clock-fill me-1" style="color: var(--primary-orange);"></i> <strong>TODAY:</strong> 9:00 AM - 11:00 PM</span>
+                            <span><i class="bi bi-telephone-fill me-1" style="color: var(--primary-orange);"></i> (519) 555-0123</span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <p class="small fw-semibold mb-2">Services Available:</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge bg-light text-dark border"><i class="bi bi-check-circle-fill text-success me-1"></i> Same-Day Delivery</span>
+                                <span class="badge bg-light text-dark border"><i class="bi bi-check-circle-fill text-success me-1"></i> Express Pickup</span>
+                                <span class="badge bg-light text-dark border"><i class="bi bi-check-circle-fill text-success me-1"></i> Curbside Available</span>
+                                <span class="badge bg-light text-dark border"><i class="bi bi-check-circle-fill text-success me-1"></i> Free Parking</span>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-secondary btn-sm flex-fill"><i class="bi bi-map me-1"></i> Get Directions</button>
+                            <button class="btn btn-primary-orange btn-sm flex-fill"><i class="bi bi-shop me-1"></i> Shop This Location</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button class="btn btn-outline-dark btn-lg">View All 40+ Locations <i class="bi bi-arrow-right ms-2"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <h3 class="fw-bold mb-2"><i class="bi bi-envelope-fill me-2"></i> Stay in the Know</h3>
+                    <p class="text-muted mb-0">Get exclusive deals, new product alerts, and cannabis tips delivered to your inbox</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group mb-2">
+                        <input type="email" class="form-control" placeholder="Your email address" style="height: 48px;">
+                        <button class="btn btn-primary-orange px-4">Subscribe</button>
+                    </div>
+                    <small class="text-muted">
+                        <i class="bi bi-check-circle me-1"></i> 10% off your first order
+                        <span class="mx-2">•</span>
+                        <i class="bi bi-check-circle me-1"></i> No spam, unsubscribe anytime
+                    </small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-md-3">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-circle-fill" style="color: #FF8C42; font-size: 16px;"></i>
+                        <span class="ms-2 text-white fw-bold" style="font-size: 20px;">Sessions</span>
+                    </div>
+                    <p style="font-size: 14px;">Rooted in community, elevated cannabis & connections</p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="#"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#"><i class="bi bi-twitter-x fs-5"></i></a>
+                        <a href="#"><i class="bi bi-tiktok fs-5"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-2">
+                    <h6>SHOP</h6>
+                    <div class="d-flex flex-column">
+                        <a href="#">Flower</a>
+                        <a href="#">Edibles</a>
+                        <a href="#">Concentrates</a>
+                        <a href="#">Pre-Rolls</a>
+                        <a href="#">Accessories</a>
+                        <a href="#">Gift Cards</a>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-2">
+                    <h6>LEARN</h6>
+                    <div class="d-flex flex-column">
+                        <a href="#">Cannabis 101</a>
+                        <a href="#">Effects Guide</a>
+                        <a href="#">Consumption</a>
+                        <a href="#">Dosage Guide</a>
+                        <a href="#">Blog</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-2">
+                    <h6>ABOUT</h6>
+                    <div class="d-flex flex-column">
+                        <a href="#">Our Story</a>
+                        <a href="#">Locations</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Community</a>
+                        <a href="#">Press</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-3">
+                    <h6>SUPPORT</h6>
+                    <div class="d-flex flex-column">
+                        <a href="#">Help Center</a>
+                        <a href="#">Shipping</a>
+                        <a href="#">Returns</a>
+                        <a href="#">Track Order</a>
+                        <a href="#">My Account</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-4 pb-3" style="border-top: 1px solid #374151;">
+                <div class="row">
+                    <div class="col-md-6 mb-2 mb-md-0">
+                        <p class="mb-1 small">
+                            <i class="bi bi-shield-fill-check me-2"></i>
+                            Licensed by: Ontario Cannabis Retail Corporation
+                        </p>
+                        <p class="mb-0 small">© 2025 Sessions Cannabis. All rights reserved. Must be 19+ to purchase.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="#" class="me-3 small">Privacy Policy</a>
+                        <a href="#" class="me-3 small">Terms of Service</a>
+                        <a href="#" class="small">Accessibility</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,796 @@
+# Sessions Cannabis Final HTML - Content Logic Extraction
+# This YAML documents all content, structure, and design patterns from sessions-cannabis-final.html
+
+meta:
+  page_title: "Sessions Cannabis - Premium Cannabis for Your Community"
+  description: "Complete content logic extraction from sessions-cannabis-final.html"
+  framework: "Bootstrap 5.3.0"
+  icon_library: "Bootstrap Icons 1.11.0"
+
+# ==========================================
+# COLOR SYSTEM & DESIGN TOKENS
+# ==========================================
+design_system:
+  colors:
+    primary_orange:
+      variable: "--primary-orange"
+      value: "#FF8C42"
+      usage: "Primary brand color, CTAs, highlights"
+
+    primary_dark:
+      variable: "--primary-dark"
+      value: "#E67429"
+      usage: "Hover states, darker orange variant"
+
+    text_dark:
+      variable: "--text-dark"
+      value: "#1A1A1A"
+      usage: "Primary text color"
+
+    text_muted:
+      variable: "--text-muted"
+      value: "#6C757D"
+      usage: "Secondary text, metadata"
+
+    border_color:
+      variable: "--border-color"
+      value: "#E5E7EB"
+      usage: "Card borders, dividers"
+
+    background_gradient_hero:
+      value: "linear-gradient(135deg, #FFF8F3 0%, #F0FFFE 100%)"
+      usage: "Hero section background"
+
+    background_light:
+      value: "#F9FAFB"
+      usage: "Utility bar background"
+
+    background_dark:
+      value: "#1F2937"
+      usage: "Rewards section background"
+
+    footer_background:
+      value: "#111827"
+      usage: "Footer background"
+
+  typography:
+    font_family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+    headings:
+      h1:
+        size: "48px"
+        weight: 700
+        line_height: 1.2
+      h2:
+        size: "36px"
+        weight: 700
+        margin_bottom: "12px"
+      h5:
+        weight: 600
+      h6:
+        size: "14px"
+        weight: 600
+        transform: "uppercase"
+    body:
+      default_size: "15px"
+      weight: 500
+    small:
+      size: "13px"
+
+# ==========================================
+# HEADER STRUCTURE
+# ==========================================
+header:
+  utility_bar:
+    background: "#F9FAFB"
+    border: "1px solid var(--border-color)"
+    padding: "8px 0"
+    font_size: "13px"
+
+    left_section:
+      location_selector:
+        icon: "bi bi-geo-alt-fill"
+        location: "Stratford, ON"
+        status: "Open until 10PM"
+        dropdown_icon: "bi bi-chevron-down"
+
+    right_section:
+      links:
+        - text: "Help"
+          href: "#"
+        - text: "Contact"
+          href: "#"
+      icons:
+        - icon: "bi bi-search"
+          label: "Search"
+        - icon: "bi bi-person"
+          label: "Account"
+        - icon: "bi bi-heart"
+          label: "Wishlist"
+        - icon: "bi bi-cart3"
+          label: "Cart"
+          badge: 2
+
+  main_header:
+    sticky: true
+    background: "white"
+    padding: "20px 0"
+    border: "1px solid var(--border-color)"
+
+    brand:
+      logo_icon: "bi bi-circle-fill"
+      logo_color: "#FF8C42"
+      name: "Sessions"
+      font_size: "24px"
+      font_weight: 700
+
+    navigation:
+      - label: "Shop"
+        href: "#"
+        has_dropdown: true
+        dropdown_icon: "bi bi-chevron-down"
+      - label: "Deals"
+        href: "#"
+      - label: "Learn"
+        href: "#"
+      - label: "Locations"
+        href: "#"
+      - label: "Rewards"
+        href: "#"
+
+    cta_button:
+      text: "Order Now"
+      class: "btn btn-primary-orange"
+      style: "primary orange"
+
+# ==========================================
+# HERO SECTION
+# ==========================================
+hero_section:
+  background: "linear-gradient(135deg, #FFF8F3 0%, #F0FFFE 100%)"
+  padding: "80px 0"
+
+  content:
+    headline: "Premium Cannabis for Your Community"
+    subheadline: "Delivery & Pickup • Expert Guidance • Trusted Quality"
+
+    cta_buttons:
+      primary:
+        text: "Order for Delivery"
+        icon: "bi bi-truck"
+        class: "btn btn-primary-orange btn-lg"
+      secondary:
+        text: "Schedule Pickup"
+        icon: "bi bi-bag-check"
+        class: "btn btn-outline-dark btn-lg"
+
+    social_proof:
+      rating:
+        stars: 5
+        score: "4.9/5"
+        reviews_count: 2347
+        text: "Rated 4.9/5 from 2,347 customers"
+
+    delivery_promise:
+      icon: "bi bi-truck"
+      text: "Same-day delivery on orders before 3 PM"
+
+  visual:
+    placeholder_icon: "bi bi-flower1"
+    icon_size: "200px"
+    icon_color: "#E5E7EB"
+    container_style: "white background, rounded corners, subtle shadow"
+
+# ==========================================
+# VALUE PROPOSITIONS
+# ==========================================
+value_propositions:
+  section_background: "white"
+  padding: "py-5"
+  layout: "3 columns, centered text"
+
+  items:
+    - icon: "bi bi-mortarboard-fill"
+      icon_size: "48px"
+      icon_color: "var(--primary-orange)"
+      title: "Expert Guidance"
+      description: "Knowledgeable budtenders trained to help you find the right products"
+
+    - icon: "bi bi-arrow-counterclockwise"
+      icon_size: "48px"
+      icon_color: "var(--primary-orange)"
+      title: "30 Days Return"
+      description: "We offer you a full refund within 30 days of purchase"
+
+    - icon: "bi bi-truck"
+      icon_size: "48px"
+      icon_color: "var(--primary-orange)"
+      title: "Free Shipping"
+      description: "Automatically receive free delivery on orders over $50"
+
+# ==========================================
+# PRODUCT CATEGORIES
+# ==========================================
+product_categories:
+  section_title: "Explore Our Selection"
+  section_subtitle: "Find what you're looking for"
+  section_background: "#f8f9fa"
+
+  categories:
+    - name: "Flower"
+      icon: "bi bi-flower1"
+      product_count: "300+ strains"
+      subtitle: "Sativa, Indica, Hybrid"
+      cta_text: "Shop Flower"
+
+    - name: "Concentrates"
+      icon: "bi bi-droplet-fill"
+      product_count: "150+ options"
+      subtitle: "Vapes, oils, dabs"
+      cta_text: "Shop Concentrates"
+
+    - name: "Edibles"
+      icon: "bi bi-cake2-fill"
+      product_count: "200+ products"
+      subtitle: "Gummies, chocolates"
+      cta_text: "Shop Edibles"
+
+    - name: "Wellness"
+      icon: "bi bi-capsule-pill"
+      product_count: "75+ products"
+      subtitle: "CBD oils, capsules"
+      cta_text: "Shop Wellness"
+
+    - name: "Pre-Rolls"
+      icon: "bi bi-pencil-fill"
+      product_count: "125+ varieties"
+      subtitle: "Singles, packs, infused"
+      cta_text: "Shop Pre-Rolls"
+
+    - name: "Accessories"
+      icon: "bi bi-tools"
+      product_count: "Everything you need"
+      subtitle: "Grinders, papers, storage"
+      cta_text: "Shop Accessories"
+
+    - name: "Gift Sets"
+      icon: "bi bi-gift-fill"
+      product_count: "Ready to give"
+      subtitle: "Curated bundles"
+      cta_text: "Shop Gifts"
+
+    - name: "Deals Zone"
+      icon: "bi bi-lightning-charge-fill"
+      product_count: "Save big today"
+      subtitle: "Limited time offers"
+      cta_text: "View All Deals"
+
+  card_design:
+    background: "white"
+    border: "1px solid var(--border-color)"
+    border_radius: "12px"
+    padding: "32px 24px"
+    text_align: "center"
+    hover_effect: "border color change to orange, shadow, translateY(-4px)"
+    icon_size: "56px"
+    icon_color: "var(--primary-orange)"
+
+# ==========================================
+# FEATURED PRODUCTS
+# ==========================================
+featured_products:
+  section_title: "🔥 Trending Now"
+
+  filter_tabs:
+    - "Trending" # Active by default
+    - "New Arrivals"
+    - "Staff Picks"
+    - "On Sale"
+
+  products:
+    product_1:
+      brand: "Sticky Greens"
+      name: "Jet Greens Gelato"
+      category: "Indica"
+      thc_content: "23%"
+      price: 33.47
+      original_price: 44.62
+      discount: true
+      rating: 4.8
+      reviews_count: 234
+      badge:
+        text: "POPULAR"
+        icon: "bi bi-fire"
+        color: "var(--primary-orange)"
+
+    product_2:
+      brand: "Pure Sunfarms"
+      name: "Pink Kush"
+      category: "Indica"
+      thc_content: "20%"
+      price: 41.37
+      rating: 4.9
+      reviews_count: 189
+      badge:
+        text: "NEW"
+        icon: "bi bi-stars"
+        color: "green"
+
+    product_3:
+      brand: "KOHO"
+      name: "Highlighters"
+      category: "Hybrid"
+      thc_content: "30%"
+      price: 33.47
+      rating: 4.6
+      reviews_count: 567
+      badge:
+        text: "STAFF PICK"
+        icon: "bi bi-hand-thumbs-up-fill"
+        color: "info"
+
+    product_4:
+      brand: "Edison"
+      name: "Ice Cream Cake"
+      category: "Indica"
+      thc_content: "25%"
+      price: 38.99
+      rating: 4.7
+      reviews_count: 423
+      badge: null
+
+  product_card_structure:
+    image_section:
+      height: "280px"
+      background: "#F3F4F6"
+      placeholder_icon: "bi bi-flower1"
+      placeholder_size: "80px"
+      badge_position: "top-left"
+
+    content_section:
+      rating_display: "star icons + score + review count"
+      brand_style: "small, muted text"
+      product_name: "h6, semibold"
+      metadata:
+        - strain_type: "icon + text"
+        - thc_content: "icon + percentage"
+      pricing:
+        current_price: "h5, bold, orange color"
+        original_price: "small, strikethrough, muted (if discounted)"
+      cta_button: "Add to cart - outline dark style, full width"
+
+    hover_effects:
+      - "box-shadow: 0 12px 24px rgba(0,0,0,0.08)"
+      - "transform: translateY(-4px)"
+
+  view_all_cta:
+    text: "View All Products"
+    icon: "bi bi-arrow-right"
+    class: "btn btn-outline-dark btn-lg"
+
+# ==========================================
+# REWARDS PROGRAM
+# ==========================================
+rewards_program:
+  section_background: "#1F2937"
+  section_color: "white"
+  padding: "py-5"
+
+  header:
+    icon: "bi bi-gem"
+    icon_size: "display-4"
+    icon_color: "text-warning"
+    title: "Sessions Rewards"
+    subtitle: "A More Rewarding Way to Shop Cannabis"
+
+  benefits:
+    - text: "Earn 1 point for every $1 spent"
+      icon: "bi bi-check-circle-fill text-success"
+    - text: "Exclusive member deals and early access"
+      icon: "bi bi-check-circle-fill text-success"
+    - text: "Birthday month bonus (10% off)"
+      icon: "bi bi-check-circle-fill text-success"
+    - text: "Free to join, instant benefits"
+      icon: "bi bi-check-circle-fill text-success"
+
+  cta_buttons:
+    primary:
+      text: "JOIN NOW - FREE"
+      icon: "bi bi-star-fill"
+      class: "btn btn-warning btn-lg"
+    secondary:
+      text: "Learn More"
+      class: "btn btn-outline-light btn-lg"
+
+  tiers:
+    silver:
+      icon: "bi bi-circle"
+      name: "SILVER"
+      points_range: "0-499 pts"
+      benefits: "5% Birthday Bonus"
+      background: "#6B7280"
+      color: "white"
+
+    gold:
+      icon: "bi bi-circle-fill"
+      name: "GOLD"
+      points_range: "500-999 pts"
+      benefits: "10% Birthday + Free Delivery"
+      background: "linear-gradient(135deg, #FFD700 0%, #FFA500 100%)"
+      color: "black"
+
+    platinum:
+      icon: "bi bi-gem"
+      name: "PLATINUM"
+      points_range: "1000+ pts"
+      benefits: "15% Birthday + VIP Events"
+      background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      color: "white"
+
+# ==========================================
+# STORE LOCATOR
+# ==========================================
+store_locator:
+  section_title: "📍 Visit Us in Your Community"
+  section_subtitle: "40+ Locations Across Ontario"
+  section_background: "#f8f9fa"
+
+  stores:
+    stratford:
+      name: "Sessions Stratford"
+      address: "123 Front St E, Unit 4, Stratford, ON N7G 1Y5"
+      phone: "(226) 728-6188"
+      hours_today: "9:00 AM - 10:00 PM"
+      services:
+        - name: "Same-Day Delivery"
+          icon: "bi bi-check-circle-fill text-success"
+        - name: "Express Pickup"
+          icon: "bi bi-check-circle-fill text-success"
+        - name: "In-Store Shopping"
+          icon: "bi bi-check-circle-fill text-success"
+        - name: "Wheelchair Accessible"
+          icon: "bi bi-check-circle-fill text-success"
+      buttons:
+        - text: "Get Directions"
+          icon: "bi bi-map"
+          class: "btn btn-outline-secondary btn-sm"
+        - text: "Shop This Location"
+          icon: "bi bi-shop"
+          class: "btn btn-primary-orange btn-sm"
+
+    london:
+      name: "Sessions London"
+      address: "456 Wellington Rd, London, ON N6C 4R5"
+      phone: "(519) 555-0123"
+      hours_today: "9:00 AM - 11:00 PM"
+      services:
+        - name: "Same-Day Delivery"
+          icon: "bi bi-check-circle-fill text-success"
+        - name: "Express Pickup"
+          icon: "bi bi-check-circle-fill text-success"
+        - name: "Curbside Available"
+          icon: "bi bi-check-circle-fill text-success"
+        - name: "Free Parking"
+          icon: "bi bi-check-circle-fill text-success"
+      buttons:
+        - text: "Get Directions"
+          icon: "bi bi-map"
+          class: "btn btn-outline-secondary btn-sm"
+        - text: "Shop This Location"
+          icon: "bi bi-shop"
+          class: "btn btn-primary-orange btn-sm"
+
+  store_card_design:
+    background: "white"
+    border: "1px solid var(--border-color)"
+    border_radius: "12px"
+    padding: "24px"
+
+  view_all_cta:
+    text: "View All 40+ Locations"
+    icon: "bi bi-arrow-right"
+    class: "btn btn-outline-dark btn-lg"
+
+# ==========================================
+# NEWSLETTER SIGNUP
+# ==========================================
+newsletter:
+  section_padding: "py-5"
+
+  content:
+    icon: "bi bi-envelope-fill"
+    headline: "Stay in the Know"
+    description: "Get exclusive deals, new product alerts, and cannabis tips delivered to your inbox"
+
+  form:
+    input_placeholder: "Your email address"
+    input_height: "48px"
+    button_text: "Subscribe"
+    button_class: "btn btn-primary-orange"
+
+  incentives:
+    - icon: "bi bi-check-circle"
+      text: "10% off your first order"
+    - icon: "bi bi-check-circle"
+      text: "No spam, unsubscribe anytime"
+
+# ==========================================
+# FOOTER
+# ==========================================
+footer:
+  background: "#111827"
+  color: "#9CA3AF"
+  padding: "60px 0 30px"
+
+  brand_section:
+    logo_icon: "bi bi-circle-fill"
+    logo_color: "#FF8C42"
+    brand_name: "Sessions"
+    tagline: "Rooted in community, elevated cannabis & connections"
+    social_links:
+      - icon: "bi bi-instagram"
+        platform: "Instagram"
+      - icon: "bi bi-facebook"
+        platform: "Facebook"
+      - icon: "bi bi-twitter-x"
+        platform: "Twitter"
+      - icon: "bi bi-tiktok"
+        platform: "TikTok"
+
+  navigation_columns:
+    shop:
+      title: "SHOP"
+      links:
+        - "Flower"
+        - "Edibles"
+        - "Concentrates"
+        - "Pre-Rolls"
+        - "Accessories"
+        - "Gift Cards"
+
+    learn:
+      title: "LEARN"
+      links:
+        - "Cannabis 101"
+        - "Effects Guide"
+        - "Consumption"
+        - "Dosage Guide"
+        - "Blog"
+        - "FAQ"
+
+    about:
+      title: "ABOUT"
+      links:
+        - "Our Story"
+        - "Locations"
+        - "Careers"
+        - "Community"
+        - "Press"
+        - "Contact"
+
+    support:
+      title: "SUPPORT"
+      links:
+        - "Help Center"
+        - "Shipping"
+        - "Returns"
+        - "Track Order"
+        - "My Account"
+
+  legal_section:
+    border_top: "1px solid #374151"
+    padding: "pt-4 pb-3"
+
+    left_content:
+      license_info:
+        icon: "bi bi-shield-fill-check"
+        text: "Licensed by: Ontario Cannabis Retail Corporation"
+      copyright: "© 2025 Sessions Cannabis. All rights reserved. Must be 19+ to purchase."
+
+    right_content:
+      links:
+        - "Privacy Policy"
+        - "Terms of Service"
+        - "Accessibility"
+
+# ==========================================
+# UI PATTERNS & COMPONENTS
+# ==========================================
+ui_patterns:
+  buttons:
+    primary_orange:
+      background: "var(--primary-orange)"
+      border: "none"
+      color: "white"
+      padding: "10px 24px"
+      border_radius: "6px"
+      font_weight: 600
+      font_size: "14px"
+
+    outline_dark:
+      background: "transparent"
+      border: "1px solid #1A1A1A"
+      color: "#1A1A1A"
+      hover: "background fill with dark color"
+
+    outline_secondary:
+      background: "transparent"
+      border: "1px solid #6C757D"
+
+  cards:
+    category_card:
+      background: "white"
+      border: "1px solid var(--border-color)"
+      border_radius: "12px"
+      padding: "32px 24px"
+      text_align: "center"
+      hover:
+        border_color: "var(--primary-orange)"
+        box_shadow: "0 8px 16px rgba(255, 140, 66, 0.1)"
+        transform: "translateY(-4px)"
+
+    product_card:
+      background: "white"
+      border: "1px solid var(--border-color)"
+      border_radius: "12px"
+      overflow: "hidden"
+      hover:
+        box_shadow: "0 12px 24px rgba(0,0,0,0.08)"
+        transform: "translateY(-4px)"
+
+    store_card:
+      background: "white"
+      border: "1px solid var(--border-color)"
+      border_radius: "12px"
+      padding: "24px"
+
+  badges:
+    product_badge:
+      position: "absolute top-left"
+      padding: "6px 12px"
+      border_radius: "6px"
+      font_size: "12px"
+      font_weight: 600
+      variations:
+        - type: "popular"
+          background: "var(--primary-orange)"
+          color: "white"
+        - type: "new"
+          background: "green"
+          color: "white"
+        - type: "staff_pick"
+          background: "info blue"
+          color: "white"
+
+    service_badge:
+      background: "#F9FAFB"
+      border: "1px solid var(--border-color)"
+      color: "#1A1A1A"
+      icon_color: "green"
+
+  icons:
+    size_small: "11px"
+    size_default: "16px"
+    size_large: "48px"
+    size_xlarge: "56px"
+    size_display: "200px"
+
+  spacing:
+    section_padding: "py-5" # 3rem (80px)
+    card_gap: "g-4" # 1.5rem
+    button_gap: "gap-3" # 1rem
+
+  transitions:
+    default: "all 0.3s"
+    hover_transform: "translateY(-4px)"
+
+# ==========================================
+# CONTENT HIERARCHY
+# ==========================================
+content_hierarchy:
+  primary_messaging:
+    - "Premium Cannabis for Your Community"
+    - "Delivery & Pickup • Expert Guidance • Trusted Quality"
+    - "Rated 4.9/5 from 2,347 customers"
+
+  value_propositions:
+    - "Expert Guidance"
+    - "30 Days Return"
+    - "Free Shipping on $50+"
+    - "Same-day delivery before 3 PM"
+
+  product_categories:
+    count: 8
+    emphasis: "Flower, Concentrates, Edibles (top 3)"
+
+  calls_to_action:
+    primary: "Order for Delivery"
+    secondary: "Schedule Pickup"
+    tertiary: "Join Rewards Program"
+
+  trust_signals:
+    - "Licensed by Ontario Cannabis Retail Corporation"
+    - "Must be 19+ to purchase"
+    - "40+ Locations"
+    - "2,347+ customer reviews"
+    - "4.9/5 rating"
+
+# ==========================================
+# CONVERSION OPTIMIZATION ELEMENTS
+# ==========================================
+conversion_elements:
+  urgency:
+    - "Same-day delivery on orders before 3 PM"
+    - "Limited time offers" (Deals Zone)
+
+  social_proof:
+    - rating: "4.9/5"
+    - review_count: "2,347 customers"
+    - product_reviews: "Individual product ratings and review counts"
+
+  trust_badges:
+    - "Licensed by Ontario Cannabis Retail Corporation"
+    - "30 Days Return"
+    - "Free Shipping"
+
+  incentives:
+    - "10% off first order" (newsletter signup)
+    - "Birthday month bonus"
+    - "Free to join" (rewards program)
+    - "Earn 1 point per $1 spent"
+
+  navigation_ease:
+    - "Sticky header"
+    - "Location selector in top bar"
+    - "Cart badge counter"
+    - "Category quick links"
+    - "Footer sitemap"
+
+  accessibility:
+    - "Wheelchair Accessible" (store feature)
+    - "Accessibility link" (footer)
+    - "High contrast text"
+    - "Icon + text labels"
+
+# ==========================================
+# RESPONSIVE DESIGN BREAKPOINTS
+# ==========================================
+responsive_design:
+  mobile: "col-6 (2 columns on small screens)"
+  tablet: "col-md-4, col-md-3 (3-4 columns)"
+  desktop: "col-lg-3, col-lg-6 (full layout)"
+
+  layout_changes:
+    - "Categories: 2 cols (mobile) → 4 cols (tablet) → 4 cols (desktop)"
+    - "Products: 2 cols (mobile) → 3 cols (tablet) → 4 cols (desktop)"
+    - "Stores: 1 col (mobile) → 2 cols (tablet+)"
+    - "Footer: stacked (mobile) → columns (tablet+)"
+
+# ==========================================
+# KEY DIFFERENTIATORS FROM VR PUMPS
+# ==========================================
+differences_from_vr_pumps:
+  color_scheme:
+    vr_pumps: "Blue (#377DFF)"
+    sessions: "Orange (#FF8C42)"
+
+  industry:
+    vr_pumps: "Industrial pumps / B2B"
+    sessions: "Cannabis retail / B2C"
+
+  design_approach:
+    vr_pumps: "Technical, feature-focused"
+    sessions: "Lifestyle, community-focused"
+
+  content_focus:
+    vr_pumps: "Product specifications, technical details"
+    sessions: "Experience, education, community, rewards"
+
+  unique_features:
+    sessions_only:
+      - "Age verification requirement (19+)"
+      - "Rewards program with tiers"
+      - "Store locator with services"
+      - "Cannabis education focus"
+      - "Strain types and THC% display"
+      - "Same-day delivery emphasis"
+      - "Community and lifestyle messaging"

@@ -1,0 +1,91 @@
+{
+  "version": "1.0",
+  "permissions": {
+    "allowedCommands": "*",
+    "allowedPaths": [
+      "**/*"
+    ],
+    "allowedUrls": [
+      "*"
+    ],
+    "dangerousCommands": {
+      "enabled": true,
+      "patterns": [
+        "rm",
+        "mv",
+        "cp",
+        "git push",
+        "git commit",
+        "git init",
+        "npm install",
+        "npm run",
+        "python",
+        "node",
+        "*"
+      ]
+    }
+  },
+  "autoApprove": {
+    "enabled": true,
+    "tools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch",
+      "Task"
+    ],
+    "commands": [
+      "git add",
+      "git commit",
+      "git push",
+      "git pull",
+      "git status",
+      "git init",
+      "git remote",
+      "npm install",
+      "npm run",
+      "python",
+      "node",
+      "mkdir",
+      "cp",
+      "mv",
+      "rm",
+      "echo",
+      "cat",
+      "ls",
+      "find",
+      "grep"
+    ],
+    "paths": [
+      "C:\\Users\\Lenovo\\Documents\\Personal\\Interview\\sessions\\**"
+    ]
+  },
+  "features": {
+    "enableWebAccess": true,
+    "enableFileSystem": true,
+    "enableTerminal": true,
+    "enableDangerousOperations": true,
+    "sandboxMode": false
+  },
+  "hooks": {
+    "beforeToolUse": null,
+    "afterToolUse": null,
+    "onError": null
+  },
+  "workspace": {
+    "rootPath": "C:\\Users\\Lenovo\\Documents\\Personal\\Interview\\sessions",
+    "allowedExtensions": [
+      "*"
+    ],
+    "excludePatterns": [
+      "node_modules/**",
+      ".git/**",
+      "*.pyc",
+      "__pycache__/**"
+    ]
+  }
+}

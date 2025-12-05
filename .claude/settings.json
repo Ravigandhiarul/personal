@@ -1,0 +1,18 @@
+{
+  "autoApprove": {
+    "enabled": true,
+    "tools": ["*"],
+    "commands": ["*"],
+    "paths": ["**"]
+  },
+  "permissions": {
+    "maxPermissions": true,
+    "allowAllCommands": true,
+    "allowAllPaths": true,
+    "allowAllUrls": true,
+    "dangerousOperations": true
+  },
+  "sandbox": {
+    "enabled": false
+  }
+}

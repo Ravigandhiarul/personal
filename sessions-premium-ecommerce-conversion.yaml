@@ -1,0 +1,1651 @@
+# ============================================================================
+# SESSIONS CANNABIS PREMIUM DESIGN SYSTEM
+# Ecommerce Conversion Guide - VR Pumps to Sessions Cannabis
+# ============================================================================
+#
+# This file documents the complete Sessions Cannabis premium design system
+# from index-premium.html and provides exact mapping to convert VR Pumps
+# ecommerce site into Sessions Cannabis branding.
+#
+# ============================================================================
+
+metadata:
+  project: Sessions Cannabis Ecommerce Site
+  source_inspiration: index-premium.html (Assignment Website)
+  target_implementation: VR Pumps → Sessions Cannabis Store
+  framework: Bootstrap 5.3.0 + Custom CSS
+  icons: Bootstrap Icons 1.11.1
+  typography: Poppins (300, 400, 500, 600, 700)
+  primary_brand_color: "#F18A00"
+  design_philosophy: "Clean, professional, premium feel with subtle orange accents"
+
+# ============================================================================
+# COLOR SYSTEM - SESSIONS CANNABIS PREMIUM
+# ============================================================================
+color_system:
+  brand_colors:
+    primary_orange:
+      variable: "--sessions-orange"
+      value: "#F18A00"
+      usage: "Primary CTAs, active states, highlights, icons, borders"
+
+    primary_orange_hover:
+      variable: "--sessions-orange-hover"
+      value: "#d67800"
+      usage: "Hover states for primary buttons and links"
+
+    primary_orange_soft:
+      variable: "--sessions-orange-soft"
+      value: "rgba(241, 138, 0, 0.1)"
+      usage: "Background tints, icon containers, badges, table row hovers"
+
+    primary_orange_light:
+      variable: "--sessions-orange-light"
+      value: "rgba(241, 138, 0, 0.35)"
+      usage: "Lighter backgrounds, overlays"
+
+  text_colors:
+    text_dark:
+      variable: "--text-dark"
+      value: "#1e2022"
+      usage: "Primary headings, body text, high-emphasis content"
+      notes: "Used throughout for maximum readability (changed from Bootstrap default)"
+
+    text_muted:
+      variable: "--text-muted"
+      value: "#8c98a4"
+      usage: "Secondary text, descriptions, placeholders"
+
+    text_gray:
+      variable: "--text-gray"
+      value: "#77838f"
+      usage: "Tertiary text, less important information"
+
+  background_colors:
+    bg_white:
+      variable: "--bg-white"
+      value: "#ffffff"
+      usage: "Card backgrounds, main content areas, default page background"
+
+    bg_light:
+      variable: "--bg-light"
+      value: "#f8f9fa"
+      usage: "Alternating section backgrounds, subtle differentiation"
+
+    bg_gray:
+      variable: "--bg-gray"
+      value: "#f8fafd"
+      usage: "Contact info boxes, secondary content areas"
+
+  utility_colors:
+    border_light:
+      variable: "--border-light"
+      value: "#e7eaf3"
+      usage: "Card borders, dividers, subtle separators"
+
+    cream_background:
+      value: "#fef3e5"
+      usage: "Hero info cards, button backgrounds, selection highlights"
+      notes: "Not in CSS variables but used throughout"
+
+  accent_colors:
+    blue:
+      value: "#377dff"
+      usage: "Source links, alternative accent (rarely used)"
+
+    green:
+      value: "#00c9a7"
+      usage: "Success states, positive indicators (accent sections)"
+
+    red:
+      value: "#ed4c78"
+      usage: "Errors, warnings, attention (accent sections)"
+
+    burnt_orange:
+      value: "#CC6F00"
+      usage: "Period title variant"
+
+    light_orange:
+      value: "#FFB84D"
+      usage: "Period title default"
+
+  shadow_system:
+    shadow_sm:
+      variable: "--shadow-sm"
+      value: "0 2px 8px rgba(140, 152, 164, 0.08)"
+      usage: "Subtle card elevation, header shadow"
+
+    shadow_md:
+      variable: "--shadow-md"
+      value: "0 8px 20px rgba(140, 152, 164, 0.12)"
+      usage: "Medium card elevation, CTA cards"
+
+    shadow_lg:
+      variable: "--shadow-lg"
+      value: "0 12px 30px rgba(140, 152, 164, 0.15)"
+      usage: "High elevation, emphasized elements"
+
+    shadow_primary_hover:
+      value: "0 0.375rem 1.5rem rgba(241, 138, 0, 0.2)"
+      usage: "Orange glow on hover for cards and interactive elements"
+
+    shadow_primary_button:
+      value: "0 8px 16px rgba(241, 138, 0, 0.3)"
+      usage: "Button hover shadow with orange tint"
+
+# ============================================================================
+# TYPOGRAPHY SYSTEM
+# ============================================================================
+typography:
+  font_family:
+    primary: "Poppins, Helvetica, Arial, sans-serif"
+    weights:
+      light: 300
+      regular: 400
+      medium: 500
+      semibold: 600
+      bold: 700
+
+  headings:
+    philosophy: "Light weight (300) for elegant, modern feel"
+    base_settings:
+      font_weight: 300
+      line_height: 1.5
+      margin_top: 0
+      margin_bottom: "1rem"
+
+    sizes:
+      h1:
+        size: "2.5rem"
+        usage: "Main page titles"
+
+      h2:
+        size: "2rem"
+        usage: "Section titles (.section-title)"
+
+      h3:
+        size: "1.75rem"
+        usage: "Section subtitles (.section-subtitle)"
+
+      h4:
+        size: "1.5rem"
+        usage: "Timeline titles, subsection headers"
+
+      h5:
+        size: "1.25rem"
+        usage: "Card titles, content headers"
+
+      h6:
+        size: "1rem"
+        usage: "Small headers, labels"
+
+  hero_typography:
+    hero_title:
+      font_size: "2.75rem"
+      font_weight: 300
+      margin_bottom: "1rem"
+      mobile_size: "2rem"
+
+    hero_subtitle:
+      font_size: "1.25rem"
+      font_weight: 300
+      margin_bottom: "2rem"
+      opacity: 0.95
+      mobile_size: "1.125rem"
+
+  body_text:
+    base:
+      font_size: "1rem"
+      line_height: 1.5
+      color: "var(--text-dark)"
+
+    lead:
+      font_size: "1.25rem"
+      font_weight: 300
+      color: "var(--text-muted)"
+
+  text_selection:
+    background: "#fef3e5"
+    color: "#f18a00"
+    note: "Branded text selection for consistent experience"
+
+  responsive_scaling:
+    mobile_breakpoint: "768px"
+    adjustments:
+      - hero_title: "2.5rem → 2rem"
+      - hero_subtitle: "1.25rem → 1.125rem"
+      - section_title: "2rem → 1.75rem"
+      - section_subtitle: "1.75rem → 1.25rem"
+
+# ============================================================================
+# COMPONENT LIBRARY - SESSIONS CANNABIS
+# ============================================================================
+components:
+
+  # --------------------------------------------------------------------------
+  # HEADER / NAVIGATION
+  # --------------------------------------------------------------------------
+  header:
+    class_name: ".u-header"
+    structure: "Sticky header with logo, text, collapsible nav"
+
+    styling:
+      background: "var(--bg-white)"
+      box_shadow: "var(--shadow-sm)"
+      position: "sticky"
+      top: 0
+      z_index: 1000
+      padding: "1rem 0"
+
+    brand:
+      class: ".u-header__navbar-brand"
+      layout: "Flex with logo + text column"
+      logo_height: "46px"
+
+      brand_text:
+        class: ".u-header__navbar-brand-text"
+        font_size: "1.25rem"
+        font_weight: 600
+        color: "var(--text-dark)"
+        margin_left: "0.75rem"
+
+      subtitle:
+        class: ".u-header__navbar-subtitle"
+        font_size: "0.75rem"
+        font_weight: 400
+        color: "var(--text-muted)"
+        display: "block"
+        margin_top: "-0.25rem"
+
+    nav_links:
+      class: ".u-header__nav-link"
+      font_weight: 400
+      font_size: "0.9375rem"
+      padding: "0.5rem 1rem"
+      color: "var(--text-dark)"
+      transition: "color 0.3s ease"
+      display: "flex with gap 0.5rem"
+
+      hover_state:
+        color: "var(--sessions-orange)"
+
+      active_state:
+        color: "var(--sessions-orange)"
+
+    ecommerce_adaptation:
+      nav_items:
+        - label: "Home"
+          icon: "bi-house"
+
+        - label: "Shop"
+          icon: "bi-shop"
+
+        - label: "Products"
+          icon: "bi-grid"
+
+        - label: "About"
+          icon: "bi-info-circle"
+
+        - label: "Contact"
+          icon: "bi-envelope"
+
+      action_buttons:
+        - search:
+            icon: "bi-search"
+            position: "right side"
+
+        - wishlist:
+            icon: "bi-heart"
+            badge: "count of favorited items"
+
+        - cart:
+            icon: "bi-cart"
+            badge: "item count"
+
+        - account:
+            icon: "bi-person"
+            text: "Login / Account"
+
+    html_structure: |
+      <header class="u-header">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg u-header__navbar">
+            <a class="u-header__navbar-brand" href="/">
+              <img src="logo.svg" alt="Sessions Cannabis">
+              <div>
+                <span class="u-header__navbar-brand-text">Sessions Cannabis</span>
+                <span class="u-header__navbar-subtitle">Premium Quality Products</span>
+              </div>
+            </a>
+
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+              <i class="bi bi-list fs-3"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="nav">
+              <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item">
+                  <a class="u-header__nav-link active" href="/">
+                    <i class="bi bi-house"></i> Home
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="u-header__nav-link" href="/shop">
+                    <i class="bi bi-shop"></i> Shop
+                  </a>
+                </li>
+                <!-- More nav items -->
+                <li class="nav-item">
+                  <a class="u-header__nav-link" href="/wishlist">
+                    <i class="bi bi-heart"></i>
+                    <span class="badge bg-primary">3</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="u-header__nav-link" href="/cart">
+                    <i class="bi bi-cart"></i>
+                    <span class="badge bg-primary">2</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+  # --------------------------------------------------------------------------
+  # HERO SECTION
+  # --------------------------------------------------------------------------
+  hero:
+    class_name: ".hero-section"
+
+    styling:
+      background: "linear-gradient(150deg, var(--sessions-orange) 0%, var(--sessions-orange-hover) 100%)"
+      padding: "6rem 0 4rem"
+      position: "relative"
+      overflow: "hidden"
+
+      pattern_overlay:
+        content: "SVG plus pattern"
+        opacity: 0.05
+        color: "white"
+        note: "Subtle texture overlay for depth"
+
+    content:
+      class: ".hero-content"
+      z_index: 1
+      color: "white"
+      text_align: "center"
+
+    info_card:
+      class: ".hero-info-card"
+      background: "rgba(255, 255, 255, 0.15)"
+      border: "2px solid rgba(255, 255, 255, 0.3)"
+      border_radius: "0.5rem"
+      padding: "1.5rem"
+      max_width: "600px"
+      backdrop_filter: "blur(10px)"
+
+    ecommerce_adaptation:
+      use_case: "Featured product showcase or promotional banner"
+
+      structure: |
+        <section class="hero-section">
+          <div class="container">
+            <div class="hero-content">
+              <h1 class="hero-title">Premium Cannabis Products</h1>
+              <p class="hero-subtitle">Curated selection of top-quality strains</p>
+
+              <div class="hero-info-card">
+                <p><strong>Free Shipping</strong> on orders over $50</p>
+                <p><strong>Same-day delivery</strong> available</p>
+                <p><strong>Lab tested</strong> for quality assurance</p>
+              </div>
+
+              <div class="mt-4">
+                <a href="/shop" class="btn btn-primary btn-lg">
+                  Shop Now <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+  # --------------------------------------------------------------------------
+  # BUTTONS
+  # --------------------------------------------------------------------------
+  buttons:
+    base_button:
+      class: ".btn"
+      font_family: "Poppins"
+      font_weight: 500
+      border_radius: "0.5rem"
+      transition: "all 0.3s ease"
+      padding: "0.625rem 1.5rem"
+      display: "inline-flex"
+      align_items: "center"
+      gap: "0.5rem"
+
+    btn_primary:
+      class: ".btn-primary"
+      background: "#fef3e5"
+      border_color: "#fef3e5"
+      color: "#f18a00"
+
+      hover:
+        background: "#f18a00"
+        border_color: "#f18a00"
+        color: "#ffffff"
+        transform: "translateY(-2px)"
+        box_shadow: "0 8px 16px rgba(241, 138, 0, 0.3)"
+
+    btn_lg:
+      class: ".btn-lg"
+      padding: "0.875rem 2rem"
+      font_size: "1rem"
+
+    ecommerce_buttons:
+      add_to_cart:
+        class: "btn btn-primary"
+        text: "Add to Cart"
+        icon: "bi-cart-plus"
+
+      buy_now:
+        class: "btn btn-primary btn-lg"
+        text: "Buy Now"
+        icon: "bi-lightning"
+
+      view_details:
+        class: "btn btn-outline-primary"
+        text: "View Details"
+        icon: "bi-arrow-right"
+
+      favorite:
+        class: "btn btn-icon"
+        icon: "bi-heart"
+        toggle_class: "bi-heart-fill"
+
+    html_examples: |
+      <!-- Primary CTA -->
+      <button class="btn btn-primary">
+        <i class="bi bi-cart-plus"></i>
+        Add to Cart
+      </button>
+
+      <!-- Large Primary -->
+      <button class="btn btn-primary btn-lg">
+        Buy Now <i class="bi bi-arrow-right"></i>
+      </button>
+
+      <!-- Outline -->
+      <button class="btn btn-outline-primary">
+        View Details
+      </button>
+
+      <!-- Icon only -->
+      <button class="btn btn-icon">
+        <i class="bi bi-heart"></i>
+      </button>
+
+  # --------------------------------------------------------------------------
+  # CARDS - PREMIUM STYLE
+  # --------------------------------------------------------------------------
+  cards:
+    premium_card:
+      class: ".card-premium"
+
+      styling:
+        background: "var(--bg-white)"
+        border: "0.0625rem solid rgba(231, 234, 243, 0.7)"
+        border_radius: "0.75rem"
+        box_shadow: "0 0.375rem 0.75rem rgba(140, 152, 164, 0.075)"
+        transition: "all 0.3s ease"
+        height: "100%"
+
+      hover:
+        transform: "translateY(-5px)"
+        box_shadow: "0 0.375rem 1.5rem rgba(241, 138, 0, 0.2)"
+        border_color: "rgba(241, 138, 0, 0.3)"
+
+      body:
+        class: ".card-premium-body"
+        padding: "2rem"
+
+      icon:
+        class: ".card-premium-icon"
+        width: "60px"
+        height: "60px"
+        background: "#fef3e5"
+        border_radius: "50%"
+        color: "#f18a00"
+        font_size: "1.75rem"
+        margin_bottom: "1.5rem"
+
+      title:
+        class: ".card-premium-title"
+        font_size: "1.125rem"
+        font_weight: 500
+        margin_bottom: "0.75rem"
+
+      text:
+        class: ".card-premium-text"
+        color: "var(--text-muted)"
+        font_size: "0.9375rem"
+
+    ecommerce_product_card:
+      extends: "premium_card"
+
+      structure: |
+        <div class="card-premium product-card">
+          <div class="position-relative">
+            <!-- Favorite button -->
+            <button class="btn btn-sm position-absolute top-0 end-0 m-2 favorite-btn">
+              <i class="bi bi-heart"></i>
+            </button>
+
+            <!-- Product image -->
+            <div class="product-image">
+              <img src="product.jpg" alt="Product" class="img-fluid">
+            </div>
+          </div>
+
+          <div class="card-premium-body">
+            <h5 class="card-premium-title">Product Name</h5>
+            <p class="card-premium-text">Product description goes here</p>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="price fw-bold">$29.99</span>
+              <div class="star-rating">
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star"></i>
+              </div>
+            </div>
+
+            <button class="btn btn-primary w-100">
+              <i class="bi bi-cart-plus"></i>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+      css_additions: |
+        .product-card .product-image {
+          aspect-ratio: 1 / 1;
+          background: #fef3e5;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 1.5rem;
+          overflow: hidden;
+          border-radius: 0.75rem 0.75rem 0 0;
+        }
+
+        .product-card .product-image img {
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+          transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+          transform: scale(1.05);
+        }
+
+        .product-card .price {
+          font-size: 1.25rem;
+          color: var(--sessions-orange);
+        }
+
+        .product-card .star-rating {
+          color: #F18A00;
+        }
+
+        .product-card .favorite-btn {
+          background: white;
+          border: none;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          border-radius: 50%;
+          width: 36px;
+          height: 36px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+        }
+
+        .product-card .favorite-btn:hover {
+          background: #fef3e5;
+          color: #f18a00;
+          transform: scale(1.1);
+        }
+
+        .product-card .favorite-btn.active {
+          background: #fef3e5;
+          color: #f18a00;
+        }
+
+        .product-card .favorite-btn.active i::before {
+          content: "\f588"; /* bi-heart-fill */
+        }
+
+    issue_card:
+      class: ".issue-card"
+      purpose: "Numbered content sections (can be adapted for features)"
+
+      styling:
+        background: "var(--bg-white)"
+        border: "0.0625rem solid rgba(231, 234, 243, 0.7)"
+        border_radius: "0.75rem"
+        padding: "2rem"
+        box_shadow: "0 0.375rem 0.75rem rgba(140, 152, 164, 0.075)"
+        margin_bottom: "2rem"
+        display: "flex"
+        gap: "2rem"
+
+      number:
+        class: ".issue-number"
+        width: "50px"
+        height: "50px"
+        background: "var(--sessions-orange-soft)"
+        color: "var(--sessions-orange)"
+        border_radius: "50%"
+        font_weight: 600
+        font_size: "1.25rem"
+
+      mobile:
+        flex_direction: "column"
+        align_items: "center"
+        text_align: "center"
+        gap: "1rem"
+
+    accent_section:
+      class: ".accent-section"
+      purpose: "Left-bordered highlight boxes"
+
+      styling:
+        background: "var(--bg-white)"
+        border: "0.0625rem solid rgba(231, 234, 243, 0.7)"
+        border_left: "4px solid var(--sessions-orange)"
+        border_radius: "0.75rem"
+        padding: "2rem"
+        margin: "2rem 0"
+        box_shadow: "0 0.375rem 0.75rem rgba(140, 152, 164, 0.075)"
+
+      variants:
+        - ".accent-section-blue": "border-left-color: #377dff"
+        - ".accent-section-green": "border-left-color: #00c9a7"
+        - ".accent-section-red": "border-left-color: #ed4c78"
+
+  # --------------------------------------------------------------------------
+  # TIMELINE COMPONENT
+  # --------------------------------------------------------------------------
+  timeline:
+    class_name: ".timeline-container"
+    purpose: "Vertical scrolling timeline with animated line fill"
+
+    structure:
+      timeline_line:
+        class: ".timeline-line"
+        position: "absolute"
+        left: "2rem"
+        width: "2px"
+        background: "linear-gradient(to bottom, transparent 0%, rgba(231, 234, 243, 0.7) 5%, rgba(231, 234, 243, 0.7) 95%, transparent 100%)"
+
+      timeline_line_fill:
+        class: ".timeline-line-fill"
+        position: "absolute"
+        width: "100%"
+        height: "0% (animated)"
+        background: "linear-gradient(to bottom, #F18A00 0%, #FF9F40 50%, #F18A00 100%)"
+        transition: "height 0.3s ease-out"
+
+    timeline_item:
+      class: ".week-timeline-item"
+      display: "flex"
+      gap: "3rem"
+      margin_bottom: "4rem"
+
+      dot:
+        class: ".timeline-dot"
+        position: "absolute at left: 2rem"
+        width: "40px"
+        height: "40px"
+        background: "white"
+        border_radius: "50%"
+        box_shadow: "0 2px 8px rgba(0, 0, 0, 0.1)"
+
+        inner:
+          class: ".timeline-dot-inner"
+          width: "16px"
+          height: "16px"
+          background: "#e7eaf3"
+          transition: "background 0.3s ease"
+
+        active_state:
+          background: "#F18A00"
+
+      title:
+        class: ".timeline-title"
+        width: "200px"
+        padding_left: "4rem"
+        font_size: "1.5rem"
+        font_weight: 600
+        color: "#F18A00"
+
+      content:
+        class: ".timeline-content"
+        flex: 1
+        background: "var(--bg-white)"
+        border_radius: "0.75rem"
+        padding: "2rem"
+        border: "0.0625rem solid rgba(231, 234, 243, 0.7)"
+        opacity: "0.3 (inactive) / 1.0 (active)"
+        transform: "scale(0.95) / scale(1)"
+
+        active_state:
+          box_shadow: "0 0.375rem 1.5rem rgba(241, 138, 0, 0.2)"
+          border_color: "rgba(241, 138, 0, 0.3)"
+
+    ecommerce_adaptation:
+      use_case: "Product launch timeline, delivery milestones, order tracking"
+
+      example: |
+        <div class="timeline-container">
+          <div class="timeline-line">
+            <div class="timeline-line-fill"></div>
+          </div>
+
+          <div class="week-timeline-item">
+            <div class="timeline-dot">
+              <div class="timeline-dot-inner"></div>
+            </div>
+
+            <div class="timeline-title">
+              <h4>Step 1</h4>
+            </div>
+
+            <div class="timeline-content">
+              <h5>Order Received</h5>
+              <p>Your order has been confirmed and is being prepared</p>
+              <div class="week-impact">
+                Estimated processing time: 24 hours
+              </div>
+            </div>
+          </div>
+
+          <!-- More timeline items -->
+        </div>
+
+    javascript:
+      function: "updateTimelineFills()"
+      trigger: "scroll event"
+      behavior: |
+        - Calculate scroll progress through container
+        - Update .timeline-line-fill height percentage
+        - Activate dots when line reaches them
+        - Add 'active' class to cards when in viewport center
+        - Remove active class when scrolled past
+
+      code: |
+        function updateTimelineFills() {
+          document.querySelectorAll('.timeline-container').forEach(container => {
+            const fill = container.querySelector('.timeline-line-fill');
+            const containerRect = container.getBoundingClientRect();
+            const viewportMiddle = window.innerHeight / 2;
+
+            // Calculate scroll progress
+            let scrollProgress = 0;
+            if (containerRect.top < viewportMiddle && containerRect.bottom > viewportMiddle) {
+              const scrolledPast = viewportMiddle - containerRect.top;
+              scrollProgress = Math.max(0, Math.min(1, scrolledPast / containerRect.height));
+            } else if (containerRect.bottom <= viewportMiddle) {
+              scrollProgress = 1;
+            }
+
+            fill.style.height = (scrollProgress * 100) + '%';
+
+            // Update dots and cards
+            container.querySelectorAll('.week-timeline-item').forEach(item => {
+              const dot = item.querySelector('.timeline-dot');
+              const content = item.querySelector('.timeline-content');
+              const itemTop = item.getBoundingClientRect().top;
+
+              if (itemTop <= viewportMiddle) {
+                dot.classList.add('active');
+                content.classList.add('active');
+              } else {
+                dot.classList.remove('active');
+                content.classList.remove('active');
+              }
+            });
+          });
+        }
+
+        window.addEventListener('scroll', updateTimelineFills);
+        updateTimelineFills();
+
+  # --------------------------------------------------------------------------
+  # PROGRESS STEPS
+  # --------------------------------------------------------------------------
+  progress_steps:
+    class_name: ".progress-steps"
+    purpose: "Numbered step indicators with hover effects"
+
+    grid:
+      display: "grid"
+      columns: "repeat(auto-fit, minmax(250px, 1fr))"
+      gap: "2rem"
+
+      responsive:
+        mobile: "1 column"
+        tablet: "2 columns"
+        desktop: "4 columns"
+
+    step:
+      class: ".progress-step"
+      text_align: "center"
+      padding: "1.5rem"
+      background: "var(--bg-white)"
+      border_radius: "0.75rem"
+      border: "0.0625rem solid rgba(231, 234, 243, 0.7)"
+
+      hover:
+        transform: "translateY(-5px)"
+        box_shadow: "0 0.75rem 1.5rem rgba(241, 138, 0, 0.15)"
+        border_color: "rgba(241, 138, 0, 0.3)"
+
+      number:
+        class: ".progress-step-number"
+        width: "60px"
+        height: "60px"
+        background: "linear-gradient(135deg, rgba(241, 138, 0, 0.1) 0%, rgba(241, 138, 0, 0.05) 100%)"
+        border: "3px solid #F18A00"
+        border_radius: "50%"
+        font_size: "1.5rem"
+        font_weight: 600
+        color: "#F18A00"
+
+        hover:
+          background: "#F18A00"
+          color: "white"
+          transform: "scale(1.1)"
+
+    ecommerce_adaptation:
+      use_case: "Checkout steps, delivery process, product features"
+
+      example: |
+        <div class="progress-steps">
+          <div class="progress-step">
+            <div class="progress-step-number">1</div>
+            <h5 class="progress-step-title">Choose Products</h5>
+            <p class="progress-step-description">Browse our curated selection</p>
+          </div>
+
+          <div class="progress-step">
+            <div class="progress-step-number">2</div>
+            <h5 class="progress-step-title">Add to Cart</h5>
+            <p class="progress-step-description">Review your selections</p>
+          </div>
+
+          <div class="progress-step">
+            <div class="progress-step-number">3</div>
+            <h5 class="progress-step-title">Checkout</h5>
+            <p class="progress-step-description">Secure payment processing</p>
+          </div>
+
+          <div class="progress-step">
+            <div class="progress-step-number">4</div>
+            <h5 class="progress-step-title">Delivery</h5>
+            <p class="progress-step-description">Fast, discreet shipping</p>
+          </div>
+        </div>
+
+  # --------------------------------------------------------------------------
+  # BADGES & PILLS
+  # --------------------------------------------------------------------------
+  badges:
+    period_badge:
+      class: ".period-badge"
+
+      styling:
+        display: "inline-block"
+        background: "rgba(241, 138, 0, 0.1)"
+        font_size: "0.6875rem"
+        font_weight: 400
+        padding: "0.4375rem 0.9375rem"
+        border_radius: "6.1875rem"
+        color: "#F18A00"
+        float: "right"
+
+    ecommerce_badges:
+      sale_badge:
+        background: "#ed4c78"
+        color: "white"
+        text: "SALE"
+
+      new_badge:
+        background: "#00c9a7"
+        color: "white"
+        text: "NEW"
+
+      featured_badge:
+        background: "#F18A00"
+        color: "white"
+        text: "FEATURED"
+
+      out_of_stock:
+        background: "var(--text-muted)"
+        color: "white"
+        text: "OUT OF STOCK"
+
+    html: |
+      <span class="period-badge">NEW</span>
+      <span class="period-badge" style="background: #ed4c78; color: white;">SALE</span>
+      <span class="period-badge" style="background: #00c9a7; color: white;">FEATURED</span>
+
+  # --------------------------------------------------------------------------
+  # ANIMATED ELEMENTS
+  # --------------------------------------------------------------------------
+  animations:
+    animated_underline:
+      class: ".animated-underline-wrapper"
+
+      structure:
+        wrapper:
+          display: "inline-block"
+          position: "relative"
+          padding_bottom: "2rem"
+          margin_top: "3rem"
+
+        svg:
+          class: ".animated-underline-svg"
+          position: "absolute"
+          bottom: "0.5rem"
+          width: "100%"
+          height: "20px"
+
+        path:
+          class: ".animated-underline-path"
+          stroke: "#F18A00"
+          stroke_width: 3
+          stroke_dasharray: 1000
+          stroke_dashoffset: 1000
+
+      animation:
+        name: "drawUnderline"
+        duration: "2.5s"
+        easing: "ease-in-out"
+        forwards: true
+        delay: "0.3s"
+
+      trigger: "IntersectionObserver (threshold: 0.6)"
+
+      usage: |
+        <h3 class="section-subtitle">
+          <span class="animated-underline-wrapper">
+            FEATURED PRODUCTS
+            <svg class="animated-underline-svg" viewBox="0 0 100 20" preserveAspectRatio="none">
+              <path class="animated-underline-path" d="M 0,10 Q 25,0 50,10 T 100,10" />
+            </svg>
+          </span>
+        </h3>
+
+    text_roll:
+      class: ".text-roll-wrapper"
+      attribute: "data-text='YOUR TEXT HERE'"
+
+      animation:
+        name: "textRollIn"
+        duration: "8s"
+        easing: "ease-in-out"
+        infinite: true
+
+      keyframes:
+        - "0%: rotateX(0deg), opacity 1, color #F18A00"
+        - "2.5%: rotateX(-90deg), opacity 0.5"
+        - "5%: rotateX(-180deg), opacity 0.3"
+        - "7.5%: rotateX(-270deg), opacity 0.5"
+        - "10%-100%: rotateX(0deg), opacity 1, color #F18A00"
+
+      javascript:
+        initialization: |
+          function initTextRoll() {
+            document.querySelectorAll('.text-roll-wrapper').forEach(element => {
+              const text = element.getAttribute('data-text');
+              const letters = text.split('');
+              element.innerHTML = letters.map(letter =>
+                `<span class="text-roll-letter">${letter === ' ' ? '&nbsp;' : letter}</span>`
+              ).join('');
+            });
+          }
+
+          initTextRoll();
+
+      usage: |
+        <h3 class="section-subtitle">
+          <span class="text-roll-wrapper" data-text="NEW ARRIVALS"></span>
+        </h3>
+
+  # --------------------------------------------------------------------------
+  # LISTS
+  # --------------------------------------------------------------------------
+  lists:
+    check_list:
+      class: "ul.check-list"
+
+      styling:
+        list_style: "none"
+        padding_left: 0
+
+        li:
+          padding_left: "2.5rem"
+          position: "relative"
+          margin_bottom: "1.25rem"
+          color: "#1e2022"
+          font_weight: 400
+          line_height: 1.7
+
+        before:
+          content: "\\f272 (bi-check2-circle)"
+          font_family: "bootstrap-icons"
+          position: "absolute"
+          left: 0
+          top: "0.2rem"
+          width: "22px"
+          height: "22px"
+          background: "#fef3e5"
+          color: "#f18a00"
+          border_radius: "50%"
+          font_size: "0.65rem"
+          line_height: "22px"
+          text_align: "center"
+
+    ecommerce_usage:
+      product_features: "List product benefits"
+      included_items: "What's in the box"
+      delivery_options: "Shipping methods"
+
+      example: |
+        <ul class="check-list">
+          <li>Lab tested for quality and potency</li>
+          <li>Organic, pesticide-free cultivation</li>
+          <li>Third-party certified</li>
+          <li>Tracked shipping with insurance</li>
+        </ul>
+
+  # --------------------------------------------------------------------------
+  # TABLES
+  # --------------------------------------------------------------------------
+  tables:
+    styling:
+      width: "100%"
+      border_collapse: "collapse"
+      margin: "2rem 0"
+      background: "var(--bg-white)"
+      border_radius: "0.5rem"
+      box_shadow: "var(--shadow-sm)"
+
+    thead:
+      background: "var(--sessions-orange)"
+      color: "var(--bg-white)"
+      padding: "1rem"
+      font_weight: 400
+
+    tbody:
+      tr:
+        border_bottom: "1px solid var(--border-light)"
+
+        hover:
+          background: "var(--sessions-orange-soft)"
+
+      td:
+        padding: "1rem"
+        font_weight: 400
+
+    ecommerce_usage:
+      product_specifications: "Strain info, THC/CBD levels, terpenes"
+      pricing_tiers: "Volume discounts"
+      comparison: "Product comparisons"
+
+      example: |
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>THC %</th>
+              <th>CBD %</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Blue Dream</td>
+              <td>18-24%</td>
+              <td>&lt;1%</td>
+              <td>$35/3.5g</td>
+            </tr>
+            <!-- More rows -->
+          </tbody>
+        </table>
+
+# ============================================================================
+# JAVASCRIPT FUNCTIONALITY
+# ============================================================================
+javascript:
+
+  smooth_scroll:
+    purpose: "Smooth scrolling for anchor links"
+    code: |
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+  active_nav_on_scroll:
+    purpose: "Highlight nav link based on scroll position"
+    code: |
+      window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.u-header__nav-link');
+        let current = '';
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          if (scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current ||
+              (link.getAttribute('href') === '#home' && current === '')) {
+            link.classList.add('active');
+          }
+        });
+      });
+
+  favorite_toggle:
+    purpose: "Toggle favorite button state"
+    ecommerce_code: |
+      document.querySelectorAll('.favorite-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          this.classList.toggle('active');
+
+          const icon = this.querySelector('i');
+          if (this.classList.contains('active')) {
+            icon.classList.remove('bi-heart');
+            icon.classList.add('bi-heart-fill');
+
+            // Save to localStorage or send to server
+            saveFavorite(this.dataset.productId, true);
+          } else {
+            icon.classList.remove('bi-heart-fill');
+            icon.classList.add('bi-heart');
+
+            saveFavorite(this.dataset.productId, false);
+          }
+        });
+      });
+
+  add_to_cart:
+    purpose: "Add product to shopping cart"
+    ecommerce_code: |
+      document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const productId = this.dataset.productId;
+          const productName = this.dataset.productName;
+          const productPrice = this.dataset.productPrice;
+
+          // Add to cart (localStorage or server)
+          addToCart({
+            id: productId,
+            name: productName,
+            price: productPrice,
+            quantity: 1
+          });
+
+          // Visual feedback
+          this.innerHTML = '<i class="bi bi-check2"></i> Added to Cart';
+          this.classList.add('btn-success');
+          this.classList.remove('btn-primary');
+
+          // Update cart badge
+          updateCartBadge();
+
+          // Reset after 2 seconds
+          setTimeout(() => {
+            this.innerHTML = '<i class="bi bi-cart-plus"></i> Add to Cart';
+            this.classList.add('btn-primary');
+            this.classList.remove('btn-success');
+          }, 2000);
+        });
+      });
+
+  cart_management:
+    purpose: "Cart functions using localStorage"
+    code: |
+      function getCart() {
+        const cart = localStorage.getItem('sessions_cart');
+        return cart ? JSON.parse(cart) : [];
+      }
+
+      function saveCart(cart) {
+        localStorage.setItem('sessions_cart', JSON.stringify(cart));
+      }
+
+      function addToCart(product) {
+        const cart = getCart();
+        const existing = cart.find(item => item.id === product.id);
+
+        if (existing) {
+          existing.quantity += 1;
+        } else {
+          cart.push(product);
+        }
+
+        saveCart(cart);
+        updateCartBadge();
+      }
+
+      function removeFromCart(productId) {
+        let cart = getCart();
+        cart = cart.filter(item => item.id !== productId);
+        saveCart(cart);
+        updateCartBadge();
+      }
+
+      function updateCartBadge() {
+        const cart = getCart();
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const badge = document.querySelector('.cart-badge');
+        if (badge) {
+          badge.textContent = totalItems;
+          badge.style.display = totalItems > 0 ? 'inline-block' : 'none';
+        }
+      }
+
+      // Initialize on page load
+      updateCartBadge();
+
+  product_filter:
+    purpose: "Filter products by category, price, etc."
+    ecommerce_code: |
+      function filterProducts() {
+        const selectedCategory = document.querySelector('#categoryFilter').value;
+        const minPrice = parseFloat(document.querySelector('#minPrice').value) || 0;
+        const maxPrice = parseFloat(document.querySelector('#maxPrice').value) || Infinity;
+
+        const products = document.querySelectorAll('.product-card');
+
+        products.forEach(product => {
+          const category = product.dataset.category;
+          const price = parseFloat(product.dataset.price);
+
+          const categoryMatch = !selectedCategory || category === selectedCategory;
+          const priceMatch = price >= minPrice && price <= maxPrice;
+
+          if (categoryMatch && priceMatch) {
+            product.style.display = 'block';
+          } else {
+            product.style.display = 'none';
+          }
+        });
+      }
+
+      // Attach to filter controls
+      document.querySelector('#categoryFilter').addEventListener('change', filterProducts);
+      document.querySelector('#minPrice').addEventListener('input', filterProducts);
+      document.querySelector('#maxPrice').addEventListener('input', filterProducts);
+
+# ============================================================================
+# COMPLETE ECOMMERCE PAGE TEMPLATE
+# ============================================================================
+ecommerce_template:
+
+  homepage:
+    structure: |
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sessions Cannabis - Premium Products</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+        <!-- Google Fonts - Poppins -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- Sessions Cannabis CSS -->
+        <link rel="stylesheet" href="sessions-cannabis.css">
+      </head>
+      <body>
+
+        <!-- Header -->
+        <header class="u-header">
+          <div class="container">
+            <nav class="navbar navbar-expand-lg u-header__navbar">
+              <a class="u-header__navbar-brand" href="/">
+                <img src="logo.svg" alt="Sessions Cannabis">
+                <div>
+                  <span class="u-header__navbar-brand-text">Sessions Cannabis</span>
+                  <span class="u-header__navbar-subtitle">Premium Quality</span>
+                </div>
+              </a>
+
+              <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+                <i class="bi bi-list fs-3"></i>
+              </button>
+
+              <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                  <li class="nav-item">
+                    <a class="u-header__nav-link active" href="/">
+                      <i class="bi bi-house"></i> Home
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="u-header__nav-link" href="/shop">
+                      <i class="bi bi-shop"></i> Shop
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="u-header__nav-link" href="/about">
+                      <i class="bi bi-info-circle"></i> About
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="u-header__nav-link" href="/contact">
+                      <i class="bi bi-envelope"></i> Contact
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="u-header__nav-link" href="/wishlist">
+                      <i class="bi bi-heart"></i>
+                      <span class="badge bg-primary wishlist-badge">0</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="u-header__nav-link" href="/cart">
+                      <i class="bi bi-cart"></i>
+                      <span class="badge bg-primary cart-badge">0</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+        <!-- Hero -->
+        <section class="hero-section">
+          <div class="container">
+            <div class="hero-content">
+              <h1 class="hero-title">Premium Cannabis Products</h1>
+              <p class="hero-subtitle">Curated selection of top-quality strains</p>
+
+              <div class="hero-info-card">
+                <p><strong>Free Shipping</strong> on orders over $50</p>
+                <p><strong>Same-day delivery</strong> in select areas</p>
+                <p><strong>Lab tested</strong> for quality assurance</p>
+              </div>
+
+              <div class="mt-4">
+                <a href="/shop" class="btn btn-primary btn-lg">
+                  Shop Now <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="content-section">
+          <div class="container">
+            <h2 class="section-title text-center">
+              <span class="animated-underline-wrapper">
+                FEATURED PRODUCTS
+                <svg class="animated-underline-svg" viewBox="0 0 100 20" preserveAspectRatio="none">
+                  <path class="animated-underline-path" d="M 0,10 Q 25,0 50,10 T 100,10" />
+                </svg>
+              </span>
+            </h2>
+
+            <div class="row g-4 mt-4">
+              <!-- Product Card 1 -->
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="card-premium product-card" data-category="flower" data-price="35.00" data-product-id="1">
+                  <div class="position-relative">
+                    <button class="btn btn-sm position-absolute top-0 end-0 m-2 favorite-btn" data-product-id="1">
+                      <i class="bi bi-heart"></i>
+                    </button>
+                    <span class="period-badge position-absolute top-0 start-0 m-2" style="float: none;">NEW</span>
+
+                    <div class="product-image">
+                      <img src="products/blue-dream.jpg" alt="Blue Dream" class="img-fluid">
+                    </div>
+                  </div>
+
+                  <div class="card-premium-body">
+                    <h5 class="card-premium-title">Blue Dream</h5>
+                    <p class="card-premium-text">Balanced hybrid with sweet berry aroma</p>
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <span class="price fw-bold">$35.00</span>
+                      <div class="star-rating">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                      </div>
+                    </div>
+
+                    <button class="btn btn-primary w-100 add-to-cart-btn"
+                            data-product-id="1"
+                            data-product-name="Blue Dream"
+                            data-product-price="35.00">
+                      <i class="bi bi-cart-plus"></i>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- More product cards... -->
+            </div>
+          </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="content-section">
+          <div class="container">
+            <h2 class="section-title text-center">How It Works</h2>
+
+            <div class="progress-steps mt-5">
+              <div class="progress-step">
+                <div class="progress-step-number">1</div>
+                <h5 class="progress-step-title">Browse & Select</h5>
+                <p class="progress-step-description">Explore our curated collection of premium cannabis products</p>
+              </div>
+
+              <div class="progress-step">
+                <div class="progress-step-number">2</div>
+                <h5 class="progress-step-title">Add to Cart</h5>
+                <p class="progress-step-description">Review your selections and adjust quantities</p>
+              </div>
+
+              <div class="progress-step">
+                <div class="progress-step-number">3</div>
+                <h5 class="progress-step-title">Secure Checkout</h5>
+                <p class="progress-step-description">Safe payment processing with SSL encryption</p>
+              </div>
+
+              <div class="progress-step">
+                <div class="progress-step-number">4</div>
+                <h5 class="progress-step-title">Fast Delivery</h5>
+                <p class="progress-step-description">Discreet packaging, tracked shipping</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+          <div class="container">
+            <div class="footer-content">
+              <p>&copy; 2024 Sessions Cannabis. All rights reserved.</p>
+              <p>
+                <a href="/privacy" class="footer-link">Privacy Policy</a> |
+                <a href="/terms" class="footer-link">Terms of Service</a> |
+                <a href="/contact" class="footer-link">Contact Us</a>
+              </p>
+            </div>
+          </div>
+        </footer>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Sessions Cannabis JS -->
+        <script src="sessions-cannabis.js"></script>
+      </body>
+      </html>
+
+# ============================================================================
+# CONVERSION CHECKLIST
+# ============================================================================
+conversion_checklist:
+
+  setup:
+    - title: "Initialize Project Structure"
+      tasks:
+        - "Create HTML file with Bootstrap 5.3.0 CDN"
+        - "Add Bootstrap Icons 1.11.1 CDN"
+        - "Import Poppins font (300,400,500,600,700)"
+        - "Copy CSS variables from :root section"
+        - "Set up base typography styles"
+
+  color_replacement:
+    - title: "Replace VR Pumps Blue with Sessions Orange"
+      tasks:
+        - "Find all instances of #377DFF → replace with #F18A00"
+        - "Find all instances of #e4ebff → replace with rgba(241, 138, 0, 0.1)"
+        - "Update hover states with #d67800"
+        - "Change focus states to orange"
+        - "Update active navigation to orange"
+
+  components:
+    - title: "Implement Core Components"
+      tasks:
+        - "Header with Sessions branding"
+        - "Hero section with gradient background"
+        - "Premium cards with hover effects"
+        - "Product cards with favorite/cart buttons"
+        - "Progress steps for checkout flow"
+        - "Timeline for order tracking (optional)"
+        - "Footer with links"
+
+  interactivity:
+    - title: "Add JavaScript Functionality"
+      tasks:
+        - "Smooth scroll for anchor links"
+        - "Active nav highlighting on scroll"
+        - "Favorite button toggle"
+        - "Add to cart with visual feedback"
+        - "Cart management (localStorage)"
+        - "Product filtering (category, price)"
+        - "Update cart/wishlist badges"
+
+  content:
+    - title: "Populate with Cannabis Content"
+      tasks:
+        - "Replace pump products with cannabis products"
+        - "Update product attributes (THC%, CBD%, strain)"
+        - "Add category filters (Flower, Edibles, Vapes, etc.)"
+        - "Include lab testing info"
+        - "Add age verification modal"
+        - "Compliance disclaimers"
+
+  testing:
+    - title: "Quality Assurance"
+      tasks:
+        - "Test responsive design (mobile, tablet, desktop)"
+        - "Verify all interactive elements work"
+        - "Check color contrast (WCAG AA)"
+        - "Validate HTML (W3C)"
+        - "Test cart functionality"
+        - "Verify favorite system"
+        - "Cross-browser testing"
+
+  optimization:
+    - title: "Performance & SEO"
+      tasks:
+        - "Optimize images (WebP, lazy loading)"
+        - "Minify CSS and JavaScript"
+        - "Add meta tags for SEO"
+        - "Implement structured data (Schema.org Product)"
+        - "Test page speed (Lighthouse)"
+        - "Add OpenGraph tags for social sharing"
+
+# ============================================================================
+# NOTES
+# ============================================================================
+notes:
+  design_philosophy:
+    - "Premium feel with subtle orange accents, not overwhelming"
+    - "Clean, spacious layouts with ample white space"
+    - "Smooth animations that enhance UX without being distracting"
+    - "Consistent hover effects (translateY, box-shadow, border-color)"
+    - "Light typography (300 weight) for modern, elegant feel"
+
+  key_differences_from_vr_pumps:
+    - "VR Pumps uses blue (#377DFF), Sessions uses orange (#F18A00)"
+    - "Sessions has lighter typography weights (300 vs 500-600)"
+    - "Sessions uses cream backgrounds (#fef3e5) for warmth"
+    - "More sophisticated shadow system with orange tints"
+    - "Animated underlines and text roll effects for premium feel"
+
+  cannabis_specific:
+    - "Always include age verification (19+ or 21+)"
+    - "Display THC/CBD percentages prominently"
+    - "Show lab testing certificates/COA links"
+    - "Include strain type (Indica, Sativa, Hybrid)"
+    - "Provide terpene profiles"
+    - "Discreet packaging messaging"
+    - "Regional compliance disclaimers"
+
+  performance_tips:
+    - "Use WebP for product images with JPG fallback"
+    - "Lazy load images below the fold"
+    - "Debounce scroll events (updateTimelineFills)"
+    - "Use CSS transforms over position changes for animations"
+    - "Minimize repaints by batching DOM updates"
+
+  accessibility:
+    - "Ensure color contrast ratio ≥ 4.5:1 (WCAG AA)"
+    - "Add ARIA labels to icon-only buttons"
+    - "Make all functionality keyboard accessible"
+    - "Use semantic HTML (header, nav, main, section, footer)"
+    - "Provide text alternatives for icons"
+    - "Test with screen readers"
+
+# ============================================================================
+# END OF DOCUMENTATION
+# ============================================================================

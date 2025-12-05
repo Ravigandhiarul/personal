@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sessions Cannabis - Premium Cannabis for Your Community. Expert guidance, trusted quality, delivery & pickup available.">
+    <title>Sessions Cannabis - Premium Cannabis for Your Community</title>
+    <link rel="icon" type="image/svg+xml" href="../images/sessions-logo.svg">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --sessions-orange: #F18A00;
+            --sessions-orange-hover: #d67800;
+            --sessions-orange-soft: rgba(241, 138, 0, 0.1);
+            --sessions-orange-light: rgba(241, 138, 0, 0.35);
+
+            --text-dark: #1e2022;
+            --text-muted: #8c98a4;
+            --text-gray: #77838f;
+
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-gray: #f8fafd;
+
+            --border-light: #e7eaf3;
+            --shadow-sm: 0 2px 8px rgba(140, 152, 164, 0.08);
+            --shadow-md: 0 8px 20px rgba(140, 152, 164, 0.12);
+            --shadow-lg: 0 12px 30px rgba(140, 152, 164, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", Helvetica, Arial, sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            margin: 0;
+            padding: 0;
+        }
+
+        ::selection {
+            background: #fef3e5;
+            color: #f18a00;
+        }
+
+        /* Utility Bar */
+        .utility-bar {
+            background: var(--bg-light);
+            border-bottom: 1px solid var(--border-light);
+            font-size: 0.8125rem;
+            padding: 0.5rem 0;
+        }
+
+        .utility-bar a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .utility-bar a:hover {
+            color: var(--sessions-orange);
+        }
+
+        /* Header */
+        .u-header {
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .u-header__navbar {
+            padding: 1rem 0;
+        }
+
+        .u-header__navbar-brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .u-header__navbar-brand img {
+            height: 46px;
+        }
+
+        .u-header__navbar-brand-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-left: 0.75rem;
+        }
+
+        .u-header__navbar-subtitle {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            display: block;
+            margin-top: -0.25rem;
+        }
+
+        .u-header__nav-link {
+            color: var(--text-dark);
+            font-weight: 400;
+            font-size: 0.9375rem;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .u-header__nav-link:hover,
+        .u-header__nav-link.active {
+            color: var(--sessions-orange);
+        }
+
+        .badge {
+            font-size: 0.625rem;
+            padding: 0.25rem 0.5rem;
+        }
+
+        /* Hero */
+        .hero-section {
+            background: linear-gradient(150deg, var(--sessions-orange) 0%, var(--sessions-orange-hover) 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--bg-white);
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 2.75rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-info-card {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-info-card p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        /* Buttons */
+        .btn {
+            font-family: "Poppins", Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            padding: 0.625rem 1.5rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: #fef3e5;
+            border-color: #fef3e5;
+            color: #f18a00;
+        }
+
+        .btn-primary:hover {
+            background-color: #f18a00;
+            border-color: #f18a00;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(241, 138, 0, 0.3);
+        }
+
+        .btn-outline-primary {
+            color: var(--sessions-orange);
+            border-color: var(--sessions-orange);
+            background: transparent;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--sessions-orange);
+            border-color: var(--sessions-orange);
+            color: var(--bg-white);
+        }
+
+        .btn-lg {
+            padding: 0.875rem 2rem;
+            font-size: 1rem;
+        }
+
+        .btn-group-sm .btn {
+            padding: 0.375rem 0.875rem;
+            font-size: 0.875rem;
+        }
+
+        .btn-outline-secondary {
+            color: var(--text-muted);
+            border-color: var(--border-light);
+            background: var(--bg-white);
+        }
+
+        .btn-outline-secondary:hover {
+            color: var(--sessions-orange);
+            border-color: var(--sessions-orange);
+            background: var(--sessions-orange-soft);
+        }
+
+        .btn-outline-secondary.active {
+            color: var(--bg-white);
+            background-color: var(--sessions-orange);
+            border-color: var(--sessions-orange);
+        }
+
+        .btn:focus,
+        .btn:active,
+        .btn-outline-primary:focus,
+        .btn-outline-primary:active {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(241, 138, 0, 0.25);
+        }
+
+        .btn-outline-primary:active {
+            background-color: var(--sessions-orange);
+            border-color: var(--sessions-orange);
+            color: var(--bg-white);
+        }
+
+        .btn-success {
+            background-color: #00c9a7;
+            border-color: #00c9a7;
+            color: var(--bg-white);
+        }
+
+        .btn-success:hover {
+            background-color: #00b396;
+            border-color: #00b396;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 5rem 0;
+        }
+
+        .content-section:nth-child(even) {
+            background-color: var(--bg-light);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        /* Premium Cards */
+        .card-premium {
+            background: var(--bg-white);
+            border: 0.0625rem solid rgba(231, 234, 243, 0.7);
+            border-radius: 0.75rem;
+            box-shadow: 0 0.375rem 0.75rem rgba(140, 152, 164, 0.075);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .card-premium:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.375rem 1.5rem rgba(241, 138, 0, 0.2);
+            border-color: rgba(241, 138, 0, 0.3);
+        }
+
+        .card-premium-body {
+            padding: 2rem;
+        }
+
+        .card-premium-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .card-premium-text {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* Product Cards */
+        .product-card {
+            cursor: pointer;
+        }
+
+        .product-image {
+            aspect-ratio: 1 / 1;
+            background: #fef3e5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            overflow: hidden;
+            border-radius: 0.75rem 0.75rem 0 0;
+            position: relative;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-card .price {
+            font-size: 1.25rem;
+            color: var(--sessions-orange);
+            font-weight: 600;
+        }
+
+        .product-card .star-rating {
+            color: #F18A00;
+            font-size: 0.875rem;
+        }
+
+        .favorite-btn {
+            background: white;
+            border: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        .favorite-btn:hover {
+            background: #fef3e5;
+            color: #f18a00;
+            transform: scale(1.1);
+        }
+
+        .favorite-btn.active {
+            background: #fef3e5;
+            color: #f18a00;
+        }
+
+        .period-badge {
+            display: inline-block;
+            background: rgba(241, 138, 0, 0.1);
+            font-size: 0.6875rem;
+            font-weight: 400;
+            padding: 0.4375rem 0.9375rem;
+            border-radius: 6.1875rem;
+            color: #F18A00;
+        }
+
+        .badge-sale {
+            background: #ed4c78;
+            color: white;
+        }
+
+        .badge-new {
+            background: #00c9a7;
+            color: white;
+        }
+
+        /* Progress Steps */
+        .progress-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        @media (min-width: 992px) {
+            .progress-steps {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .progress-step {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-white);
+            border-radius: 0.75rem;
+            border: 0.0625rem solid rgba(231, 234, 243, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .progress-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.75rem 1.5rem rgba(241, 138, 0, 0.15);
+            border-color: rgba(241, 138, 0, 0.3);
+        }
+
+        .progress-step-number {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, rgba(241, 138, 0, 0.1) 0%, rgba(241, 138, 0, 0.05) 100%);
+            border: 3px solid #F18A00;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #F18A00;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step:hover .progress-step-number {
+            background: #F18A00;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .progress-step-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .progress-step-description {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Feature Icons */
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--sessions-orange-soft);
+            border-radius: 50%;
+            color: var(--sessions-orange);
+            font-size: 2rem;
+        }
+
+        /* Category Cards */
+        .category-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .category-icon {
+            font-size: 3.5rem;
+            color: var(--sessions-orange);
+            margin-bottom: 1.25rem;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--text-dark);
+            color: var(--text-muted);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--sessions-orange);
+        }
+
+        .site-footer h6 {
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .site-footer a {
+            color: #9CA3AF;
+            text-decoration: none;
+            font-size: 0.875rem;
+            line-height: 2;
+        }
+
+        /* Particle Hero Section */
+        .hero-section-particles {
+            min-height: 400px;
+        }
+
+        /* Hero Title Flexbox Layout - Single Line */
+        .hero-title-grid {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 0.5rem;
+            align-items: baseline;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+            font-size: 2.75rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero-title-left {
+            color: #F18A00;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .hero-title-right {
+            color: #ffffff;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        /* Text Rotation Animation */
+        .text-rotate-wrapper {
+            display: inline-block;
+            position: relative;
+            vertical-align: baseline;
+        }
+
+        .text-rotate-word {
+            display: inline-block;
+            white-space: nowrap;
+            color: #F18A00;
+            vertical-align: baseline;
+        }
+
+        .text-rotate-word .char {
+            display: inline-block;
+            transform-origin: bottom center;
+            will-change: transform, opacity;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .content-section {
+                padding: 3rem 0;
+            }
+
+            .hero-title-grid {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+                font-size: 2rem;
+            }
+
+            .hero-title-left,
+            .hero-title-right {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title-grid {
+                font-size: 1.5rem;
+                gap: 0.5rem;
+            }
+        }
+
+        /* SVG Animated Paths - Behind Cards (Dark Mode) */
+        #explore-selection {
+            position: relative;
+            overflow: hidden;
+            background-color: #000000;
+            padding: 5rem 0;
+        }
+
+        #explore-selection .paths-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        #explore-selection .paths-background path {
+            fill: none;
+            stroke: #F18A00;
+            vector-effect: non-scaling-stroke;
+            will-change: stroke-dashoffset, opacity;
+            transform: translateZ(0); /* Force GPU acceleration */
+            backface-visibility: hidden; /* Improve rendering */
+        }
+
+        #explore-selection .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        #explore-selection .section-title {
+            color: #ffffff;
+        }
+
+        #explore-selection .text-muted {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        /* Dark mode cards in explore section */
+        #explore-selection .card-premium {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(241, 138, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        #explore-selection .card-premium:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(241, 138, 0, 0.5);
+            box-shadow: 0 0.75rem 2rem rgba(241, 138, 0, 0.3);
+        }
+
+        #explore-selection .card-premium h5 {
+            color: #ffffff;
+        }
+
+        #explore-selection .card-premium .text-muted {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        #explore-selection .card-premium .category-icon {
+            color: #F18A00;
+        }
+
+        #explore-selection .btn-outline-primary {
+            border-color: #F18A00;
+            color: #F18A00;
+            background: transparent;
+        }
+
+        #explore-selection .btn-outline-primary:hover {
+            background-color: #F18A00;
+            border-color: #F18A00;
+            color: #ffffff;
+        }
+
+        /* Features Dark Mode Section */
+        .features-dark {
+            background-color: #000000;
+            padding: 4rem 0;
+        }
+
+        .features-dark h6 {
+            color: #ffffff;
+        }
+
+        .features-dark .text-muted {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        .features-dark .feature-icon {
+            background: rgba(241, 138, 0, 0.15);
+            color: #F18A00;
+        }
+
+        /* Trending Section Dark Mode */
+        .trending-dark {
+            background-color: #000000;
+            padding: 5rem 0;
+        }
+
+        .trending-dark .section-title {
+            color: #ffffff;
+        }
+
+        .trending-dark .btn-outline-secondary {
+            border-color: rgba(241, 138, 0, 0.3);
+            color: rgba(255, 255, 255, 0.8);
+            background: transparent;
+        }
+
+        .trending-dark .btn-outline-secondary:hover,
+        .trending-dark .btn-outline-secondary.active {
+            background-color: #F18A00;
+            border-color: #F18A00;
+            color: #ffffff;
+        }
+
+        .trending-dark .btn-outline-primary {
+            border-color: #F18A00;
+            color: #F18A00;
+            background: transparent;
+        }
+
+        .trending-dark .btn-outline-primary:hover {
+            background-color: #F18A00;
+            border-color: #F18A00;
+            color: #ffffff;
+        }
+
+        .trending-dark .card-premium {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(241, 138, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .trending-dark .card-premium:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(241, 138, 0, 0.5);
+            box-shadow: 0 0.75rem 2rem rgba(241, 138, 0, 0.3);
+        }
+
+        .trending-dark .card-premium-title {
+            color: #ffffff;
+        }
+
+        .trending-dark .card-premium-text,
+        .trending-dark .text-muted {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        .trending-dark .price {
+            color: #F18A00;
+        }
+
+        .trending-dark .star-rating {
+            color: #F18A00;
+        }
+
+        .trending-dark .badge {
+            background-color: rgba(241, 138, 0, 0.2) !important;
+            color: #F18A00 !important;
+        }
+
+        /* Age Verification Modal */
+        .age-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .age-modal-content {
+            background: white;
+            margin: 10% auto;
+            padding: 3rem;
+            border-radius: 1rem;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .age-modal-content h2 {
+            color: var(--sessions-orange);
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Age Verification Modal -->
+    <div id="ageModal" class="age-modal">
+        <div class="age-modal-content">
+            <h2>Age Verification Required</h2>
+            <p class="mb-4">You must be 19 years of age or older to enter this website.</p>
+            <p class="text-muted small mb-4">By entering, you agree to our terms and conditions and privacy policy.</p>
+            <button class="btn btn-primary btn-lg me-2" onclick="verifyAge(true)">I am 19 or older</button>
+            <button class="btn btn-outline-primary btn-lg" onclick="verifyAge(false)">Exit</button>
+        </div>
+    </div>
+
+    <!-- Utility Top Bar -->
+    <div class="utility-bar">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <a href="#" class="d-flex align-items-center">
+                        <i class="bi bi-geo-alt-fill me-1"></i>
+                        <strong>Stratford, ON</strong> • Open until 10PM
+                        <i class="bi bi-chevron-down ms-2" style="font-size: 0.6875rem;"></i>
+                    </a>
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <a href="contact.html">Help</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="u-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg u-header__navbar">
+                <a class="u-header__navbar-brand" href="index.html">
+                    <img src="../images/sessions-logo.svg" alt="Sessions Cannabis Logo">
+                    <span class="u-header__navbar-brand-text">Sessions</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="bi bi-list fs-3"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="u-header__nav-link" href="shop.html">
+                                Shop <i class="bi bi-chevron-down" style="font-size: 0.6875rem;"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="u-header__nav-link" href="shop.html">Deals</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="u-header__nav-link" href="about.html">Learn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="u-header__nav-link" href="contact.html">Locations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="u-header__nav-link" href="about.html">Rewards</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="u-header__nav-link" href="wishlist.html">
+                                <i class="bi bi-heart"></i>
+                                <span class="badge bg-primary" id="wishlistBadge" style="display: none;">0</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="u-header__nav-link" href="cart.html">
+                                <i class="bi bi-cart"></i>
+                                <span class="badge bg-primary" id="cartBadge" style="display: none;">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="content-section hero-section-particles" style="background-color: #000000; position: relative; overflow: hidden;">
+        <!-- Full Background Sparkles -->
+        <div id="tsparticles" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></div>
+
+        <div class="container" style="position: relative; z-index: 20;">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <!-- Hero Title -->
+                <h1 class="hero-title-grid">
+                    <span class="hero-title-left">
+                        <span class="text-rotate-wrapper">
+                            <span class="text-rotate-word"></span>
+                        </span>
+                    </span>
+                    <span class="hero-title-right">
+                        Cannabis for Your Community
+                    </span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p style="font-size: 1rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 2rem;">
+                    Delivery & Pickup • Expert Guidance • Trusted Quality
+                </p>
+
+                <!-- Buttons -->
+                <div class="d-flex justify-content-center gap-3 mb-4">
+                    <a href="shop.html" class="btn btn-primary btn-lg" style="background-color: #F18A00; border-color: #F18A00; color: #ffffff;">
+                        <i class="bi bi-truck"></i> Order for Delivery
+                    </a>
+                    <a href="shop.html" class="btn btn-outline-primary btn-lg" style="border-color: #F18A00; background: transparent; color: #F18A00;">
+                        <i class="bi bi-bag-check"></i> Schedule Pickup
+                    </a>
+                </div>
+
+                <!-- Rating & Info -->
+                <div style="margin-top: 1.5rem; font-size: 0.875rem; color: rgba(255, 255, 255, 0.6);">
+                    <p style="margin-bottom: 0.5rem;">
+                        <i class="bi bi-star-fill" style="color: #F18A00;"></i><i class="bi bi-star-fill" style="color: #F18A00;"></i><i class="bi bi-star-fill" style="color: #F18A00;"></i><i class="bi bi-star-fill" style="color: #F18A00;"></i><i class="bi bi-star-fill" style="color: #F18A00;"></i>
+                        Rated 4.9/5 from 2,347 customers
+                    </p>
+                    <p style="margin-bottom: 0;">
+                        <i class="bi bi-truck"></i> Same-day delivery on orders before 3 PM
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Props -->
+    <section class="content-section features-dark">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <div class="feature-icon">
+                        <i class="bi bi-mortarboard-fill"></i>
+                    </div>
+                    <h6 class="fw-semibold mb-2">Expert Guidance</h6>
+                    <p class="text-muted small">Knowledgeable budtenders trained to help you find the right products</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-icon">
+                        <i class="bi bi-arrow-counterclockwise"></i>
+                    </div>
+                    <h6 class="fw-semibold mb-2">30 Days Return</h6>
+                    <p class="text-muted small">We offer you a full refund within 30 days of purchase</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-icon">
+                        <i class="bi bi-truck"></i>
+                    </div>
+                    <h6 class="fw-semibold mb-2">Free Shipping</h6>
+                    <p class="text-muted small">Automatically receive free delivery on orders over $50</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop By Category -->
+    <section class="content-section" id="explore-selection">
+        <!-- SVG Paths Background -->
+        <svg class="paths-background"
+             xmlns="http://www.w3.org/2000/svg"
+             preserveAspectRatio="xMidYMid slice">
+            <!-- 18 paths generated by JavaScript for optimal performance -->
+        </svg>
+
+        <div class="container">
+            <h2 class="section-title text-center">Explore Our Selection</h2>
+            <p class="text-center text-muted mb-5">Find what you're looking for</p>
+
+            <div class="row g-4">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card-premium category-card">
+                        <div class="category-icon"><i class="bi bi-flower1"></i></div>
+                        <h5 class="fw-semibold">Flower</h5>
+                        <p class="text-muted mb-1 small">300+ strains</p>
+                        <p class="text-muted mb-3" style="font-size: 0.75rem;">Sativa, Indica, Hybrid</p>
+                        <a href="shop.html" class="btn btn-sm btn-outline-primary">Shop Flower</a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card-premium category-card">
+                        <div class="category-icon"><i class="bi bi-droplet-fill"></i></div>
+                        <h5 class="fw-semibold">Concentrates</h5>
+                        <p class="text-muted mb-1 small">150+ options</p>
+                        <p class="text-muted mb-3" style="font-size: 0.75rem;">Vapes, oils, dabs</p>
+                        <a href="shop.html" class="btn btn-sm btn-outline-primary">Shop Concentrates</a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card-premium category-card">
+                        <div class="category-icon"><i class="bi bi-cake2-fill"></i></div>
+                        <h5 class="fw-semibold">Edibles</h5>
+                        <p class="text-muted mb-1 small">200+ products</p>
+                        <p class="text-muted mb-3" style="font-size: 0.75rem;">Gummies, chocolates</p>
+                        <a href="shop.html" class="btn btn-sm btn-outline-primary">Shop Edibles</a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card-premium category-card">
+                        <div class="category-icon"><i class="bi bi-capsule-pill"></i></div>
+                        <h5 class="fw-semibold">Wellness</h5>
+                        <p class="text-muted mb-1 small">75+ products</p>
+                        <p class="text-muted mb-3" style="font-size: 0.75rem;">CBD oils, capsules</p>
+                        <a href="shop.html" class="btn btn-sm btn-outline-primary">Shop Wellness</a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card-premium category-card">
+                        <div class="category-icon"><i class="bi bi-pencil-fill"></i></div>
+                        <h5 class="fw-semibold">Pre-Rolls</h5>
+                        <p class="text-muted mb-1 small">125+ varieties</p>
+                        <p class="text-muted mb-3" style="font-size: 0.75rem;">Singles, packs, infused</p>
+                        <a href="shop.html" class="btn btn-sm btn-outline-primary">Shop Pre-Rolls</a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card-premium category-card">
+                        <div class="category-icon"><i class="bi bi-tools"></i></div>
+                        <h5 class="fw-semibold">Accessories</h5>
+                        <p class="text-muted mb-1 small">Everything you need</p>
+                        <p class="text-muted mb-3" style="font-size: 0.75rem;">Grinders, papers, storage</p>
+                        <a href="shop.html" class="btn btn-sm btn-outline-primary">Shop Accessories</a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card-premium category-card">
+                        <div class="category-icon"><i class="bi bi-gift-fill"></i></div>
+                        <h5 class="fw-semibold">Gift Sets</h5>
+                        <p class="text-muted mb-1 small">Ready to give</p>
+                        <p class="text-muted mb-3" style="font-size: 0.75rem;">Curated bundles</p>
+                        <a href="shop.html" class="btn btn-sm btn-outline-primary">Shop Gifts</a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card-premium category-card">
+                        <div class="category-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                        <h5 class="fw-semibold">Deals Zone</h5>
+                        <p class="text-muted mb-1 small">Save big today</p>
+                        <p class="text-muted mb-3" style="font-size: 0.75rem;">Limited time offers</p>
+                        <a href="shop.html" class="btn btn-sm btn-outline-primary">View All Deals</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="content-section trending-dark">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="section-title mb-0">
+                    <i class="bi bi-fire text-danger"></i> Trending Now
+                </h2>
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-outline-secondary active">Trending</button>
+                    <button class="btn btn-outline-secondary">New Arrivals</button>
+                    <button class="btn btn-outline-secondary">Staff Picks</button>
+                    <button class="btn btn-outline-secondary">On Sale</button>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-2" id="featuredProducts">
+                <!-- Products will be loaded by JavaScript -->
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="shop.html" class="btn btn-outline-primary btn-lg">
+                    View All Products <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title text-center">How It Works</h2>
+
+            <div class="progress-steps mt-4">
+                <div class="progress-step">
+                    <div class="progress-step-number">1</div>
+                    <h5 class="progress-step-title">Browse & Select</h5>
+                    <p class="progress-step-description">Explore our curated collection of premium cannabis products</p>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-step-number">2</div>
+                    <h5 class="progress-step-title">Add to Cart</h5>
+                    <p class="progress-step-description">Review your selections and adjust quantities</p>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-step-number">3</div>
+                    <h5 class="progress-step-title">Secure Checkout</h5>
+                    <p class="progress-step-description">Safe payment processing with SSL encryption</p>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-step-number">4</div>
+                    <h5 class="progress-step-title">Fast Delivery</h5>
+                    <p class="progress-step-description">Discreet packaging with tracked shipping</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <span class="text-white fw-bold" style="font-size: 1.25rem;">Sessions Cannabis</span>
+                    </div>
+                    <p style="font-size: 0.875rem;">Rooted in community, elevated cannabis & connections</p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="#"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#"><i class="bi bi-twitter-x fs-5"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-2">
+                    <h6>SHOP</h6>
+                    <div class="d-flex flex-column">
+                        <a href="shop.html">Flower</a>
+                        <a href="shop.html">Edibles</a>
+                        <a href="shop.html">Concentrates</a>
+                        <a href="shop.html">Pre-Rolls</a>
+                        <a href="shop.html">Accessories</a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-2">
+                    <h6>LEARN</h6>
+                    <div class="d-flex flex-column">
+                        <a href="about.html">Cannabis 101</a>
+                        <a href="about.html">Effects Guide</a>
+                        <a href="about.html">Consumption</a>
+                        <a href="about.html">Dosage Guide</a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-2">
+                    <h6>ABOUT</h6>
+                    <div class="d-flex flex-column">
+                        <a href="about.html">Our Story</a>
+                        <a href="contact.html">Locations</a>
+                        <a href="contact.html">Community</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <h6>SUPPORT</h6>
+                    <div class="d-flex flex-column">
+                        <a href="contact.html">Help Center</a>
+                        <a href="#">Shipping</a>
+                        <a href="#">Returns</a>
+                        <a href="cart.html">Track Order</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-content">
+                <p>&copy; 2024 Sessions Cannabis. All rights reserved.</p>
+                <p class="mb-3">
+                    <a href="#" class="footer-link">Privacy Policy</a> |
+                    <a href="#" class="footer-link">Terms of Service</a> |
+                    <a href="contact.html" class="footer-link">Contact Us</a>
+                </p>
+                <p class="small">
+                    <i class="bi bi-shield-fill-check"></i> Licensed by: Ontario Cannabis Retail Corporation<br>
+                    Must be 19+ to purchase. Please consume responsibly.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- GSAP Animation Library -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <!-- tsParticles Library -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
+
+    <!-- Sessions Cannabis JS -->
+    <script src="js/text-rotate.js"></script>
+    <script src="js/animated-paths.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/particles-config.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

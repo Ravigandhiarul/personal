@@ -3,7 +3,19 @@
     "allow": [
       "Bash(git init:*)",
       "Bash(git remote add:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd Sessions Cannabis Assignment Website\n\n🎯 Digital Marketing & E-Commerce Manager Position Application\n\nFeatures:\n- Professional website with Sessions branding (#F18A00)\n- 22 responsive HTML pages with complete analysis\n- UX analysis with 4 customer friction points\n- SEO recommendations (Quick Wins + Strategic)\n- WordPress skills demonstration\n- 17 detailed source documents organized by category\n\nContent:\n- Executive summary with $7.2M opportunity analysis\n- Technical audits (W3C, schema, NAP consistency)\n- Competitive analysis (Tokyo Smoke, Canna Cabana)\n- Implementation roadmaps with ROI projections\n- 90-day execution plan\n\n🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(gh:*)",
+      "Bash(git commit:*)",
+      "Bash(echo:*)",
+      "Bash(ls:*)",
+      "Bash(python:*)",
+      "Bash(dir /b \"C:\\Users\\Lenovo\\Documents\\Personal\\Interview\\sessions\\docs\\*.html\")",
+      "Bash(cat:*)",
+      "Bash(/tmp/original_index.html)",
+      "Bash(mv:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

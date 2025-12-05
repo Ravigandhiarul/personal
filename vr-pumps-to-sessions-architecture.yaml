@@ -1,0 +1,1264 @@
+# VR PUMPS TO SESSIONS CANNABIS - ECOMMERCE ARCHITECTURE MAPPING
+# This file documents the VR Pumps website architecture and how to convert it to Sessions Cannabis branding
+
+metadata:
+  source: VR Pumps - Next.js Ecommerce Website
+  target: Sessions Cannabis - HTML/Bootstrap Implementation
+  framework_source: Next.js 15 + TailwindCSS + Shadcn/ui
+  framework_target: Bootstrap 5.3.0 + Custom CSS
+  brand_color_source: "#377DFF" (Blue)
+  brand_color_target: "#F18A00" (Orange)
+  typography_source: Montserrat
+  typography_target: Poppins
+
+# ============================================================================
+# COLOR SCHEME MAPPING
+# ============================================================================
+color_mapping:
+  primary:
+    source: "#377DFF"
+    target: "#F18A00"
+    usage: "CTA buttons, active states, icons, badges"
+
+  primary_light:
+    source: "#e4ebff"
+    target: "rgba(241, 138, 0, 0.1)"
+    usage: "Background highlights, badges, hover states"
+
+  dark_background:
+    source: "#2A2A2A"
+    target: "#1e2022"
+    usage: "Dark hero sections, featured product cards"
+
+  light_background:
+    source: "#F7FAFF"
+    target: "#fef3e5"
+    usage: "Section backgrounds, alternating content areas"
+
+  neutral_gray:
+    source: "#DCDADB"
+    target: "#e7eaf3"
+    usage: "Borders, dividers, card backgrounds"
+
+  white:
+    source: "#FFFFFF"
+    target: "#ffffff"
+    usage: "Card backgrounds, content areas"
+
+  text_primary:
+    source: "#2A2A2A / gray-900"
+    target: "#1e2022"
+    usage: "Headings, primary content"
+
+  text_secondary:
+    source: "gray-600 / gray-700"
+    target: "#1e2022"
+    usage: "Descriptions, secondary content (improved readability)"
+
+  border:
+    source: "#21325B1A"
+    target: "#e7eaf3"
+    usage: "Card borders, dividers"
+
+  accent:
+    source: "#e9bc14"
+    target: "#F18A00"
+    usage: "Star ratings, highlights"
+
+# ============================================================================
+# TYPOGRAPHY MAPPING
+# ============================================================================
+typography:
+  font_family:
+    source: "Montserrat"
+    target: "Poppins"
+    weights: [300, 400, 500, 600, 700]
+
+  headings:
+    h1:
+      source: "text-4xl lg:text-5xl xl:text-6xl font-bold"
+      target: "font-size: 3rem; font-weight: 700; line-height: 1.2;"
+      sessions_class: ".hero-title"
+
+    h2:
+      source: "text-2xl md:text-3xl lg:text-4xl font-bold"
+      target: "font-size: 2rem; font-weight: 600; line-height: 1.3;"
+      sessions_class: ".section-title"
+
+    h3:
+      source: "text-xl md:text-2xl font-semibold"
+      target: "font-size: 1.5rem; font-weight: 600; line-height: 1.4;"
+      sessions_class: ".section-subtitle"
+
+    h4:
+      source: "text-lg md:text-xl font-semibold"
+      target: "font-size: 1.125rem; font-weight: 600;"
+      sessions_class: "h5"
+
+    h5:
+      source: "text-base md:text-lg font-medium"
+      target: "font-size: 1rem; font-weight: 500;"
+      sessions_class: "h6"
+
+  body:
+    large:
+      source: "text-base lg:text-lg"
+      target: "font-size: 1.125rem; line-height: 1.6;"
+
+    regular:
+      source: "text-base"
+      target: "font-size: 1rem; line-height: 1.6;"
+
+    small:
+      source: "text-sm"
+      target: "font-size: 0.875rem; line-height: 1.5;"
+
+# ============================================================================
+# LAYOUT STRUCTURE
+# ============================================================================
+layout_architecture:
+
+  # HEADER / NAVIGATION
+  header:
+    vr_pumps:
+      structure: "Sticky header with logo, desktop nav (NavBar), search/wishlist/cart icons, login button, mobile menu"
+      height: "h-16 lg:h-20"
+      position: "sticky top-0 z-[11]"
+      background: "white with border-b"
+      components:
+        - logo: "Image component, 150px width"
+        - desktop_nav: "NavBar custom component with tubelight effect"
+        - action_icons: "Search, Wishlist, Cart (20x20px)"
+        - login_button: "InteractiveHoverButton with arrow"
+        - mobile_menu: "Hamburger icon, dropdown menu"
+
+    sessions_cannabis:
+      structure: "Bootstrap navbar with brand, nav-links, action buttons"
+      implementation: |
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+          <div class="container-fluid px-4">
+            <a class="navbar-brand">
+              <img src="logo.svg" alt="Sessions Cannabis" width="150">
+            </a>
+            <button class="navbar-toggler">
+              <i class="bi bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link">Home</a></li>
+                <li class="nav-item"><a class="nav-link">About</a></li>
+                <li class="nav-item"><a class="nav-link">Products</a></li>
+                <li class="nav-item"><a class="nav-link">Contact</a></li>
+              </ul>
+              <div class="d-flex gap-3">
+                <button class="btn btn-icon"><i class="bi bi-search"></i></button>
+                <button class="btn btn-icon"><i class="bi bi-heart"></i></button>
+                <button class="btn btn-icon"><i class="bi bi-cart"></i></button>
+                <button class="btn btn-primary">Login</button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      css_classes:
+        - ".navbar { padding: 1.25rem 0; }"
+        - ".nav-link { font-weight: 500; transition: color 0.3s; }"
+        - ".nav-link:hover { color: #F18A00; }"
+        - ".btn-primary { background: #F18A00; border: none; }"
+
+  # FOOTER
+  footer:
+    vr_pumps:
+      structure: "Blue background with logo, tagline, contact grid (3 columns), social icons"
+      background: "#377DFF"
+      text_color: "white"
+      sections:
+        - tagline: "Company description paragraph"
+        - contact_grid: "Address | Email | Phone (3 equal columns with borders)"
+        - social_media: "WhatsApp, Facebook icons"
+
+    sessions_cannabis:
+      structure: "Orange background with white text, same grid structure"
+      background: "#F18A00"
+      implementation: |
+        <footer class="bg-primary text-white py-5">
+          <div class="container">
+            <div class="text-center mb-4">
+              <img src="logo-white.png" alt="Sessions Cannabis" width="200" class="mb-3">
+              <p class="lead">Company tagline and description...</p>
+            </div>
+            <div class="row border-top border-white border-opacity-25 pt-4">
+              <div class="col-md-4 text-center border-end">
+                <p>Address here</p>
+              </div>
+              <div class="col-md-4 text-center border-end">
+                <a href="mailto:email" class="text-white">Email</a>
+              </div>
+              <div class="col-md-4 text-center">
+                <a href="tel:phone" class="text-white">Phone</a>
+              </div>
+            </div>
+            <div class="text-center mt-4">
+              <a href="#" class="text-white me-3"><i class="bi bi-whatsapp fs-4"></i></a>
+              <a href="#" class="text-white"><i class="bi bi-facebook fs-4"></i></a>
+            </div>
+          </div>
+        </footer>
+      css_classes:
+        - ".bg-primary { background-color: #F18A00 !important; }"
+        - ".border-white { border-color: rgba(255,255,255,0.3) !important; }"
+
+# ============================================================================
+# COMPONENT MAPPING
+# ============================================================================
+components:
+
+  # HERO SECTION (Fold1)
+  hero_product_showcase:
+    vr_pumps:
+      layout: "2-column grid (image left, content right on desktop)"
+      background: "#F7FAFF"
+      elements:
+        - product_image: "Large image with max-width constraints"
+        - product_title: "text-4xl to text-6xl font-bold"
+        - product_description: "text-base to text-lg with leading-relaxed"
+        - cta_buttons: "Primary button ($15 - Add to cart) + Favorite heart button"
+        - navigation_arrows: "Left/right carousel arrows (desktop: outside, mobile: bottom)"
+      spacing: "py-12 md:py-16 lg:py-30"
+
+    sessions_cannabis:
+      implementation: |
+        <section class="hero-section py-5" style="background: #fef3e5;">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-6 order-2 order-lg-1 text-center text-lg-start mb-4 mb-lg-0">
+                <img src="product.png" alt="Product" class="img-fluid">
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2">
+                <h1 class="display-3 fw-bold mb-4">Product Name</h1>
+                <p class="lead mb-4">Product description...</p>
+                <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                  <button class="btn btn-primary btn-lg">$15 - Add to cart</button>
+                  <button class="btn btn-outline-secondary btn-lg">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      css_overrides:
+        - ".btn-primary { background: #F18A00; border-color: #F18A00; }"
+        - ".btn-primary:hover { background: #d97800; }"
+
+  # FEATURE CARDS (Fold2)
+  feature_cards:
+    vr_pumps:
+      layout: "3-column grid with icon + text"
+      features:
+        - "Secure checkout"
+        - "30 Days return"
+        - "Free shipping"
+      card_structure:
+        - icon: "56x56px image"
+        - title: "text-lg font-semibold"
+        - description: "text-sm to text-base"
+      styling: "hover:bg-gray-50 transition"
+
+    sessions_cannabis:
+      implementation: |
+        <section class="features-section py-5 border-bottom">
+          <div class="container">
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="d-flex gap-3 p-3 rounded hover-card">
+                  <div class="flex-shrink-0">
+                    <img src="icon.png" width="56" height="56">
+                  </div>
+                  <div>
+                    <h5 class="fw-semibold mb-1">Feature Title</h5>
+                    <p class="text-muted small mb-0">Description</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      css_classes:
+        - ".hover-card { transition: all 0.3s; }"
+        - ".hover-card:hover { background: #fef3e5; }"
+
+  # CATEGORY CARDS (Fold3)
+  category_showcase:
+    vr_pumps:
+      layout: "3-column grid with product images and HoverBorderGradient button"
+      card_structure:
+        - image_section: "Product image with border-b"
+        - info_section: "Category name, starting price, 'View all' button"
+      button: "HoverBorderGradient custom component"
+
+    sessions_cannabis:
+      implementation: |
+        <section class="categories-section py-5">
+          <div class="container">
+            <div class="text-center mb-5">
+              <h2 class="section-title mb-2">The better way to shop with</h2>
+              <h2 class="section-title">Sessions Cannabis</h2>
+            </div>
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="card category-card border-0 shadow-sm">
+                  <div class="card-img-top border-bottom">
+                    <img src="category.png" class="img-fluid">
+                  </div>
+                  <div class="card-body text-center py-4">
+                    <h4 class="card-title fw-semibold mb-2">Category Name</h4>
+                    <p class="text-muted small mb-3">Starting from <span class="fw-medium text-dark">$50</span></p>
+                    <button class="btn btn-outline-primary rounded-pill">
+                      <i class="bi bi-arrow-right"></i> View all
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      css_classes:
+        - ".category-card { transition: box-shadow 0.3s; }"
+        - ".category-card:hover { box-shadow: 0 0.5rem 1rem rgba(241,138,0,0.15) !important; }"
+        - ".btn-outline-primary { color: #F18A00; border-color: #F18A00; }"
+
+  # PROMOTIONAL BANNERS (Fold4)
+  promo_banners:
+    vr_pumps:
+      layout: "2-column grid with promotional cards"
+      banner_types:
+        sale_banner:
+          background: "#DCDADB"
+          elements:
+            - badge: "LIMITED TIME ONLY (pink text)"
+            - headline: "70% OFF (text-5xl to text-7xl)"
+            - countdown_timer: "4-column grid (Days/Hours/Mins/Seconds)"
+            - cta_button: "White button with rounded-full"
+            - product_image: "Positioned bottom-right absolutely"
+
+        product_banner:
+          background: "#2A2A2A (dark)"
+          elements:
+            - price: "text-4xl to text-5xl"
+            - product_name: "text-3xl to text-4xl"
+            - tagline: "gray-400 text"
+            - cta_button: "White button"
+            - product_image: "Bottom-right positioned"
+
+    sessions_cannabis:
+      implementation: |
+        <section class="promos-section py-5">
+          <div class="container">
+            <div class="row g-4">
+              <!-- Sale Banner -->
+              <div class="col-lg-6">
+                <div class="promo-card position-relative rounded-3 overflow-hidden" style="background: #e7eaf3; height: 500px;">
+                  <div class="p-5">
+                    <p class="text-primary small fw-medium mb-3">LIMITED TIME ONLY</p>
+                    <h2 class="display-1 fw-bold mb-4">70% OFF</h2>
+                    <div class="row g-3 mb-4">
+                      <div class="col-6 col-sm-3">
+                        <div class="bg-white rounded p-2 text-center">
+                          <h3 class="mb-0">364</h3>
+                          <small class="text-muted">Days</small>
+                        </div>
+                      </div>
+                      <!-- Repeat for Hours, Mins, Seconds -->
+                    </div>
+                    <button class="btn btn-light rounded-pill px-4">Shop</button>
+                  </div>
+                  <img src="product.png" class="position-absolute bottom-0 end-0" style="width: 60%; height: 60%; object-fit: contain;">
+                </div>
+              </div>
+
+              <!-- Dark Product Banner -->
+              <div class="col-lg-6">
+                <div class="promo-card position-relative rounded-3 overflow-hidden" style="background: #1e2022; height: 500px;">
+                  <div class="p-5 text-white">
+                    <h3 class="display-5 fw-bold mb-2">$79.38</h3>
+                    <h2 class="display-6 fw-bold mb-3">Product Name</h2>
+                    <p class="text-white-50 mb-4">Product tagline</p>
+                    <button class="btn btn-light rounded-pill px-4">Shop</button>
+                  </div>
+                  <img src="product.png" class="position-absolute bottom-0 end-0" style="width: 55%; height: 55%; object-fit: contain;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      css_classes:
+        - ".text-primary { color: #F18A00 !important; }"
+        - ".promo-card { transition: transform 0.3s; }"
+        - ".promo-card:hover { transform: translateY(-5px); }"
+
+  # PRODUCT GRID (Fold5)
+  product_grid:
+    vr_pumps:
+      layout: "4-column grid (responsive: 1-2-4 columns)"
+      show_all_toggle: "Boolean state to show 8 or all 15 products"
+      card_structure:
+        - favorite_button: "Absolute positioned top-right"
+        - product_image: "Square aspect ratio with gray-50 background"
+        - product_name: "text-md font-bold"
+        - description: "text-sm with min-h-[40px]"
+        - price: "text-lg font-bold"
+        - star_rating: "5-star display with review count"
+        - cta_button: "InteractiveHoverButton 'Add to cart'"
+      toggle_button: "View all products / Show less"
+
+    sessions_cannabis:
+      implementation: |
+        <section class="products-section py-5">
+          <div class="container">
+            <h2 class="section-title text-center mb-5">What's trending</h2>
+            <div class="row g-4" id="productGrid">
+              <div class="col-6 col-md-3">
+                <div class="card product-card border-0 shadow-sm h-100">
+                  <div class="position-relative">
+                    <button class="btn btn-sm btn-light position-absolute top-0 end-0 m-2">
+                      <i class="bi bi-heart"></i>
+                    </button>
+                    <div class="product-image bg-light p-3">
+                      <img src="product.png" class="img-fluid">
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold mb-1">Product Name</h5>
+                    <p class="card-text small text-muted mb-2">Description</p>
+                    <p class="fw-bold mb-2">$53.66</p>
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                      <div class="text-warning">★★★★★</div>
+                      <small class="text-primary">125</small>
+                    </div>
+                    <button class="btn btn-primary w-100">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-5">
+              <button class="btn btn-outline-primary rounded-pill px-5">View all products</button>
+            </div>
+          </div>
+        </section>
+      css_classes:
+        - ".product-card { transition: all 0.3s; }"
+        - ".product-card:hover { box-shadow: 0 0.5rem 1.5rem rgba(241,138,0,0.2) !important; }"
+        - ".product-image { aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; }"
+        - ".text-warning { color: #F18A00 !important; }"
+
+  # PRODUCT LISTING PAGE
+  product_listing:
+    vr_pumps:
+      structure: "Main section with filters, sorting, grid display"
+      filters:
+        - category_filter: "Dropdown or tabs"
+        - price_range: "Slider or checkboxes"
+        - specifications: "Horse Power, Max Head, Discharge, etc."
+      product_display:
+        - grid_view: "Responsive 2-3-4 column grid"
+        - card_components: "Same as product grid cards"
+      data_source: "allProducts array (109 products) from pumps-list.js"
+
+    sessions_cannabis:
+      implementation: |
+        <section class="listing-section py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="filters-sidebar">
+                  <h5 class="fw-bold mb-3">Filters</h5>
+                  <div class="filter-group mb-4">
+                    <h6 class="fw-semibold mb-2">Category</h6>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="cat1">
+                      <label class="form-check-label" for="cat1">Category 1</label>
+                    </div>
+                  </div>
+                  <div class="filter-group mb-4">
+                    <h6 class="fw-semibold mb-2">Price Range</h6>
+                    <input type="range" class="form-range">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-9">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <p class="mb-0 text-muted">Showing 1-12 of 109 products</p>
+                  <select class="form-select w-auto">
+                    <option>Sort by: Featured</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                  </select>
+                </div>
+                <div class="row g-4">
+                  <!-- Product cards here -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+# ============================================================================
+# INTERACTIVE ELEMENTS
+# ============================================================================
+interactive_components:
+
+  buttons:
+    primary_cta:
+      vr_pumps: "bg-[#377DFF] hover:bg-[#e4ebff] hover:text-[#000000] rounded-lg transition-colors"
+      sessions: "background: #F18A00; color: white; border-radius: 0.5rem; transition: all 0.3s;"
+      hover: "background: #d97800; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(241,138,0,0.3);"
+
+    outline:
+      vr_pumps: "border-[#21325B1A] text-[#377DFF] hover:bg-[#377DFF] hover:text-white"
+      sessions: "border: 2px solid #F18A00; color: #F18A00; background: transparent;"
+      hover: "background: #F18A00; color: white;"
+
+    rounded_pill:
+      vr_pumps: "rounded-full px-8 py-3"
+      sessions: "border-radius: 50rem; padding: 0.75rem 2rem;"
+
+  favorite_toggle:
+    vr_pumps: "Heart icon button with state management (isFavourite boolean)"
+    sessions: |
+      <button class="btn btn-sm btn-light favorite-btn" data-favorite="false">
+        <i class="bi bi-heart"></i> <!-- Empty heart -->
+        <i class="bi bi-heart-fill d-none"></i> <!-- Filled heart -->
+      </button>
+    javascript: |
+      document.querySelectorAll('.favorite-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const isFav = this.dataset.favorite === 'true';
+          this.dataset.favorite = !isFav;
+          this.querySelectorAll('i').forEach(icon => icon.classList.toggle('d-none'));
+        });
+      });
+
+  add_to_cart:
+    vr_pumps: "InteractiveHoverButton with state (isAddedtoCart boolean)"
+    sessions: |
+      <button class="btn btn-primary add-to-cart-btn" data-added="false">
+        <span class="btn-text">Add to cart</span>
+        <span class="btn-text-added d-none">Added ✓</span>
+      </button>
+    javascript: |
+      document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          this.dataset.added = 'true';
+          this.classList.add('btn-success');
+          this.classList.remove('btn-primary');
+          this.querySelectorAll('.btn-text').forEach(text => text.classList.toggle('d-none'));
+        });
+      });
+
+  countdown_timer:
+    vr_pumps: "React state with setInterval updating every second"
+    sessions: |
+      <div class="countdown-timer row g-3">
+        <div class="col-3">
+          <div class="time-box bg-white rounded p-2 text-center">
+            <h3 class="mb-0" id="days">364</h3>
+            <small class="text-muted">Days</small>
+          </div>
+        </div>
+        <!-- Repeat for hours, minutes, seconds -->
+      </div>
+    javascript: |
+      let countdown = { days: 364, hours: 23, minutes: 59, seconds: 59 };
+      setInterval(() => {
+        if (countdown.seconds > 0) countdown.seconds--;
+        else if (countdown.minutes > 0) { countdown.minutes--; countdown.seconds = 59; }
+        else if (countdown.hours > 0) { countdown.hours--; countdown.minutes = 59; countdown.seconds = 59; }
+        else if (countdown.days > 0) { countdown.days--; countdown.hours = 23; countdown.minutes = 59; countdown.seconds = 59; }
+
+        document.getElementById('days').textContent = countdown.days;
+        document.getElementById('hours').textContent = countdown.hours;
+        document.getElementById('minutes').textContent = countdown.minutes;
+        document.getElementById('seconds').textContent = countdown.seconds;
+      }, 1000);
+
+  star_rating:
+    vr_pumps: "Array.from loop creating 5 stars with conditional color"
+    sessions: |
+      <div class="star-rating">
+        <span class="star filled">★</span>
+        <span class="star filled">★</span>
+        <span class="star filled">★</span>
+        <span class="star filled">★</span>
+        <span class="star">★</span>
+      </div>
+    css: |
+      .star { color: #e7eaf3; font-size: 1.25rem; }
+      .star.filled { color: #F18A00; }
+
+  show_more_toggle:
+    vr_pumps: "useState boolean to toggle between showing 8 or all products"
+    sessions: |
+      <button class="btn btn-outline-primary" id="toggleProducts">
+        <span class="show-all">View all products</span>
+        <span class="show-less d-none">Show less</span>
+      </button>
+    javascript: |
+      let showingAll = false;
+      document.getElementById('toggleProducts').addEventListener('click', function() {
+        showingAll = !showingAll;
+        document.querySelectorAll('.product-card').forEach((card, index) => {
+          if (index >= 8) card.classList.toggle('d-none');
+        });
+        this.querySelectorAll('span').forEach(text => text.classList.toggle('d-none'));
+      });
+
+# ============================================================================
+# DATA STRUCTURE
+# ============================================================================
+data_models:
+
+  product:
+    fields:
+      - id: "number (unique identifier)"
+      - name: "string (e.g., 'Aquaglow Eco')"
+      - category: "string (e.g., 'Aquaglow', 'Zenflow')"
+      - imageUrl: "import path"
+      - isFavourite: "boolean (default: false)"
+      - quantity: "number (default: 1)"
+      - isAddedtoCart: "boolean (default: false)"
+      - price: "number (in currency)"
+      - horsePower: "number or string with 'hp'"
+      - maximumHead: "number (in meters)"
+      - maximumDischarge: "number (in lpm)"
+      - stage: "number (optional)"
+      - headRange: "array [min, max] or string"
+      - applications: "array of strings"
+      - efficiency: "number (optional, percentage)"
+      - suctionLiftInMtrs: "number (optional)"
+
+    example:
+      id: 1
+      name: "Aquaglow Eco"
+      category: "Aquaglow"
+      isBaseVariant: true
+      imageUrl: "AquaglowEco.png"
+      isFavourite: false
+      quantity: 1
+      isAddedtoCart: false
+      price: 5366
+      horsePower: 0.3
+      maximumHead: 8
+      maximumDischarge: 120
+      stage: 1
+      headRange: [0, 6]
+      applications: ["Domestics", "Gardenings", "Agriculture", "Fountain"]
+
+  nav_item:
+    fields:
+      - name: "string"
+      - url: "string (path)"
+      - icon: "Lucide icon component"
+
+    example:
+      name: "Home"
+      url: "/"
+      icon: "Home"
+
+# ============================================================================
+# ANIMATIONS & TRANSITIONS
+# ============================================================================
+animations:
+
+  hover_effects:
+    cards:
+      vr_pumps: "hover:shadow-lg transition-shadow duration-300"
+      sessions: "transition: all 0.3s ease; &:hover { box-shadow: 0 0.5rem 1.5rem rgba(241,138,0,0.2); transform: translateY(-3px); }"
+
+    buttons:
+      vr_pumps: "transition-colors duration-200 cursor-pointer"
+      sessions: "transition: all 0.3s; &:hover { transform: translateY(-2px); }"
+
+    images:
+      vr_pumps: "transition-transform duration-300"
+      sessions: "transition: transform 0.3s; &:hover { transform: scale(1.05); }"
+
+  fade_in:
+    vr_pumps: "Intersection Observer with opacity/transform animations"
+    sessions: |
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    javascript: |
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  carousel:
+    vr_pumps: "Left/right arrow navigation with state management"
+    sessions: "Bootstrap 5 carousel component or custom Swiper.js implementation"
+
+# ============================================================================
+# RESPONSIVE BREAKPOINTS
+# ============================================================================
+responsive_design:
+
+  breakpoints:
+    vr_pumps_tailwind:
+      sm: "640px"
+      md: "768px"
+      lg: "1024px"
+      xl: "1280px"
+
+    sessions_bootstrap:
+      sm: "576px"
+      md: "768px"
+      lg: "992px"
+      xl: "1200px"
+      xxl: "1400px"
+
+  grid_columns:
+    mobile: "1 column"
+    tablet: "2 columns"
+    desktop: "3-4 columns"
+
+    implementation: |
+      <div class="row g-4">
+        <div class="col-12 col-sm-6 col-lg-3">
+          <!-- Product card -->
+        </div>
+      </div>
+
+  navigation:
+    desktop: "Full horizontal navbar with links visible"
+    mobile: "Hamburger menu with collapsible dropdown"
+
+    implementation: |
+      <button class="navbar-toggler d-lg-none">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse">
+        <!-- Nav items -->
+      </div>
+
+  typography_scaling:
+    headings: "Use fluid typography with clamp() or Bootstrap display classes"
+    body: "Maintain readability at 16px minimum on mobile"
+
+    example: |
+      h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+      .display-1 { font-size: calc(1.725rem + 5.7vw); }
+
+# ============================================================================
+# SPACING SYSTEM
+# ============================================================================
+spacing:
+
+  vr_pumps_tailwind:
+    section_padding: "py-12 md:py-16 lg:py-30"
+    container_padding: "px-4 sm:px-6 lg:px-8"
+    card_padding: "p-4 md:p-6 lg:p-8"
+    gaps: "gap-4 md:gap-6 lg:gap-8"
+
+  sessions_bootstrap:
+    section_padding: "py-5 (3rem) or py-6 (4.5rem)"
+    container_default: "container (with built-in padding)"
+    card_padding: "p-3 to p-4"
+    gaps: "g-3 to g-4 in row"
+
+  conversion_guide:
+    py-12: "py-4 (3rem)"
+    py-16: "py-5 (3rem) to py-6 (4.5rem)"
+    py-20: "py-6 (4.5rem)"
+    py-30: "py-7 (6rem) or custom py-8"
+    px-4: "px-3 (1rem)"
+    px-6: "px-4 (1.5rem)"
+    px-8: "px-4 (1.5rem) to px-5 (3rem)"
+    gap-4: "g-3 (1rem)"
+    gap-6: "g-3 (1rem) to g-4 (1.5rem)"
+    gap-8: "g-4 (1.5rem)"
+
+# ============================================================================
+# UTILITY CLASSES MAPPING
+# ============================================================================
+utility_mapping:
+
+  display:
+    vr_pumps: "hidden md:block, flex, grid, inline-block"
+    sessions: "d-none d-md-block, d-flex, d-grid, d-inline-block"
+
+  flexbox:
+    vr_pumps: "flex items-center justify-between gap-4"
+    sessions: "d-flex align-items-center justify-content-between gap-3"
+
+  text_alignment:
+    vr_pumps: "text-center lg:text-left"
+    sessions: "text-center text-lg-start"
+
+  shadows:
+    vr_pumps: "shadow-sm hover:shadow-lg"
+    sessions: "shadow-sm hover-shadow-lg (custom class)"
+    custom_css: ".hover-shadow-lg:hover { box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15); }"
+
+  borders:
+    vr_pumps: "border-[1px] border-solid border-[#21325B1A] rounded-xl"
+    sessions: "border border-light rounded-3"
+
+  sizing:
+    vr_pumps: "w-full max-w-7xl h-16 min-h-[40px]"
+    sessions: "w-100 mw-100 h-auto min-h-custom (inline style or custom class)"
+
+# ============================================================================
+# CONVERSION WORKFLOW
+# ============================================================================
+conversion_process:
+
+  step_1_setup:
+    - "Create new HTML file with Bootstrap 5.3.0 CDN"
+    - "Add Bootstrap Icons CDN"
+    - "Import Poppins font from Google Fonts (weights 300,400,500,600,700)"
+    - "Set up base CSS variables for Sessions Cannabis colors"
+
+  step_2_structure:
+    - "Convert Next.js component structure to HTML sections"
+    - "Replace Tailwind classes with Bootstrap equivalents"
+    - "Maintain responsive grid system (12-column)"
+    - "Ensure semantic HTML5 tags (header, nav, section, footer)"
+
+  step_3_styling:
+    - "Replace all #377DFF (blue) with #F18A00 (orange)"
+    - "Update hover states, active states, focus states"
+    - "Convert shadow-* to Bootstrap shadow utilities or custom classes"
+    - "Adapt border-radius from Tailwind arbitrary values to Bootstrap classes"
+
+  step_4_components:
+    - "Convert React components to HTML + vanilla JavaScript"
+    - "Replace Next.js Image components with standard <img> tags + lazy loading"
+    - "Transform state management to DOM manipulation"
+    - "Implement event listeners for interactivity"
+
+  step_5_interactivity:
+    - "Add JavaScript for favorite toggle"
+    - "Implement add-to-cart functionality"
+    - "Create countdown timer logic"
+    - "Set up show more/less toggle"
+    - "Add Intersection Observer for scroll animations"
+
+  step_6_optimization:
+    - "Optimize images (WebP format, responsive srcset)"
+    - "Minify CSS and JavaScript for production"
+    - "Add meta tags for SEO"
+    - "Test cross-browser compatibility"
+    - "Validate HTML with W3C validator"
+
+  step_7_testing:
+    - "Test responsive design on mobile, tablet, desktop"
+    - "Check all interactive elements (buttons, forms, toggles)"
+    - "Verify color contrast for accessibility (WCAG AA)"
+    - "Test with screen readers if applicable"
+    - "Performance audit with Lighthouse"
+
+# ============================================================================
+# EXAMPLE: COMPLETE PRODUCT CARD CONVERSION
+# ============================================================================
+example_product_card:
+
+  vr_pumps_code: |
+    <div className="bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer">
+      <div className="relative">
+        <div className="absolute top-4 right-4 z-10">
+          <FavouriteButton />
+        </div>
+        <div className="aspect-square bg-gray-50 p-6 flex items-center justify-center">
+          <Image src={product.image} alt={product.name} width={200} height={200} className="w-full h-full object-contain" />
+        </div>
+      </div>
+      <div className="px-4 py-6">
+        <h3 className="text-md font-bold text-black mb-1">{product.name}</h3>
+        <p className="text-sm text-gray-700 mb-3 min-h-[40px]">{product.description}</p>
+        <p className="text-lg font-bold text-gray-900 mb-2">{product.price}</p>
+        <div className="flex items-center gap-2 mb-4">
+          <div className="flex">{renderStars(product.rating)}</div>
+          {product.reviews >= 0 && <span className="text-sm text-blue-600">{product.reviews}</span>}
+        </div>
+        <InteractiveHoverButton text="Add to cart" className="w-50" />
+      </div>
+    </div>
+
+  sessions_cannabis_code: |
+    <div class="card product-card border-0 shadow-sm h-100">
+      <div class="position-relative">
+        <button class="btn btn-sm btn-light position-absolute top-0 end-0 m-2 favorite-btn" data-favorite="false">
+          <i class="bi bi-heart"></i>
+        </button>
+        <div class="product-image bg-light p-3">
+          <img src="product-aquaglow-eco.jpg" alt="Aquaglow Eco" class="img-fluid" loading="lazy">
+        </div>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title fw-bold mb-1">Aquaglow Eco</h5>
+        <p class="card-text small text-muted mb-2" style="min-height: 40px;">Visual Brilliance, Elegance In Every Drop</p>
+        <p class="fw-bold mb-2">$53.66</p>
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <div class="star-rating">
+            <span class="star filled">★</span>
+            <span class="star filled">★</span>
+            <span class="star filled">★</span>
+            <span class="star filled">★</span>
+            <span class="star">★</span>
+          </div>
+          <small class="text-primary">40</small>
+        </div>
+        <button class="btn btn-primary w-100 add-to-cart-btn" data-added="false">
+          <span class="btn-text">Add to cart</span>
+          <span class="btn-text-added d-none">Added ✓</span>
+        </button>
+      </div>
+    </div>
+
+  sessions_css: |
+    .product-card {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 0.5rem 1.5rem rgba(241, 138, 0, 0.2) !important;
+      transform: translateY(-5px);
+    }
+
+    .product-image {
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fef3e5 !important;
+    }
+
+    .star {
+      color: #e7eaf3;
+      font-size: 1.25rem;
+    }
+
+    .star.filled {
+      color: #F18A00;
+    }
+
+    .btn-primary {
+      background-color: #F18A00;
+      border-color: #F18A00;
+    }
+
+    .btn-primary:hover {
+      background-color: #d97800;
+      border-color: #d97800;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(241, 138, 0, 0.3);
+    }
+
+    .text-primary {
+      color: #F18A00 !important;
+    }
+
+    .favorite-btn i {
+      color: #F18A00;
+    }
+
+# ============================================================================
+# CANNABIS-SPECIFIC ADAPTATIONS
+# ============================================================================
+cannabis_industry_considerations:
+
+  imagery:
+    - "Replace pump products with cannabis product images"
+    - "Use high-quality lifestyle photography"
+    - "Ensure compliance with regional cannabis advertising laws"
+    - "Consider showing product packaging, not just raw products"
+
+  categories:
+    vr_pumps_categories: ["Aquaglow", "Zenflow", "Deepflow", "Sludgepro", "Stagepro", etc.]
+    cannabis_categories: ["Flower", "Edibles", "Vapes", "Concentrates", "Pre-Rolls", "Accessories"]
+
+  product_attributes:
+    vr_pumps: ["horsePower", "maximumHead", "maximumDischarge", "stage", "applications"]
+    cannabis: ["strain", "thc_percentage", "cbd_percentage", "weight", "category", "effects", "terpenes"]
+
+  compliance_requirements:
+    - "Age verification popup/modal on site entry"
+    - "Legal disclaimers in footer"
+    - "Regional availability messaging"
+    - "Medical vs recreational product differentiation"
+    - "Dosage information and warnings"
+
+  trust_signals:
+    - "Lab testing badges (COA - Certificate of Analysis)"
+    - "Licensed retailer badge"
+    - "Secure checkout guarantees"
+    - "Discreet packaging messaging"
+    - "Customer reviews with verified purchase badges"
+
+  additional_features:
+    - "Strain finder / product recommendation quiz"
+    - "Batch number lookup for lab results"
+    - "Store locator for physical locations"
+    - "Delivery vs pickup options"
+    - "Loyalty program integration"
+
+# ============================================================================
+# REUSABLE CSS TEMPLATE
+# ============================================================================
+sessions_cannabis_css_template: |
+  /* ============================================================================
+     SESSIONS CANNABIS - ECOMMERCE STYLES
+     Based on VR Pumps architecture, adapted for Sessions Cannabis branding
+     ============================================================================ */
+
+  /* CSS VARIABLES */
+  :root {
+    --primary: #F18A00;
+    --primary-hover: #d97800;
+    --primary-light: rgba(241, 138, 0, 0.1);
+    --dark: #1e2022;
+    --light-bg: #fef3e5;
+    --border-color: #e7eaf3;
+    --white: #ffffff;
+    --text-muted: #6c757d;
+    --shadow-sm: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+    --shadow-md: 0 0.5rem 1rem rgba(0,0,0,0.15);
+    --shadow-lg: 0 1rem 3rem rgba(0,0,0,0.175);
+    --shadow-primary: 0 0.5rem 1.5rem rgba(241, 138, 0, 0.2);
+    --transition: all 0.3s ease;
+  }
+
+  /* TYPOGRAPHY */
+  body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--dark);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  /* BUTTONS */
+  .btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+    font-weight: 500;
+    transition: var(--transition);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-primary);
+  }
+
+  .btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+    background: transparent;
+    font-weight: 500;
+  }
+
+  .btn-outline-primary:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+  }
+
+  /* CARDS */
+  .card {
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+  }
+
+  .card:hover {
+    box-shadow: var(--shadow-primary);
+    transform: translateY(-3px);
+  }
+
+  .product-card {
+    cursor: pointer;
+  }
+
+  .product-image {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-bg);
+    overflow: hidden;
+  }
+
+  .product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .product-card:hover .product-image img {
+    transform: scale(1.05);
+  }
+
+  /* NAVBAR */
+  .navbar {
+    padding: 1.25rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .nav-link {
+    font-weight: 500;
+    color: var(--dark);
+    transition: color 0.3s;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--primary);
+  }
+
+  /* FOOTER */
+  .footer {
+    background-color: var(--primary);
+    color: var(--white);
+  }
+
+  .footer a {
+    color: var(--white);
+    text-decoration: none;
+    transition: opacity 0.3s;
+  }
+
+  .footer a:hover {
+    opacity: 0.8;
+  }
+
+  /* STAR RATING */
+  .star-rating .star {
+    color: var(--border-color);
+    font-size: 1.25rem;
+  }
+
+  .star-rating .star.filled {
+    color: var(--primary);
+  }
+
+  /* UTILITIES */
+  .text-primary {
+    color: var(--primary) !important;
+  }
+
+  .bg-primary {
+    background-color: var(--primary) !important;
+  }
+
+  .bg-light-primary {
+    background-color: var(--primary-light) !important;
+  }
+
+  .bg-cream {
+    background-color: var(--light-bg) !important;
+  }
+
+  .border-light {
+    border-color: var(--border-color) !important;
+  }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE UTILITIES */
+  @media (max-width: 767.98px) {
+    .section-title {
+      font-size: 1.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.25rem;
+    }
+  }
+
+# ============================================================================
+# NOTES & RECOMMENDATIONS
+# ============================================================================
+implementation_notes:
+
+  best_practices:
+    - "Always test responsive design on real devices, not just browser DevTools"
+    - "Use lazy loading for product images to improve page load performance"
+    - "Implement proper alt text for all images for SEO and accessibility"
+    - "Consider using CSS Grid for complex layouts instead of excessive nesting"
+    - "Use semantic HTML5 tags for better SEO and screen reader support"
+
+  performance:
+    - "Optimize images: WebP format, responsive srcset, lazy loading"
+    - "Minify CSS and JavaScript for production"
+    - "Use CDN for Bootstrap and icons to leverage browser caching"
+    - "Implement critical CSS for above-the-fold content"
+    - "Consider code splitting for large product catalogs"
+
+  accessibility:
+    - "Ensure minimum color contrast ratio of 4.5:1 (WCAG AA)"
+    - "Add ARIA labels to interactive elements"
+    - "Make all functionality keyboard accessible"
+    - "Use proper heading hierarchy (h1 → h2 → h3)"
+    - "Provide text alternatives for icon-only buttons"
+
+  seo_considerations:
+    - "Use descriptive page titles and meta descriptions"
+    - "Implement structured data (Schema.org Product markup)"
+    - "Create XML sitemap for product pages"
+    - "Use canonical URLs to avoid duplicate content"
+    - "Optimize images with descriptive filenames and alt text"
+
+  future_enhancements:
+    - "Add product filtering and sorting functionality"
+    - "Implement shopping cart with local storage"
+    - "Create product quick view modal"
+    - "Add product comparison feature"
+    - "Implement user reviews and ratings system"
+    - "Add recently viewed products section"
+    - "Create wishlist functionality with persistence"
+
+# ============================================================================
+# END OF ARCHITECTURE MAPPING
+# ============================================================================
