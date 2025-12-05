@@ -137,11 +137,13 @@
 
         /* Filters Sidebar */
         .filters-sidebar {
-            background: var(--bg-white);
-            border: 0.0625rem solid var(--border-light);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(241, 138, 0, 0.3);
             border-radius: 0.75rem;
             padding: 1.5rem;
-            box-shadow: var(--shadow-sm);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 100px;
         }
@@ -153,7 +155,11 @@
         .filter-group h6 {
             font-weight: 600;
             margin-bottom: 1rem;
-            color: var(--text-dark);
+            color: #ffffff;
+        }
+
+        .form-check-label {
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .form-check-input:checked {
@@ -218,18 +224,22 @@
 
         /* Cards */
         .card-premium {
-            background: #2a2a2a;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 0.75rem;
-            box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.08) !important;
+            border: 1px solid rgba(241, 138, 0, 0.3) !important;
+            border-radius: 0.75rem !important;
+            overflow: hidden !important;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
             transition: all 0.3s ease;
             height: 100%;
         }
 
         .card-premium:hover {
+            background: rgba(255, 255, 255, 0.12) !important;
             transform: translateY(-5px);
-            box-shadow: 0 0.375rem 1.5rem rgba(241, 138, 0, 0.2);
-            border-color: rgba(241, 138, 0, 0.3);
+            border-color: rgba(241, 138, 0, 0.6) !important;
+            box-shadow: 0 0.75rem 2rem rgba(241, 138, 0, 0.3) !important;
         }
 
         .card-premium-body {
@@ -242,7 +252,7 @@
 
         .product-image {
             aspect-ratio: 1 / 1;
-            background: #fef3e5;
+            background: rgba(26, 26, 26, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
