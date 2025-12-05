@@ -11,8 +11,10 @@ class AnimatedPaths {
         this.paths = [];
         this.animations = [];
 
+        console.log('AnimatedPaths: Constructor called, SVG found:', !!this.svg);
+
         if (!this.svg) {
-            console.error('AnimatedPaths: SVG container not found');
+            console.error('AnimatedPaths: SVG container (.paths-background) not found in DOM');
             return;
         }
 
@@ -138,6 +140,8 @@ class AnimatedPaths {
         this.svg.innerHTML = '';
         this.paths = [];
 
+        console.log('AnimatedPaths: Creating', this.pathCount, 'paths');
+
         // Generate 18 paths with fixed dimensions
         for (let i = 0; i < this.pathCount; i++) {
             const pathData = this.generateRandomPath(i, fixedWidth, fixedHeight);
@@ -155,6 +159,8 @@ class AnimatedPaths {
             this.svg.appendChild(path);
             this.paths.push(path);
         }
+
+        console.log('AnimatedPaths: Created', this.paths.length, 'path elements');
     }
 
     /**
@@ -226,10 +232,14 @@ class AnimatedPaths {
         // Kill existing animations
         this.killAnimations();
 
+        console.log('AnimatedPaths: Starting animations for', this.paths.length, 'paths');
+
         // Animate each path
         this.paths.forEach((path, index) => {
             this.animatePath(path, index);
         });
+
+        console.log('AnimatedPaths: All animations started');
     }
 
     /**
@@ -355,7 +365,8 @@ class AnimatedPaths {
 function initAnimatedPaths() {
     // Wait for GSAP and DOM
     if (typeof gsap === 'undefined') {
-        console.error('GSAP library not loaded');
+        console.error('AnimatedPaths: GSAP library not loaded - retrying in 200ms');
+        setTimeout(initAnimatedPaths, 200);
         return;
     }
 
@@ -364,15 +375,20 @@ function initAnimatedPaths() {
         gsap.registerPlugin(ScrollTrigger);
     }
 
+    console.log('AnimatedPaths: Initializing with GSAP loaded');
+
     // Initialize animated paths
     const animatedPaths = new AnimatedPaths();
 
     // Store instance for potential cleanup
     window.sessionsAnimatedPaths = animatedPaths;
+
+    console.log('AnimatedPaths: Initialized successfully with', animatedPaths.paths.length, 'paths');
 }
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('AnimatedPaths: DOM ready, initializing...');
     // Small delay to ensure GSAP is loaded
     setTimeout(initAnimatedPaths, 100);
 });
