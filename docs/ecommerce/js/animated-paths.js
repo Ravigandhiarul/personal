@@ -28,52 +28,53 @@ class AnimatedPaths {
     }
 
     /**
-     * Generate flowing curved path using mathematical formula
-     * Based on React BackgroundPaths component pattern
-     * Coordinates translated to positive space to fix flickering
+     * Generate flowing curved path following 6-step flow pattern
+     * Steps: 1) Spreaded start → 2) Bottom curve → 3) Smooth turn →
+     *        4) First bend → 5) Second bend → 6) Rejoin at center
      */
-    generateMathematicalPath(i, position, width, height) {
-        // Offsets to translate negative coordinates into positive space
-        const offsetX = 400;
-        const offsetY = 200;
+    generateMathematicalPath(index, position, width, height) {
+        // No offsets - use natural viewBox coordinates
+        const scaleX = width / 1500;
+        const scaleY = height / 1200;
 
-        // Scale factors to adapt to current dimensions
-        const scaleX = width / 1500; // Adjusted for wider coordinate space
-        const scaleY = height / 1200; // Adjusted for taller coordinate space
+        // Spread factor for parallel lines
+        const spread = 50;
+        const yOffset = index * spread;
 
-        // Original formula with positive offset
-        // position alternates: 1 for forward flow, -1 for reverse flow
-        const startX = ((-380 + i * 5 * position) + offsetX) * scaleX;
-        const startY = ((-189 + i * 6) + offsetY) * scaleY;
+        // Step 1: Start spreaded (bottom-left)
+        const x1 = 50 + index * 10;
+        const y1 = 950 + yOffset;
 
-        const cp1X = ((-380 + i * 5 * position) + offsetX) * scaleX;
-        const cp1Y = ((-189 + i * 6) + offsetY) * scaleY;
+        // Step 2: Curve near bottom
+        const cp1x = 200 + index * 15;
+        const cp1y = 880 + yOffset;
 
-        const cp2X = ((-312 + i * 5 * position) + offsetX) * scaleX;
-        const cp2Y = ((216 - i * 6) + offsetY) * scaleY;
+        // Step 3: Smooth turn (center-left)
+        const cp2x = 450 + index * 20;
+        const cp2y = 750 + yOffset;
 
-        const cp3X = ((152 + i * 5 * position) + offsetX) * scaleX;
-        const cp3Y = ((343 - i * 6) + offsetY) * scaleY;
+        // Step 4: First bend (rising to top-right)
+        const cp3x = 750 + index * 10;
+        const cp3y = 400 - yOffset; // Converging
 
-        const cp4X = ((616 + i * 5 * position) + offsetX) * scaleX;
-        const cp4Y = ((470 - i * 6) + offsetY) * scaleY;
+        // Step 5: Second bend (top-left area)
+        const cp4x = 950 + index * 5;
+        const cp4y = 250 - yOffset; // Tightening
 
-        const endX = ((684 + i * 5 * position) + offsetX) * scaleX;
-        const endY = ((875 - i * 6) + offsetY) * scaleY;
+        // Step 6: Rejoin endpoint (converging to center)
+        const x2 = 1250;
+        const y2 = 600 - (index * 20); // Converging to center
 
-        // Simplified to single bezier curve for better performance
-        return `M ${startX} ${startY} C ${cp2X} ${cp2Y} ${cp4X} ${cp4Y} ${endX} ${endY}`;
+        // Apply scaling
+        return `M ${x1 * scaleX} ${y1 * scaleY} C ${cp1x * scaleX} ${cp1y * scaleY}, ${cp2x * scaleX} ${cp2y * scaleY}, ${cp3x * scaleX} ${cp3y * scaleY} S ${cp4x * scaleX} ${cp4y * scaleY}, ${x2 * scaleX} ${y2 * scaleY}`;
     }
 
     /**
      * Generate a path for given index
      */
     generateRandomPath(index, width, height) {
-        // Alternate between forward and reverse flow
-        const position = index % 2 === 0 ? 1 : -1;
-        const i = index % 9; // Use modulo to create 9 unique patterns repeated
-
-        return this.generateMathematicalPath(i, position, width, height);
+        // Direct index - no alternating or modulo (causes flickering)
+        return this.generateMathematicalPath(index, 1, width, height);
     }
 
     /**
@@ -99,10 +100,9 @@ class AnimatedPaths {
             const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
             path.setAttribute('d', pathData);
 
-            // Varying opacity and stroke width based on index
-            // Increased multipliers for 18 paths to match visual density of 36
-            const strokeOpacity = 0.15 + i * 0.04;
-            const strokeWidth = 1.0 + i * 0.15;
+            // Linear opacity and stroke width progression (matches animation)
+            const strokeOpacity = 0.30 + (i / this.pathCount) * 0.42; // 0.30 to 0.72
+            const strokeWidth = 1.0 + (i / this.pathCount) * 0.85; // 1.0 to 1.85
 
             path.style.opacity = strokeOpacity;
             path.style.strokeWidth = strokeWidth;
@@ -113,8 +113,8 @@ class AnimatedPaths {
     }
 
     /**
-     * Animate a single path with MERGED drawing and opacity in ONE timeline
-     * Reduces animation load from 36 timelines to 18
+     * Animate a single path with synchronized timing - NO FLICKERING
+     * Fixed duration and predictable staggering for smooth flow
      */
     animatePath(pathElement, index) {
         // Get path length for stroke animation
@@ -124,40 +124,54 @@ class AnimatedPaths {
         pathElement.style.strokeDasharray = pathLength;
         pathElement.style.strokeDashoffset = pathLength;
 
-        // Random duration and delay for variety
-        const duration = 20 + (this.seededRandom(index * 456.789) * 10);
-        const delay = this.seededRandom(index * 321.654) * 3;
+        // FIXED duration and predictable delay (eliminates flickering)
+        const duration = 25; // Consistent for all paths
+        const delay = index * 0.15; // Predictable stagger (0.15s per path)
 
-        // Get base opacity for this path
-        const baseOpacity = 0.15 + index * 0.04;
+        // Linear opacity progression (not random)
+        const baseOpacity = 0.30 + (index / this.pathCount) * 0.42; // 0.30 to 0.72
         const minOpacity = baseOpacity * 0.6;
         const maxOpacity = baseOpacity * 1.5;
 
-        // SINGLE merged timeline with both drawing and opacity
-        const timeline = gsap.timeline({ repeat: -1, delay: delay });
+        // SINGLE synchronized timeline
+        const timeline = gsap.timeline({
+            repeat: -1,
+            delay: delay,
+            repeatDelay: 0 // No gap between loops
+        });
 
         timeline
-            // Phase 1: Draw in while fading up
+            // Phase 1: Fade in while drawing begins
+            .to(pathElement, {
+                opacity: baseOpacity,
+                duration: 1,
+                ease: 'power2.in'
+            })
+            // Phase 2: Draw the full path
             .to(pathElement, {
                 strokeDashoffset: 0,
                 opacity: maxOpacity,
-                duration: duration * 0.4,
-                ease: 'none',
-            })
-            // Phase 2: Fade down slightly
+                duration: duration * 0.35,
+                ease: 'none'
+            }, '-=0.5')
+            // Phase 3: Hold at full brightness
             .to(pathElement, {
-                opacity: minOpacity,
-                duration: duration * 0.3,
-                ease: 'sine.inOut',
+                duration: duration * 0.30,
+                ease: 'none'
             })
-            // Phase 3: Fade back up
+            // Phase 4: Fade out gradually
             .to(pathElement, {
-                opacity: maxOpacity,
-                duration: duration * 0.3,
-                ease: 'sine.inOut',
+                opacity: 0,
+                duration: duration * 0.25,
+                ease: 'power2.out'
+            })
+            // Phase 5: Reset for next loop
+            .set(pathElement, {
+                strokeDashoffset: pathLength,
+                opacity: 0
             });
 
-        this.animations.push(timeline); // Only ONE timeline per path
+        this.animations.push(timeline);
     }
 
     /**
