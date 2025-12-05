@@ -47,21 +47,24 @@ function initSparkles() {
                 value: "#F18A00", // Sessions orange
             },
             move: {
-                direction: "none",
+                direction: "outside",
                 enable: true,
                 outModes: {
                     default: "out",
                 },
                 random: false,
-                speed: 0.5,
+                speed: 1.5,
                 straight: false,
             },
             number: {
                 density: {
-                    enable: true,
-                    area: 400,
+                    enable: false,
                 },
-                value: 500,
+                value: 300,
+            },
+            position: {
+                x: 50,
+                y: 10,
             },
             opacity: {
                 value: {
