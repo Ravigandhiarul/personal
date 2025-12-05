@@ -820,6 +820,95 @@
             color: var(--sessions-orange);
             margin-bottom: 1.5rem;
         }
+
+        /* Glitch Effect for Trending Section */
+        .glitch-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-text::before {
+            animation: glitch-anim-1 0.15s infinite;
+            color: #ff0033;
+            z-index: -1;
+        }
+
+        .glitch-text::after {
+            animation: glitch-anim-2 0.13s infinite;
+            color: #00ff9d;
+            z-index: -2;
+        }
+
+        @keyframes glitch-anim-1 {
+            0%, 100% {
+                transform: translate(0);
+                opacity: 0.8;
+            }
+            33% {
+                transform: translate(-2px, 1px) skew(-2deg);
+                opacity: 0.9;
+            }
+            66% {
+                transform: translate(2px, -1px) skew(2deg);
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes glitch-anim-2 {
+            0%, 100% {
+                transform: translate(0);
+                opacity: 0.8;
+            }
+            33% {
+                transform: translate(2px, -1px) skew(2deg);
+                opacity: 0.9;
+            }
+            66% {
+                transform: translate(-2px, 1px) skew(-2deg);
+                opacity: 0.7;
+            }
+        }
+
+        /* Glitch effect for fire icon */
+        .glitch-icon {
+            position: relative;
+            display: inline-block;
+            animation: glitch-icon-shake 0.11s infinite;
+        }
+
+        @keyframes glitch-icon-shake {
+            0%, 100% {
+                transform: translate(0) rotate(0deg);
+                filter: drop-shadow(0 0 0 #ff0033) drop-shadow(0 0 0 #00ff9d);
+            }
+            25% {
+                transform: translate(-1px, 1px) rotate(-2deg);
+                filter: drop-shadow(2px 0 0 #ff0033) drop-shadow(-2px 0 0 #00ff9d);
+            }
+            50% {
+                transform: translate(1px, -1px) rotate(2deg);
+                filter: drop-shadow(-2px 0 0 #ff0033) drop-shadow(2px 0 0 #00ff9d);
+            }
+            75% {
+                transform: translate(-1px, -1px) rotate(1deg);
+                filter: drop-shadow(1px 1px 0 #ff0033) drop-shadow(-1px -1px 0 #00ff9d);
+            }
+        }
     </style>
 </head>
 <body>
@@ -1084,7 +1173,10 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2 class="section-title mb-0">
-                    <i class="bi bi-fire text-danger"></i> Trending Now
+                    <span class="glitch-wrapper">
+                        <i class="bi bi-fire text-danger glitch-icon"></i>
+                        <span class="glitch-text" data-text=" Trending Now"> Trending Now</span>
+                    </span>
                 </h2>
                 <div class="btn-group btn-group-sm">
                     <button class="btn btn-outline-secondary active">Trending</button>
