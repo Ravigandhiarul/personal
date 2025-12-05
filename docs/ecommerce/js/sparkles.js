@@ -59,9 +59,9 @@ function initSparkles() {
             number: {
                 density: {
                     enable: true,
-                    area: 800,
+                    area: 400,
                 },
-                value: 100,
+                value: 500,
             },
             opacity: {
                 value: {
