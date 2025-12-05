@@ -27,7 +27,7 @@ function initSparkles() {
         emitters: {
             position: {
                 x: 50,      // 50% from left (horizontally centered)
-                y: 4.5      // Approximately 55px from top (adjust if needed)
+                y: 6        // Adjusted down to align with gradient line
             },
             rate: {
                 delay: 0.05,    // Spawn every 0.05 seconds
@@ -131,7 +131,7 @@ function initSparkles() {
     }).then((container) => {
         console.log('Sparkles initialized successfully');
         console.log('Container:', container);
-        console.log('Emitter position: x=50%, y=4.5%');
+        console.log('Emitter position: x=50%, y=6%');
         console.log('Gradient line at: top=55px, left=50%');
     }).catch((error) => {
         console.error('Failed to initialize sparkles:', error);
