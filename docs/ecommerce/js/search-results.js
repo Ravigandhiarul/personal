@@ -23,7 +23,7 @@ function renderProductCard(product) {
 
   return `
     <div class="col-md-6 col-lg-4 mb-4">
-      <div class="card-premium product-card" data-product-id="${product.id}">
+      <div class="card-premium product-card" data-product-id="${product.id}" onclick="goToProduct(${product.id})" style="cursor: pointer;">
         <div class="position-relative">
           <button class="btn btn-sm position-absolute top-0 end-0 m-2 favorite-btn ${isWishlisted ? 'active' : ''}"
                   onclick="handleFavoriteClick(event, ${product.id})">
@@ -32,7 +32,7 @@ function renderProductCard(product) {
 
           ${product.id <= 4 ? '<span class="period-badge badge-new position-absolute top-0 start-0 m-2" style="float: none; background: #00c9a7; color: white;">NEW</span>' : ''}
 
-          <div class="product-image" onclick="goToProduct(${product.id})">
+          <div class="product-image">
             <img src="${product.imageUrl}" alt="${product.name}" class="img-fluid">
           </div>
         </div>
