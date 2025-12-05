@@ -53,60 +53,62 @@ class AnimatedPaths {
         const cardAreaHeight = 400; // Height to stay away from
 
         if (isLeftSide) {
-            // LEFT SIDE OF HEART - flows from bottom center, curves LEFT and UP, then back to top center
+            // LEFT SIDE OF HEART - REVERSED: flows from TOP center, curves LEFT and DOWN, ends at bottom
+            // User scrolls DOWN → sees heart form naturally from top to bottom
 
-            // Start: Bottom center point
-            const x1 = cardCenterX - 50;
-            const y1 = 1100 - sideIndex * 15;
+            // Start: TOP center (heart dip - where it ended before)
+            const x1 = cardCenterX - 100 - sideIndex * 5;
+            const y1 = 200 + sideIndex * 5;
 
-            // Control point 1: Curve down and outward to the left (heart bottom point)
-            const cp1x = 300 - sideIndex * 15;
-            const cp1y = 1050 - sideIndex * 20;
+            // Control point 1: Round the top of left lobe (REVERSED from cp4)
+            const cp1x = 400 + sideIndex * 15;
+            const cp1y = 150 - sideIndex * 10;
 
-            // Control point 2: Arc up the left side
-            const cp2x = 100 - sideIndex * 10;
-            const cp2y = 700 - sideIndex * 25;
+            // Control point 2: Peak of left lobe (REVERSED from cp3)
+            const cp2x = 200 + sideIndex * 10;
+            const cp2y = 350 - sideIndex * 15;
 
-            // Control point 3: Peak of left lobe (heart's left bump)
-            const cp3x = 200 + sideIndex * 10;
-            const cp3y = 350 - sideIndex * 15;
+            // Control point 3: Arc down the left side (REVERSED from cp2)
+            const cp3x = 100 - sideIndex * 10;
+            const cp3y = 700 - sideIndex * 25;
 
-            // Control point 4: Round the top of left lobe
-            const cp4x = 400 + sideIndex * 15;
-            const cp4y = 150 - sideIndex * 10;
+            // Control point 4: Curve inward to bottom point (REVERSED from cp1)
+            const cp4x = 300 - sideIndex * 15;
+            const cp4y = 1050 - sideIndex * 20;
 
-            // End: Top center (meeting point, slight offset for heart dip)
-            const x2 = cardCenterX - 100 - sideIndex * 5;
-            const y2 = 200 + sideIndex * 5;
+            // End: BOTTOM center point (heart bottom point - where it started before)
+            const x2 = cardCenterX - 50;
+            const y2 = 1100 - sideIndex * 15;
 
             return `M ${x1 * scaleX} ${y1 * scaleY} C ${cp1x * scaleX} ${cp1y * scaleY}, ${cp2x * scaleX} ${cp2y * scaleY}, ${cp3x * scaleX} ${cp3y * scaleY} S ${cp4x * scaleX} ${cp4y * scaleY}, ${x2 * scaleX} ${y2 * scaleY}`;
 
         } else {
-            // RIGHT SIDE OF HEART - flows from bottom center, curves RIGHT and UP, then back to top center
+            // RIGHT SIDE OF HEART - REVERSED: flows from TOP center, curves RIGHT and DOWN, ends at bottom
+            // User scrolls DOWN → sees heart form naturally from top to bottom
 
-            // Start: Bottom center point
-            const x1 = cardCenterX + 50;
-            const y1 = 1100 - sideIndex * 15;
+            // Start: TOP center (heart dip - where it ended before)
+            const x1 = cardCenterX + 100 + sideIndex * 5;
+            const y1 = 200 + sideIndex * 5;
 
-            // Control point 1: Curve down and outward to the right (heart bottom point)
-            const cp1x = 1200 + sideIndex * 15;
-            const cp1y = 1050 - sideIndex * 20;
+            // Control point 1: Round the top of right lobe (REVERSED from cp4)
+            const cp1x = 1100 - sideIndex * 15;
+            const cp1y = 150 - sideIndex * 10;
 
-            // Control point 2: Arc up the right side
-            const cp2x = 1400 + sideIndex * 10;
-            const cp2y = 700 - sideIndex * 25;
+            // Control point 2: Peak of right lobe (REVERSED from cp3)
+            const cp2x = 1300 - sideIndex * 10;
+            const cp2y = 350 - sideIndex * 15;
 
-            // Control point 3: Peak of right lobe (heart's right bump)
-            const cp3x = 1300 - sideIndex * 10;
-            const cp3y = 350 - sideIndex * 15;
+            // Control point 3: Arc down the right side (REVERSED from cp2)
+            const cp3x = 1400 + sideIndex * 10;
+            const cp3y = 700 - sideIndex * 25;
 
-            // Control point 4: Round the top of right lobe
-            const cp4x = 1100 - sideIndex * 15;
-            const cp4y = 150 - sideIndex * 10;
+            // Control point 4: Curve inward to bottom point (REVERSED from cp1)
+            const cp4x = 1200 + sideIndex * 15;
+            const cp4y = 1050 - sideIndex * 20;
 
-            // End: Top center (meeting point, slight offset for heart dip)
-            const x2 = cardCenterX + 100 + sideIndex * 5;
-            const y2 = 200 + sideIndex * 5;
+            // End: BOTTOM center point (heart bottom point - where it started before)
+            const x2 = cardCenterX + 50;
+            const y2 = 1100 - sideIndex * 15;
 
             return `M ${x1 * scaleX} ${y1 * scaleY} C ${cp1x * scaleX} ${cp1y * scaleY}, ${cp2x * scaleX} ${cp2y * scaleY}, ${cp3x * scaleX} ${cp3y * scaleY} S ${cp4x * scaleX} ${cp4y * scaleY}, ${x2 * scaleX} ${y2 * scaleY}`;
         }
