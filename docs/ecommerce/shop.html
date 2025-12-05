@@ -238,29 +238,76 @@
 
         /* Filters Sidebar */
         .filters-sidebar {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(241, 138, 0, 0.3);
-            border-radius: 0.75rem;
+            background: rgba(255, 255, 255, 0.08) !important;
+            border: 1px solid rgba(241, 138, 0, 0.3) !important;
+            border-radius: 0.75rem !important;
             padding: 1.5rem;
             -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
             position: sticky;
             top: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .filters-sidebar:hover {
+            background: rgba(255, 255, 255, 0.12) !important;
+            border-color: rgba(241, 138, 0, 0.5) !important;
         }
 
         .filter-group {
             margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .filter-group:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
         .filter-group h6 {
             font-weight: 600;
             margin-bottom: 1rem;
             color: #ffffff;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .form-check-label {
-            color: rgba(255, 255, 255, 0.8);
+        .badge-count {
+            background: rgba(241, 138, 0, 0.2);
+            color: var(--sessions-orange);
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 1rem;
+            margin-left: 0.5rem;
+        }
+
+        /* Form Controls - Dark Mode */
+        .form-check {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+        }
+
+        .form-check-input {
+            width: 1.125rem;
+            height: 1.125rem;
+            margin-top: 0.125rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .form-check-input:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(241, 138, 0, 0.5);
+        }
+
+        .form-check-input:focus {
+            box-shadow: 0 0 0 0.25rem rgba(241, 138, 0, 0.25);
+            border-color: var(--sessions-orange);
         }
 
         .form-check-input:checked {
@@ -268,12 +315,113 @@
             border-color: var(--sessions-orange);
         }
 
+        .form-check-input[type="checkbox"]:checked {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+        }
+
+        .form-check-input[type="radio"] {
+            border-radius: 50%;
+        }
+
+        .form-check-input[type="radio"]:checked {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+        }
+
+        .form-check-label {
+            color: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            font-size: 0.9rem;
+            user-select: none;
+            transition: color 0.2s ease;
+        }
+
+        .form-check-label:hover {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .form-check-input:checked + .form-check-label {
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        /* Range Slider - Dark Mode */
+        .form-range {
+            width: 100%;
+            height: 0.375rem;
+            padding: 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .form-range::-webkit-slider-track {
+            width: 100%;
+            height: 0.375rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+        }
+
+        .form-range::-moz-range-track {
+            width: 100%;
+            height: 0.375rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+        }
+
         .form-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 1.25rem;
+            height: 1.25rem;
             background: var(--sessions-orange);
+            cursor: pointer;
+            border-radius: 50%;
+            border: 3px solid #000000;
+            box-shadow: 0 2px 8px rgba(241, 138, 0, 0.4);
+            transition: all 0.2s ease;
         }
 
         .form-range::-moz-range-thumb {
+            width: 1.25rem;
+            height: 1.25rem;
             background: var(--sessions-orange);
+            cursor: pointer;
+            border-radius: 50%;
+            border: 3px solid #000000;
+            box-shadow: 0 2px 8px rgba(241, 138, 0, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .form-range::-webkit-slider-thumb:hover {
+            background: var(--sessions-orange-hover);
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(241, 138, 0, 0.6);
+        }
+
+        .form-range::-moz-range-thumb:hover {
+            background: var(--sessions-orange-hover);
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(241, 138, 0, 0.6);
+        }
+
+        .price-range-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .price-range-display .form-label {
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .price-range-display .price-value {
+            color: var(--sessions-orange);
+            font-weight: 600;
+            font-size: 1rem;
         }
 
         /* Product Grid */
@@ -553,7 +701,12 @@
                 <!-- Filters Sidebar -->
                 <div class="col-lg-3">
                     <div class="filters-sidebar">
-                        <h5 class="mb-4">Filters</h5>
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5 class="mb-0">Filters</h5>
+                            <button class="btn btn-sm btn-link text-muted p-0" onclick="clearFilters()" style="text-decoration: none; font-size: 0.8rem;">
+                                Clear All
+                            </button>
+                        </div>
 
                         <!-- Category Filter -->
                         <div class="filter-group">
@@ -605,21 +758,106 @@
                             </div>
                         </div>
 
-                        <!-- Price Range -->
+                        <!-- Effects Filter -->
                         <div class="filter-group">
-                            <h6>Price Range</h6>
-                            <div class="mb-3">
-                                <label for="priceRange" class="form-label">
-                                    $0 - $<span id="priceValue">100</span>
-                                </label>
-                                <input type="range" class="form-range" id="priceRange" min="0" max="100" value="100">
+                            <h6>
+                                Effects
+                                <span class="badge-count" id="effectsCount" style="display: none;">0</span>
+                            </h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="effects" id="effectRelaxed" value="Relaxed">
+                                <label class="form-check-label" for="effectRelaxed">Relaxed</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="effects" id="effectHappy" value="Happy">
+                                <label class="form-check-label" for="effectHappy">Happy</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="effects" id="effectEnergetic" value="Energetic">
+                                <label class="form-check-label" for="effectEnergetic">Energetic</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="effects" id="effectCreative" value="Creative">
+                                <label class="form-check-label" for="effectCreative">Creative</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="effects" id="effectSleepy" value="Sleepy">
+                                <label class="form-check-label" for="effectSleepy">Sleepy</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="effects" id="effectEuphoric" value="Euphoric">
+                                <label class="form-check-label" for="effectEuphoric">Euphoric</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="effects" id="effectUplifted" value="Uplifted">
+                                <label class="form-check-label" for="effectUplifted">Uplifted</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="effects" id="effectFocused" value="Focused">
+                                <label class="form-check-label" for="effectFocused">Focused</label>
                             </div>
                         </div>
 
-                        <!-- Clear Filters -->
+                        <!-- THC Level Filter -->
+                        <div class="filter-group">
+                            <h6>THC Level</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="thcLevel" id="thcAll" value="All" checked>
+                                <label class="form-check-label" for="thcAll">All Levels</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="thcLevel" id="thcLow" value="Low">
+                                <label class="form-check-label" for="thcLow">Low (&lt;15%)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="thcLevel" id="thcMedium" value="Medium">
+                                <label class="form-check-label" for="thcMedium">Medium (15-24%)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="thcLevel" id="thcHigh" value="High">
+                                <label class="form-check-label" for="thcHigh">High (25-79%)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="thcLevel" id="thcVeryHigh" value="VeryHigh">
+                                <label class="form-check-label" for="thcVeryHigh">Very High (80%+)</label>
+                            </div>
+                        </div>
+
+                        <!-- Rating Filter -->
+                        <div class="filter-group">
+                            <h6>Rating</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="rating" id="ratingAll" value="All" checked>
+                                <label class="form-check-label" for="ratingAll">All Ratings</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="rating" id="rating4Plus" value="4+">
+                                <label class="form-check-label" for="rating4Plus">
+                                    <i class="bi bi-star-fill text-warning"></i> 4+ Stars
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="rating" id="rating5" value="5">
+                                <label class="form-check-label" for="rating5">
+                                    <i class="bi bi-star-fill text-warning"></i> 5 Stars Only
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Price Range -->
+                        <div class="filter-group">
+                            <h6>Price Range</h6>
+                            <div class="price-range-display">
+                                <span class="form-label">$0</span>
+                                <span class="price-value">$<span id="priceValue">100</span></span>
+                            </div>
+                            <input type="range" class="form-range" id="priceRange" min="0" max="100" value="100" step="5">
+                        </div>
+
+                        <!-- Clear Filters Button -->
                         <button class="btn btn-outline-primary w-100" onclick="clearFilters()">
                             <i class="bi bi-x-circle"></i>
-                            Clear Filters
+                            Clear All Filters
                         </button>
                     </div>
                 </div>

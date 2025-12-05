@@ -5,6 +5,9 @@ let currentProducts = [...cannabisProducts];
 let currentFilters = {
   category: 'All',
   strainType: 'All',
+  effects: [],
+  thcLevel: 'All',
+  rating: 'All',
   maxPrice: 100,
   sortBy: 'featured'
 };
@@ -75,6 +78,36 @@ function renderStars(rating) {
   return stars;
 }
 
+// Helper function to extract THC percentage from string
+function extractTHCPercentage(thcString) {
+  if (!thcString || thcString === 'N/A') return 0;
+
+  // Extract percentage
+  const percentMatch = thcString.match(/(\d+)-?(\d+)?%/);
+  if (percentMatch) {
+    return parseInt(percentMatch[1]);
+  }
+
+  // For edibles with mg, treat as low THC
+  const mgMatch = thcString.match(/(\d+)mg/);
+  if (mgMatch) {
+    return 5;
+  }
+
+  return 0;
+}
+
+// Helper function to categorize THC level
+function categorizeTHCLevel(thcString) {
+  const percentage = extractTHCPercentage(thcString);
+
+  if (percentage === 0) return 'Low';
+  if (percentage < 15) return 'Low';
+  if (percentage < 25) return 'Medium';
+  if (percentage < 80) return 'High';
+  return 'VeryHigh';
+}
+
 // Apply filters
 function applyFilters() {
   let filtered = [...cannabisProducts];
@@ -89,6 +122,32 @@ function applyFilters() {
     filtered = filtered.filter(p => p.strainType === currentFilters.strainType);
   }
 
+  // Filter by effects (multi-select, OR logic)
+  if (currentFilters.effects.length > 0) {
+    filtered = filtered.filter(p => {
+      return currentFilters.effects.some(effect =>
+        p.effects && p.effects.includes(effect)
+      );
+    });
+  }
+
+  // Filter by THC level
+  if (currentFilters.thcLevel !== 'All') {
+    filtered = filtered.filter(p => {
+      const level = categorizeTHCLevel(p.thc);
+      return level === currentFilters.thcLevel;
+    });
+  }
+
+  // Filter by rating
+  if (currentFilters.rating !== 'All') {
+    if (currentFilters.rating === '5') {
+      filtered = filtered.filter(p => p.rating === 5);
+    } else if (currentFilters.rating === '4+') {
+      filtered = filtered.filter(p => p.rating >= 4);
+    }
+  }
+
   // Filter by price
   filtered = filtered.filter(p => p.price <= currentFilters.maxPrice);
 
@@ -97,6 +156,7 @@ function applyFilters() {
 
   currentProducts = filtered;
   renderProducts();
+  updateFilterCounts();
 }
 
 // Sort products
@@ -145,6 +205,13 @@ function clearFilters() {
   // Reset radio buttons
   document.getElementById('catAll').checked = true;
   document.getElementById('strainAll').checked = true;
+  document.getElementById('thcAll').checked = true;
+  document.getElementById('ratingAll').checked = true;
+
+  // Reset checkboxes
+  document.querySelectorAll('input[name="effects"]').forEach(checkbox => {
+    checkbox.checked = false;
+  });
 
   // Reset price range
   document.getElementById('priceRange').value = 100;
@@ -157,6 +224,9 @@ function clearFilters() {
   currentFilters = {
     category: 'All',
     strainType: 'All',
+    effects: [],
+    thcLevel: 'All',
+    rating: 'All',
     maxPrice: 100,
     sortBy: 'featured'
   };
@@ -227,6 +297,20 @@ function goToProduct(productId) {
   window.location.href = `product.html?id=${productId}`;
 }
 
+// Update filter counts
+function updateFilterCounts() {
+  const effectsCount = document.getElementById('effectsCount');
+  if (effectsCount) {
+    const count = currentFilters.effects.length;
+    if (count > 0) {
+      effectsCount.textContent = count;
+      effectsCount.style.display = 'inline-block';
+    } else {
+      effectsCount.style.display = 'none';
+    }
+  }
+}
+
 // Initialize page
 document.addEventListener('DOMContentLoaded', function() {
   // Category filter
@@ -241,6 +325,34 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('input[name="strainType"]').forEach(radio => {
     radio.addEventListener('change', function() {
       currentFilters.strainType = this.value;
+      applyFilters();
+    });
+  });
+
+  // Effects filter (checkboxes)
+  document.querySelectorAll('input[name="effects"]').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+      if (this.checked) {
+        currentFilters.effects.push(this.value);
+      } else {
+        currentFilters.effects = currentFilters.effects.filter(e => e !== this.value);
+      }
+      applyFilters();
+    });
+  });
+
+  // THC level filter
+  document.querySelectorAll('input[name="thcLevel"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      currentFilters.thcLevel = this.value;
+      applyFilters();
+    });
+  });
+
+  // Rating filter
+  document.querySelectorAll('input[name="rating"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      currentFilters.rating = this.value;
       applyFilters();
     });
   });
