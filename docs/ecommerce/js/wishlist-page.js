@@ -110,6 +110,11 @@ function addWishlistItemToCart(productId) {
       const btn = event.currentTarget;
       const originalHTML = btn.innerHTML;
 
+      // Trigger confetti celebration
+      if (typeof triggerConfettiFromElement === 'function') {
+        triggerConfettiFromElement(btn);
+      }
+
       btn.innerHTML = '<i class="bi bi-check2"></i> Added!';
       btn.classList.add('btn-success');
       btn.classList.remove('btn-outline-primary');
@@ -151,6 +156,11 @@ function addAllToCart() {
       addedCount++;
     }
   });
+
+  // Trigger explosive confetti for adding all items
+  if (typeof triggerExplosiveConfetti === 'function') {
+    triggerExplosiveConfetti();
+  }
 
   showNotification(`Added ${addedCount} item${addedCount !== 1 ? 's' : ''} to cart!`, 'success');
 

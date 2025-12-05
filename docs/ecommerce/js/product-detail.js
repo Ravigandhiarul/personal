@@ -165,6 +165,11 @@ function toggleProductWishlist() {
       btn.classList.add('active');
       icon.classList.remove('bi-heart');
       icon.classList.add('bi-heart-fill');
+
+      // Trigger confetti when adding to wishlist
+      if (typeof triggerConfettiFromElement === 'function') {
+        triggerConfettiFromElement(btn);
+      }
     } else {
       btn.classList.remove('active');
       icon.classList.remove('bi-heart-fill');
@@ -182,6 +187,11 @@ function addProductToCart() {
 
     const btn = event.currentTarget;
     const originalHTML = btn.innerHTML;
+
+    // Trigger confetti celebration
+    if (typeof triggerConfettiFromElement === 'function') {
+      triggerConfettiFromElement(btn);
+    }
 
     btn.innerHTML = '<i class="bi bi-check2"></i> Added to Cart!';
     btn.classList.add('btn-success');
@@ -207,7 +217,16 @@ function buyNow() {
     for (let i = 0; i < currentQuantity; i++) {
       addToCart(currentProduct);
     }
-    window.location.href = 'cart.html';
+
+    // Trigger confetti celebration
+    if (typeof triggerConfettiFromCenter === 'function') {
+      triggerConfettiFromCenter();
+    }
+
+    // Delay redirect to show confetti
+    setTimeout(() => {
+      window.location.href = 'cart.html';
+    }, 500);
   }
 }
 

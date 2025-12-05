@@ -143,9 +143,16 @@ function checkout() {
     return;
   }
 
+  // Trigger explosive confetti for purchase celebration
+  if (typeof triggerExplosiveConfetti === 'function') {
+    triggerExplosiveConfetti();
+  }
+
   // For now, redirect to order completed page
   // In a real app, this would go to a checkout flow
-  window.location.href = 'order-completed.html';
+  setTimeout(() => {
+    window.location.href = 'order-completed.html';
+  }, 600);
 }
 
 // Initialize cart page
