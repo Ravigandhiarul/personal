@@ -67,7 +67,7 @@ function initSparkles() {
             },
             position: {
                 x: 50,
-                y: 8,
+                y: 6,
             },
             opacity: {
                 value: {
